@@ -6,6 +6,7 @@
 //
 
 import SwiftUI
+import Kingfisher
 
 struct SearchView: View {
     
@@ -14,9 +15,9 @@ struct SearchView: View {
     
     var body: some View {
         NavigationView {
-            List(1..<20) { ocean in
+            List(intent.state.searchedCoins) { coin in
                 HStack {
-                    ItemInfoView()
+                    ItemInfoView(coin: coin)
                     
                     Spacer()
                     
@@ -48,20 +49,28 @@ struct SearchView: View {
 }
 
 struct ItemInfoView: View {
+    
+    let coin: Coin
+    
     var body: some View {
         HStack {
-            Image(systemName: "person.crop.circle")
+            KFImage(URL(string: coin.thumb))
+                .placeholder {
+                    Circle()
+                        .frame(width: 36, height: 36)
+                        .foregroundStyle(.customGray)
+                }
                 .resizable()
                 .frame(width: 36, height: 36)
                 .padding(.trailing, 4)
             
             VStack(alignment: .leading, spacing: 2) {
-                Text("Bitcoin")
+                Text(coin.name)
                     .font(.system(size: 20))
                     .fontWeight(.bold)
                     .lineLimit(1)
                     .foregroundStyle(.customBlack)
-                Text("BTC")
+                Text(coin.symbol)
                     .font(.system(size: 16))
                     .lineLimit(1)
                     .foregroundStyle(.customGray)

@@ -42,7 +42,6 @@ extension SearchIntent {
                 state.isLoading = false
             } receiveValue: { [weak self] searchedCoins in
                 guard let self else { return }
-                dump("search:\(searchedCoins)")
                 state.searchedCoins = searchedCoins
             }
             .store(in: &cancelable)
