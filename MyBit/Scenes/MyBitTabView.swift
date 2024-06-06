@@ -27,6 +27,7 @@ struct MyBitTabView: View {
                     Label("", systemImage: "person")
                 }
         }
+        .tint(.brandPoint)
     }
 }
 
