@@ -11,7 +11,7 @@ import SwiftUI
 struct MyBitApp: App {
     var body: some Scene {
         WindowGroup {
-            TrendingView()
+            DetailView()
         }
     }
 }

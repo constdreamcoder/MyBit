@@ -60,6 +60,30 @@ struct CoingeckoManager {
                     }
                 }.store(in: &cancellable)
         }.eraseToAnyPublisher()
-
     }
+    
+    static func fetchCoinMarkets(_ idList: [String]) -> AnyPublisher<[Market], NetworkErrors> {
+        Future<[Market], NetworkErrors> { promise in
+            let provider = MoyaProvider<CoingeckoAPI>()
+            provider.requestPublisher(.coinMarket(ids: idList.joined(separator: ",")))
+                .sink { completion in
+                    switch completion {
+                    case .finished:
+                        print("Successfully Fatch Coin Markets!!")
+                    case .failure(let error):
+                        print("Fatch Coin Markets Error", error)
+                    }
+                } receiveValue: { response in
+                    do {
+                        let data = try response.filterSuccessfulStatusCodes().data
+                        let result = try JSONDecoder().decode([Market].self, from: data)
+                        promise(.success(result))
+                    } catch {
+                        print("real error", error)
+                        promise(.failure(.networkError))
+                    }
+                }.store(in: &cancellable)
+        }.eraseToAnyPublisher()
+    }
+    
 }

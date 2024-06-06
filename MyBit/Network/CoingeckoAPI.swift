@@ -11,6 +11,7 @@ import Moya
 enum CoingeckoAPI {
     case trending
     case search(query: String)
+    case coinMarket(currency: String = "krw", ids: String)
 }
 
 extension CoingeckoAPI: TargetType {
@@ -22,12 +23,14 @@ extension CoingeckoAPI: TargetType {
             return "/search/trending"
         case .search:
             return "/search"
+        case .coinMarket:
+            return "/coins/markets"
         }
     }
     
     var method: Moya.Method {
         switch self {
-        case .trending, .search:
+        case .trending, .search, .coinMarket:
             return .get
         }
     }
@@ -38,13 +41,12 @@ extension CoingeckoAPI: TargetType {
             return .requestPlain
         case .search(let query):
             return .requestParameters(parameters: ["query": query], encoding: URLEncoding.queryString)
+        case .coinMarket(let currency, let ids):
+            return .requestParameters(parameters: ["vs_currency": currency, "ids": ids, "sparkline": "true"], encoding: URLEncoding.queryString)
         }
     }
     
     var headers: [String : String]? {
-        switch self {
-        case .trending, .search:
-            return nil
-        }
+        return nil
     }
 }

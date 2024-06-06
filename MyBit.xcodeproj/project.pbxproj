@@ -24,6 +24,10 @@
 		00BF1E742C1174D600BCCFC8 /* SearchState.swift in Sources */ = {isa = PBXBuildFile; fileRef = 00BF1E732C1174D600BCCFC8 /* SearchState.swift */; };
 		00BF1E762C1174DE00BCCFC8 /* SearchIntent.swift in Sources */ = {isa = PBXBuildFile; fileRef = 00BF1E752C1174DE00BCCFC8 /* SearchIntent.swift */; };
 		00BF1E7C2C1176BF00BCCFC8 /* StateType.swift in Sources */ = {isa = PBXBuildFile; fileRef = 00BF1E7B2C1176BF00BCCFC8 /* StateType.swift */; };
+		00BF1E7E2C117E0200BCCFC8 /* Market.swift in Sources */ = {isa = PBXBuildFile; fileRef = 00BF1E7D2C117E0200BCCFC8 /* Market.swift */; };
+		00BF1E812C117FBE00BCCFC8 /* DetailView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 00BF1E802C117FBE00BCCFC8 /* DetailView.swift */; };
+		00BF1E832C117FC900BCCFC8 /* DetailState.swift in Sources */ = {isa = PBXBuildFile; fileRef = 00BF1E822C117FC900BCCFC8 /* DetailState.swift */; };
+		00BF1E852C117FD000BCCFC8 /* DetailIntent.swift in Sources */ = {isa = PBXBuildFile; fileRef = 00BF1E842C117FD000BCCFC8 /* DetailIntent.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -44,6 +48,10 @@
 		00BF1E732C1174D600BCCFC8 /* SearchState.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SearchState.swift; sourceTree = "<group>"; };
 		00BF1E752C1174DE00BCCFC8 /* SearchIntent.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SearchIntent.swift; sourceTree = "<group>"; };
 		00BF1E7B2C1176BF00BCCFC8 /* StateType.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = StateType.swift; sourceTree = "<group>"; };
+		00BF1E7D2C117E0200BCCFC8 /* Market.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Market.swift; sourceTree = "<group>"; };
+		00BF1E802C117FBE00BCCFC8 /* DetailView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DetailView.swift; sourceTree = "<group>"; };
+		00BF1E822C117FC900BCCFC8 /* DetailState.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DetailState.swift; sourceTree = "<group>"; };
+		00BF1E842C117FD000BCCFC8 /* DetailIntent.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DetailIntent.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -61,6 +69,7 @@
 		0006CE172C0EF2E200BA213A /* Scenes */ = {
 			isa = PBXGroup;
 			children = (
+				00BF1E7F2C117FA800BCCFC8 /* Detail */,
 				0006CE182C0EF2EE00BA213A /* Trending */,
 				0006CE192C0EF2F900BA213A /* Search */,
 				0006CE1A2C0EF30500BA213A /* Favorite */,
@@ -119,6 +128,7 @@
 			children = (
 				0006CE292C0F08A500BA213A /* Trending.swift */,
 				00BF1E6F2C11742000BCCFC8 /* Search.swift */,
+				00BF1E7D2C117E0200BCCFC8 /* Market.swift */,
 			);
 			path = ResponseModels;
 			sourceTree = "<group>";
@@ -159,6 +169,16 @@
 				0037D8812C0EF11B00C24E7B /* Preview Assets.xcassets */,
 			);
 			path = "Preview Content";
+			sourceTree = "<group>";
+		};
+		00BF1E7F2C117FA800BCCFC8 /* Detail */ = {
+			isa = PBXGroup;
+			children = (
+				00BF1E802C117FBE00BCCFC8 /* DetailView.swift */,
+				00BF1E822C117FC900BCCFC8 /* DetailState.swift */,
+				00BF1E842C117FD000BCCFC8 /* DetailIntent.swift */,
+			);
+			path = Detail;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -243,11 +263,15 @@
 				00BF1E742C1174D600BCCFC8 /* SearchState.swift in Sources */,
 				0006CE252C0F055C00BA213A /* CoingeckoAPI.swift in Sources */,
 				00BF1E7C2C1176BF00BCCFC8 /* StateType.swift in Sources */,
+				00BF1E7E2C117E0200BCCFC8 /* Market.swift in Sources */,
 				0006CE302C0F170100BA213A /* TrendingView.swift in Sources */,
+				00BF1E852C117FD000BCCFC8 /* DetailIntent.swift in Sources */,
 				0006CE2E2C0F13E900BA213A /* NetworkErrors.swift in Sources */,
+				00BF1E812C117FBE00BCCFC8 /* DetailView.swift in Sources */,
 				0006CE2A2C0F08A500BA213A /* Trending.swift in Sources */,
 				00BF1E762C1174DE00BCCFC8 /* SearchIntent.swift in Sources */,
 				00BF1E702C11742000BCCFC8 /* Search.swift in Sources */,
+				00BF1E832C117FC900BCCFC8 /* DetailState.swift in Sources */,
 				0006CE272C0F068100BA213A /* APIKeys.swift in Sources */,
 				0037D87B2C0EF11A00C24E7B /* MyBitApp.swift in Sources */,
 				00BF1E722C1174CF00BCCFC8 /* SearchView.swift in Sources */,
