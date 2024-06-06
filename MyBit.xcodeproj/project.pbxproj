@@ -152,7 +152,7 @@
 		0037D8792C0EF11A00C24E7B /* MyBit */ = {
 			isa = PBXGroup;
 			children = (
-				00BF1E7B2C1176BF00BCCFC8 /* StateType.swift */,
+				00BF1E862C11844000BCCFC8 /* Helpers */,
 				0006CE232C0F053B00BA213A /* Network */,
 				0006CE172C0EF2E200BA213A /* Scenes */,
 				0037D87A2C0EF11A00C24E7B /* MyBitApp.swift */,
@@ -179,6 +179,22 @@
 				00BF1E842C117FD000BCCFC8 /* DetailIntent.swift */,
 			);
 			path = Detail;
+			sourceTree = "<group>";
+		};
+		00BF1E862C11844000BCCFC8 /* Helpers */ = {
+			isa = PBXGroup;
+			children = (
+				00BF1E872C11844D00BCCFC8 /* Protocols */,
+			);
+			path = Helpers;
+			sourceTree = "<group>";
+		};
+		00BF1E872C11844D00BCCFC8 /* Protocols */ = {
+			isa = PBXGroup;
+			children = (
+				00BF1E7B2C1176BF00BCCFC8 /* StateType.swift */,
+			);
+			path = Protocols;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
