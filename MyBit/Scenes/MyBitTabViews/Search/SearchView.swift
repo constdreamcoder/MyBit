@@ -14,7 +14,7 @@ struct SearchView: View {
     @State private var searchQueryString: String = ""
     
     var body: some View {
-        NavigationView {
+        CustomNavigationView {
             List(intent.state.searchedCoins) { coin in
                 HStack {
                     ItemInfoView(coin: coin)
@@ -26,11 +26,6 @@ struct SearchView: View {
                         .frame(width: 28, height: 28)
                 }
                 .listRowSeparator(.hidden)
-            }
-            .navigationTitle("Search")
-            .listStyle(.plain)
-            .toolbar  {
-                ProfileImage()
             }
         }
         .searchable(
