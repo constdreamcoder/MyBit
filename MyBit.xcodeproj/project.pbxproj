@@ -28,6 +28,9 @@
 		00BF1E812C117FBE00BCCFC8 /* DetailView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 00BF1E802C117FBE00BCCFC8 /* DetailView.swift */; };
 		00BF1E832C117FC900BCCFC8 /* DetailState.swift in Sources */ = {isa = PBXBuildFile; fileRef = 00BF1E822C117FC900BCCFC8 /* DetailState.swift */; };
 		00BF1E852C117FD000BCCFC8 /* DetailIntent.swift in Sources */ = {isa = PBXBuildFile; fileRef = 00BF1E842C117FD000BCCFC8 /* DetailIntent.swift */; };
+		00BF1E892C1185CB00BCCFC8 /* MyBitTabView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 00BF1E882C1185CB00BCCFC8 /* MyBitTabView.swift */; };
+		00BF1E8C2C11872300BCCFC8 /* FavoriteView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 00BF1E8B2C11872300BCCFC8 /* FavoriteView.swift */; };
+		00BF1E8E2C11873400BCCFC8 /* ProfileView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 00BF1E8D2C11873400BCCFC8 /* ProfileView.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -52,6 +55,9 @@
 		00BF1E802C117FBE00BCCFC8 /* DetailView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DetailView.swift; sourceTree = "<group>"; };
 		00BF1E822C117FC900BCCFC8 /* DetailState.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DetailState.swift; sourceTree = "<group>"; };
 		00BF1E842C117FD000BCCFC8 /* DetailIntent.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DetailIntent.swift; sourceTree = "<group>"; };
+		00BF1E882C1185CB00BCCFC8 /* MyBitTabView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MyBitTabView.swift; sourceTree = "<group>"; };
+		00BF1E8B2C11872300BCCFC8 /* FavoriteView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FavoriteView.swift; sourceTree = "<group>"; };
+		00BF1E8D2C11873400BCCFC8 /* ProfileView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ProfileView.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -69,11 +75,9 @@
 		0006CE172C0EF2E200BA213A /* Scenes */ = {
 			isa = PBXGroup;
 			children = (
+				00BF1E882C1185CB00BCCFC8 /* MyBitTabView.swift */,
+				00BF1E8A2C1185F600BCCFC8 /* MyBitTabViews */,
 				00BF1E7F2C117FA800BCCFC8 /* Detail */,
-				0006CE182C0EF2EE00BA213A /* Trending */,
-				0006CE192C0EF2F900BA213A /* Search */,
-				0006CE1A2C0EF30500BA213A /* Favorite */,
-				0006CE1B2C0EF30D00BA213A /* Profile */,
 			);
 			path = Scenes;
 			sourceTree = "<group>";
@@ -101,6 +105,7 @@
 		0006CE1A2C0EF30500BA213A /* Favorite */ = {
 			isa = PBXGroup;
 			children = (
+				00BF1E8B2C11872300BCCFC8 /* FavoriteView.swift */,
 			);
 			path = Favorite;
 			sourceTree = "<group>";
@@ -108,6 +113,7 @@
 		0006CE1B2C0EF30D00BA213A /* Profile */ = {
 			isa = PBXGroup;
 			children = (
+				00BF1E8D2C11873400BCCFC8 /* ProfileView.swift */,
 			);
 			path = Profile;
 			sourceTree = "<group>";
@@ -197,6 +203,17 @@
 			path = Protocols;
 			sourceTree = "<group>";
 		};
+		00BF1E8A2C1185F600BCCFC8 /* MyBitTabViews */ = {
+			isa = PBXGroup;
+			children = (
+				0006CE182C0EF2EE00BA213A /* Trending */,
+				0006CE192C0EF2F900BA213A /* Search */,
+				0006CE1A2C0EF30500BA213A /* Favorite */,
+				0006CE1B2C0EF30D00BA213A /* Profile */,
+			);
+			path = MyBitTabViews;
+			sourceTree = "<group>";
+		};
 /* End PBXGroup section */
 
 /* Begin PBXNativeTarget section */
@@ -278,8 +295,10 @@
 				0006CE2C2C0F0A8400BA213A /* CoingeckoManager.swift in Sources */,
 				00BF1E742C1174D600BCCFC8 /* SearchState.swift in Sources */,
 				0006CE252C0F055C00BA213A /* CoingeckoAPI.swift in Sources */,
+				00BF1E892C1185CB00BCCFC8 /* MyBitTabView.swift in Sources */,
 				00BF1E7C2C1176BF00BCCFC8 /* StateType.swift in Sources */,
 				00BF1E7E2C117E0200BCCFC8 /* Market.swift in Sources */,
+				00BF1E8C2C11872300BCCFC8 /* FavoriteView.swift in Sources */,
 				0006CE302C0F170100BA213A /* TrendingView.swift in Sources */,
 				00BF1E852C117FD000BCCFC8 /* DetailIntent.swift in Sources */,
 				0006CE2E2C0F13E900BA213A /* NetworkErrors.swift in Sources */,
@@ -290,6 +309,7 @@
 				00BF1E832C117FC900BCCFC8 /* DetailState.swift in Sources */,
 				0006CE272C0F068100BA213A /* APIKeys.swift in Sources */,
 				0037D87B2C0EF11A00C24E7B /* MyBitApp.swift in Sources */,
+				00BF1E8E2C11873400BCCFC8 /* ProfileView.swift in Sources */,
 				00BF1E722C1174CF00BCCFC8 /* SearchView.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -426,6 +446,7 @@
 				DEVELOPMENT_ASSET_PATHS = "\"MyBit/Preview Content\"";
 				ENABLE_PREVIEWS = YES;
 				GENERATE_INFOPLIST_FILE = YES;
+				INFOPLIST_KEY_CFBundleDisplayName = MyBit;
 				INFOPLIST_KEY_UIApplicationSceneManifest_Generation = YES;
 				INFOPLIST_KEY_UIApplicationSupportsIndirectInputEvents = YES;
 				INFOPLIST_KEY_UILaunchScreen_Generation = YES;
@@ -459,6 +480,7 @@
 				DEVELOPMENT_ASSET_PATHS = "\"MyBit/Preview Content\"";
 				ENABLE_PREVIEWS = YES;
 				GENERATE_INFOPLIST_FILE = YES;
+				INFOPLIST_KEY_CFBundleDisplayName = MyBit;
 				INFOPLIST_KEY_UIApplicationSceneManifest_Generation = YES;
 				INFOPLIST_KEY_UIApplicationSupportsIndirectInputEvents = YES;
 				INFOPLIST_KEY_UILaunchScreen_Generation = YES;
