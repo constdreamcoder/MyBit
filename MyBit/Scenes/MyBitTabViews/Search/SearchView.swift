@@ -14,7 +14,7 @@ struct SearchView: View {
     @State private var searchQueryString: String = ""
     
     var body: some View {
-        CustomNavigationView {
+        CustomNavigationView(title: "Search") {
             List(intent.state.searchedCoins) { coin in
                 HStack {
                     ItemInfoView(coin: coin)

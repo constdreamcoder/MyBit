@@ -9,16 +9,18 @@ import SwiftUI
 
 struct CustomNavigationView<Content: View>: View {
     
-    let content: Content
+    private let content: Content
+    private let title: String
     
-    init(@ViewBuilder content: () -> Content) {
+    init(title: String, @ViewBuilder content: () -> Content) {
+        self.title = title
         self.content = content()
     }
     
     var body: some View {
         NavigationView {
             content
-                .navigationTitle("Search")
+                .navigationTitle(title)
                 .listStyle(.plain)
                 .toolbar  {
                     ProfileImage()
