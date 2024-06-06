@@ -10,6 +10,7 @@ import Moya
 
 enum CoingeckoAPI {
     case trending
+    case search(query: String)
 }
 
 extension CoingeckoAPI: TargetType {
@@ -19,12 +20,14 @@ extension CoingeckoAPI: TargetType {
         switch self {
         case .trending:
             return "/search/trending"
+        case .search:
+            return "/search"
         }
     }
     
     var method: Moya.Method {
         switch self {
-        case .trending:
+        case .trending, .search:
             return .get
         }
     }
@@ -33,12 +36,14 @@ extension CoingeckoAPI: TargetType {
         switch self {
         case .trending:
             return .requestPlain
+        case .search(let query):
+            return .requestParameters(parameters: ["query": query], encoding: URLEncoding.queryString)
         }
     }
     
     var headers: [String : String]? {
         switch self {
-        case .trending:
+        case .trending, .search:
             return nil
         }
     }

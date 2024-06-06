@@ -7,7 +7,7 @@
 
 import Foundation
 
-struct TrendingState {
+struct TrendingState: StateType {  
     var isLoading: Bool = false
     var trending: [TrendingCoin] = []
     var errorMessage: String? = nil

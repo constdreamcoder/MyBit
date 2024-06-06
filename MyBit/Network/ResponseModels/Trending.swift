@@ -12,15 +12,17 @@ struct Trending: Decodable {
 }
 
 struct TrendingCoin: Decodable {
-    let item: TrendingCoinItem
+    let item: Coin
 }
 
-struct TrendingCoinItem: Decodable {
+struct Coin: Decodable {
     let id: String // 코인 ID
     let name: String // 코인 이름
+    let market_cap_rank: Int? // 코인 랭킹
     let symbol: String // 코인 통화 단위
-    let small: String // 코인 아이콘 리소스
-    let data: TrendingCoinItemData
+    let thumb: String // 썸네일용 리소스
+    let small: String? // 코인 아이콘 리소스
+    let data: TrendingCoinItemData?
 }
 
 struct TrendingCoinItemData: Decodable {
