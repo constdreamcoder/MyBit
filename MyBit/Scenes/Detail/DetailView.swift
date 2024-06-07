@@ -7,94 +7,87 @@
 
 import SwiftUI
 import DGCharts
-
-struct DetailMiddleItem {
-    let title: String
-    let price: Int
-    let titleColor: Color
-}
+import Kingfisher
 
 struct DetailView: View {
     
-    @StateObject private var intent = DetailIntent()
-    
-    let data: [DetailMiddleItem] = [
-        DetailMiddleItem(title: "고가", price: 69234243, titleColor: .customRed),
-        DetailMiddleItem(title: "저가", price: 69234243, titleColor: .customBlue),
-        DetailMiddleItem(title: "신고점", price: 69234243, titleColor: .customRed),
-        DetailMiddleItem(title: "신저점", price: 69234243, titleColor: .customBlue)
-    ]
+    let id: String
+    @StateObject var intent = DetailIntent()
     
     let columns = [
         GridItem(.flexible()), GridItem(.flexible())
     ]
-
+    
+    init(id: String) {
+        self.id = id
+    }
+    
     var body: some View {
-        NavigationView {
-            VStack {
-                DetailTopView()
-
-                LazyVGrid(columns: columns, spacing: 20) {
-                    ForEach(data, id: \.title) { item in
-                        DetailMiddleElementView(detailMiddleItem: item)
-                    }
+        VStack {
+            DetailTopView(topViewDatas: intent.state.topViewDatas)
+            
+            LazyVGrid(columns: columns, spacing: 20) {
+                ForEach(intent.state.middleViewData, id: \.title) { item in
+                    DetailMiddleElementView(detailMiddleItem: item)
                 }
-                
-                ChartView(entry: [
-                    ChartDataEntry(x: 0, y: 3234.234234),
-                    ChartDataEntry(x: 1, y: 3444.234234),
-                    ChartDataEntry(x: 2, y: 23453.3245),
-                    ChartDataEntry(x: 3, y: 324234.234234),
-                    ChartDataEntry(x: 4, y: 324234.234234),
-                ])
-                
-                HStack {
-                    Spacer()
-                    
-                    Text("2/21 11:53:50 업데이트")
-                        .foregroundStyle(.customGray)
-                }
-                .padding()
-               
-                
+            }
+            
+            ChartView(entries: intent.state.chartDataEntries)
+            
+            HStack {
                 Spacer()
+                
+                Text("\(intent.state.lastUpdatedDate.convertToLastUpdatedFormat) 업데이트")
+                    .foregroundStyle(.customGray)
             }
-            .toolbar {
-                FavoriteStarView()
-            }
+            .padding()
+            
+            Spacer()
         }
+        .toolbar {
+            FavoriteStarView()
+        }
+        .navigationBarTitle("", displayMode: .inline) // TODO: - 추후 사라지니 대응
         .onAppear {
-            intent.send(.getCoinMarkets(idList: ["bitcoin", "wrapped-bitcoin"]))
+            intent.send(.getCoinMarkets(idList: [id]))
         }
     }
 }
 
 #Preview {
-    DetailView()
+    DetailView(id: "bitcoin")
 }
 
 struct DetailTopView: View {
+    
+    let topViewDatas: TopViewData?
+    
     var body: some View {
         HStack {
             VStack(alignment: .leading) {
                 HStack {
-                    Image(systemName: "star")
+                    KFImage(URL(string: topViewDatas != nil ? topViewDatas?.image ?? "" : ""))
+                        .placeholder {
+                            Circle()
+                                .frame(width: 40, height: 40)
+                                .foregroundStyle(.customGray)
+                        }
                         .resizable()
                         .aspectRatio(contentMode: .fit)
                         .frame(width: 40)
                     
-                    Text("Solana")
+                    Text(topViewDatas != nil ? topViewDatas?.name ?? "" : "Solena")
                         .font(.system(size: 40))
                         .fontWeight(.bold)
                 }
                 
                 VStack(alignment: .leading) {
-                    Text("₩69,234,245")
+                    Text("₩\(topViewDatas != nil ? topViewDatas?.currentPrice ?? 0 : 69234245, specifier: "%.0f")")
                         .font(.system(size: 40))
                         .fontWeight(.bold)
                     
                     HStack {
-                        Text("+3.22%")
+                        Text("\(topViewDatas != nil ? topViewDatas?.priceChangePercentage24h ?? 0: 0, specifier: "%.2f")%")
                             .foregroundStyle(.customRed)
                             .font(.system(size: 24))
                         Text("Today")
@@ -102,7 +95,7 @@ struct DetailTopView: View {
                             .font(.system(size: 24))
                     }
                 }
-              
+                
             }
             
             Spacer()
@@ -120,7 +113,7 @@ struct DetailMiddleElementView: View {
             Text(detailMiddleItem.title)
                 .fontWeight(.semibold)
                 .foregroundStyle(detailMiddleItem.titleColor)
-            Text("₩\(detailMiddleItem.price)")
+            Text("₩\(detailMiddleItem.price, specifier: "%.0f")")
                 .foregroundStyle(.customDarkGray)
         }
         .font(.system(size: 24))

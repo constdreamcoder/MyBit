@@ -11,7 +11,7 @@ import SwiftUI
 
 struct ChartView: UIViewRepresentable {
     
-    let entry: [ChartDataEntry]
+    let entries: [ChartDataEntry]
     
     func makeUIView(context: Context) -> LineChartView {
         let lineChartView = LineChartView()
@@ -23,7 +23,7 @@ struct ChartView: UIViewRepresentable {
     }
     
     func updateUIView(_ uiView: LineChartView, context: Context) {
-        let dataSet = LineChartDataSet(entries: entry)
+        let dataSet = LineChartDataSet(entries: entries)
         
         dataSet.drawCirclesEnabled = false
         dataSet.mode = .cubicBezier
@@ -50,7 +50,7 @@ struct ChartView: UIViewRepresentable {
 }
 
 #Preview {
-    ChartView(entry: [
+    ChartView(entries: [
         ChartDataEntry(x: 0, y: 3234.234234),
         ChartDataEntry(x: 1, y: 3444.234234),
         ChartDataEntry(x: 2, y: 23453.3245),

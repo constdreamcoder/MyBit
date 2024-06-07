@@ -16,12 +16,14 @@ struct SearchView: View {
     var body: some View {
         CustomNavigationView(title: "Search") {
             List(intent.state.searchedCoins) { coin in
-                HStack {
-                    ItemInfoView(item: coin)
-                    
-                    Spacer()
-                    
-                    FavoriteStarView()
+                NavigationLink(destination: DetailView(id: coin.id)) {
+                    HStack {
+                        ItemInfoView(item: coin)
+                        
+                        Spacer()
+                        
+                        FavoriteStarView()
+                    }
                 }
                 .listRowSeparator(.hidden)
             }
