@@ -21,9 +21,7 @@ struct SearchView: View {
                     
                     Spacer()
                     
-                    Image("btn_star")
-                        .resizable()
-                        .frame(width: 28, height: 28)
+                    FavoriteStarView()
                 }
                 .listRowSeparator(.hidden)
             }

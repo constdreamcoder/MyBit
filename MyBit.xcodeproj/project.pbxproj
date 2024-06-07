@@ -26,6 +26,9 @@
 		00ABCAE02C12D4170098CB84 /* TrendingRankingType.swift in Sources */ = {isa = PBXBuildFile; fileRef = 00ABCADF2C12D4170098CB84 /* TrendingRankingType.swift */; };
 		00ABCAE32C12DABD0098CB84 /* Double+Ext.swift in Sources */ = {isa = PBXBuildFile; fileRef = 00ABCAE22C12DABD0098CB84 /* Double+Ext.swift */; };
 		00ABCAE52C12DFCD0098CB84 /* CoinInfoView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 00ABCAE42C12DFCD0098CB84 /* CoinInfoView.swift */; };
+		00ABCAE72C12EE4A0098CB84 /* FavoriteStarView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 00ABCAE62C12EE4A0098CB84 /* FavoriteStarView.swift */; };
+		00ABCAEA2C1302460098CB84 /* DGCharts in Frameworks */ = {isa = PBXBuildFile; productRef = 00ABCAE92C1302460098CB84 /* DGCharts */; };
+		00ABCAED2C1303C20098CB84 /* ChartView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 00ABCAEC2C1303C20098CB84 /* ChartView.swift */; };
 		00BF1E702C11742000BCCFC8 /* Search.swift in Sources */ = {isa = PBXBuildFile; fileRef = 00BF1E6F2C11742000BCCFC8 /* Search.swift */; };
 		00BF1E722C1174CF00BCCFC8 /* SearchView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 00BF1E712C1174CF00BCCFC8 /* SearchView.swift */; };
 		00BF1E742C1174D600BCCFC8 /* SearchState.swift in Sources */ = {isa = PBXBuildFile; fileRef = 00BF1E732C1174D600BCCFC8 /* SearchState.swift */; };
@@ -59,6 +62,8 @@
 		00ABCADF2C12D4170098CB84 /* TrendingRankingType.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TrendingRankingType.swift; sourceTree = "<group>"; };
 		00ABCAE22C12DABD0098CB84 /* Double+Ext.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "Double+Ext.swift"; sourceTree = "<group>"; };
 		00ABCAE42C12DFCD0098CB84 /* CoinInfoView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CoinInfoView.swift; sourceTree = "<group>"; };
+		00ABCAE62C12EE4A0098CB84 /* FavoriteStarView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FavoriteStarView.swift; sourceTree = "<group>"; };
+		00ABCAEC2C1303C20098CB84 /* ChartView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ChartView.swift; sourceTree = "<group>"; };
 		00BF1E6F2C11742000BCCFC8 /* Search.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Search.swift; sourceTree = "<group>"; };
 		00BF1E712C1174CF00BCCFC8 /* SearchView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SearchView.swift; sourceTree = "<group>"; };
 		00BF1E732C1174D600BCCFC8 /* SearchState.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SearchState.swift; sourceTree = "<group>"; };
@@ -79,6 +84,7 @@
 			buildActionMask = 2147483647;
 			files = (
 				00175FA82C11E6B200D77BB6 /* Kingfisher in Frameworks */,
+				00ABCAEA2C1302460098CB84 /* DGCharts in Frameworks */,
 				0006CE222C0F049900BA213A /* CombineMoya in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -158,6 +164,7 @@
 			isa = PBXGroup;
 			children = (
 				00175FAA2C11EC4D00D77BB6 /* CustomNavigationView.swift */,
+				00ABCAE62C12EE4A0098CB84 /* FavoriteStarView.swift */,
 			);
 			path = CustomViews;
 			sourceTree = "<group>";
@@ -218,6 +225,14 @@
 			path = Enum;
 			sourceTree = "<group>";
 		};
+		00ABCAEB2C13039E0098CB84 /* UIKitComponents */ = {
+			isa = PBXGroup;
+			children = (
+				00ABCAEC2C1303C20098CB84 /* ChartView.swift */,
+			);
+			path = UIKitComponents;
+			sourceTree = "<group>";
+		};
 		00BF1E7F2C117FA800BCCFC8 /* Detail */ = {
 			isa = PBXGroup;
 			children = (
@@ -231,6 +246,7 @@
 		00BF1E862C11844000BCCFC8 /* Helpers */ = {
 			isa = PBXGroup;
 			children = (
+				00ABCAEB2C13039E0098CB84 /* UIKitComponents */,
 				00ABCADA2C12C4710098CB84 /* Extensions */,
 				00175FA92C11EC3C00D77BB6 /* CustomViews */,
 				00BF1E872C11844D00BCCFC8 /* Protocols */,
@@ -277,6 +293,7 @@
 			packageProductDependencies = (
 				0006CE212C0F049900BA213A /* CombineMoya */,
 				00175FA72C11E6B200D77BB6 /* Kingfisher */,
+				00ABCAE92C1302460098CB84 /* DGCharts */,
 			);
 			productName = MyBit;
 			productReference = 0037D8772C0EF11A00C24E7B /* MyBit.app */;
@@ -309,6 +326,7 @@
 			packageReferences = (
 				0006CE202C0F049900BA213A /* XCRemoteSwiftPackageReference "Moya" */,
 				00175FA62C11E6B200D77BB6 /* XCRemoteSwiftPackageReference "Kingfisher" */,
+				00ABCAE82C1302460098CB84 /* XCRemoteSwiftPackageReference "Charts" */,
 			);
 			productRefGroup = 0037D8782C0EF11A00C24E7B /* Products */;
 			projectDirPath = "";
@@ -338,6 +356,7 @@
 			files = (
 				0006CE342C0F19FE00BA213A /* TrendingIntent.swift in Sources */,
 				0006CE322C0F17BA00BA213A /* TrendingState.swift in Sources */,
+				00ABCAED2C1303C20098CB84 /* ChartView.swift in Sources */,
 				0006CE2C2C0F0A8400BA213A /* CoingeckoManager.swift in Sources */,
 				00BF1E742C1174D600BCCFC8 /* SearchState.swift in Sources */,
 				0006CE252C0F055C00BA213A /* CoingeckoAPI.swift in Sources */,
@@ -346,6 +365,7 @@
 				00BF1E7E2C117E0200BCCFC8 /* Market.swift in Sources */,
 				00BF1E8C2C11872300BCCFC8 /* FavoriteView.swift in Sources */,
 				0006CE302C0F170100BA213A /* TrendingView.swift in Sources */,
+				00ABCAE72C12EE4A0098CB84 /* FavoriteStarView.swift in Sources */,
 				00ABCAE02C12D4170098CB84 /* TrendingRankingType.swift in Sources */,
 				00ABCADE2C12D1340098CB84 /* ItemEssentialElements.swift in Sources */,
 				00ABCADC2C12C4820098CB84 /* Array+Ext.swift in Sources */,
@@ -596,6 +616,14 @@
 				minimumVersion = 7.11.0;
 			};
 		};
+		00ABCAE82C1302460098CB84 /* XCRemoteSwiftPackageReference "Charts" */ = {
+			isa = XCRemoteSwiftPackageReference;
+			repositoryURL = "https://github.com/ChartsOrg/Charts.git";
+			requirement = {
+				kind = upToNextMajorVersion;
+				minimumVersion = 5.1.0;
+			};
+		};
 /* End XCRemoteSwiftPackageReference section */
 
 /* Begin XCSwiftPackageProductDependency section */
@@ -608,6 +636,11 @@
 			isa = XCSwiftPackageProductDependency;
 			package = 00175FA62C11E6B200D77BB6 /* XCRemoteSwiftPackageReference "Kingfisher" */;
 			productName = Kingfisher;
+		};
+		00ABCAE92C1302460098CB84 /* DGCharts */ = {
+			isa = XCSwiftPackageProductDependency;
+			package = 00ABCAE82C1302460098CB84 /* XCRemoteSwiftPackageReference "Charts" */;
+			productName = DGCharts;
 		};
 /* End XCSwiftPackageProductDependency section */
 	};
