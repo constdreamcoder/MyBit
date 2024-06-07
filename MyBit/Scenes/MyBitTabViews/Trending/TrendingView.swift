@@ -18,7 +18,11 @@ struct TrendingView: View {
                     ScrollView(.horizontal, showsIndicators: false)  {
                         HStack(spacing: 16) {
                             ForEach(0..<10) { index in
-                                MyFavoriteCell()
+                                MyFavoriteCell(bottomStackAlignment: .leading)
+                                    .frame(width: 200, height: 130, alignment: .leading)
+                                    .padding()
+                                    .background(.customLightGray)
+                                    .clipShape(RoundedRectangle(cornerRadius: 24))
                             }
                         }
                     }
@@ -85,13 +89,16 @@ struct TrendingView: View {
 }
 
 struct MyFavoriteCell: View {
+    
+    let bottomStackAlignment: HorizontalAlignment
+    
     var body: some View {
         VStack(alignment: .leading) {
             CoinInfoView()
             
             Spacer()
             
-            VStack(alignment: .leading, spacing: 4) {
+            VStack(alignment: bottomStackAlignment, spacing: 4) {
                 Text("₩69,345,234")
                     .font(.system(size: 20))
                     .bold()
@@ -101,12 +108,11 @@ struct MyFavoriteCell: View {
                     .fontWeight(.semibold)
                     .foregroundStyle(.customRed)
                     .lineLimit(1)
+                    .padding(8)
+                    .background(.customLightRed)
+                    .clipShape(RoundedRectangle(cornerRadius: 4))
             }
         }
-        .frame(width: 200, height: 130, alignment: .leading)
-        .padding()
-        .background(.customLightGray)
-        .clipShape(RoundedRectangle(cornerRadius: 24))
     }
 }
 
