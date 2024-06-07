@@ -7,8 +7,13 @@
 
 import Foundation
 
-struct TrendingState: StateType {  
+struct TrendingState: StateType {
+    
+    typealias TrendingCoinType = (index: Int, coin: Coin)
+    typealias TrendingNFTType = (index: Int, nft: TrendingNFT)
+    
     var isLoading: Bool = false
-    var trending: [TrendingCoin] = []
+    var trendingCoins: [[TrendingCoinType]] = []
+    var trendingNFTs: [[TrendingNFTType]] = []
     var errorMessage: String? = nil
 }

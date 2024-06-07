@@ -17,7 +17,7 @@ struct SearchView: View {
         CustomNavigationView(title: "Search") {
             List(intent.state.searchedCoins) { coin in
                 HStack {
-                    ItemInfoView(coin: coin)
+                    ItemInfoView(item: coin)
                     
                     Spacer()
                     
@@ -45,11 +45,11 @@ struct SearchView: View {
 
 struct ItemInfoView: View {
     
-    let coin: Coin
+    let item: ItemEssentialElements
     
     var body: some View {
         HStack {
-            KFImage(URL(string: coin.thumb))
+            KFImage(URL(string: item.thumb))
                 .placeholder {
                     Circle()
                         .frame(width: 36, height: 36)
@@ -60,12 +60,12 @@ struct ItemInfoView: View {
                 .padding(.trailing, 4)
             
             VStack(alignment: .leading, spacing: 2) {
-                Text(coin.name)
+                Text(item.name)
                     .font(.system(size: 20))
                     .fontWeight(.bold)
                     .lineLimit(1)
                     .foregroundStyle(.customBlack)
-                Text(coin.symbol)
+                Text(item.symbol)
                     .font(.system(size: 16))
                     .lineLimit(1)
                     .foregroundStyle(.customGray)

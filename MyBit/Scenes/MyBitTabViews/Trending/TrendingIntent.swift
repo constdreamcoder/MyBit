@@ -42,8 +42,14 @@ extension TrendingIntent {
                 state.isLoading = false
             } receiveValue: { [weak self] trending in
                 guard let self else { return }
-                print("trending:\(trending)")
-                state.trending = trending
+                let trendingCoins = trending.coins.map { $0.item }
+                let sortedTrendingCoins = trendingCoins.sorted { $0.market_cap_rank ?? -1 < $1.market_cap_rank ?? -1 }
+                let rankedTrendingCoins = sortedTrendingCoins.enumerated().map { ($0, $1) }
+
+                state.trendingCoins = Array(rankedTrendingCoins.chunked(into: 3))
+                
+                let rankedTrendingNFTs = trending.nfts.enumerated().map { ($0, $1) }
+                state.trendingNFTs = Array(rankedTrendingNFTs.chunked(into: 3))
             }
             .store(in: &cancelable)
     }

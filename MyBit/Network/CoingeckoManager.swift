@@ -14,8 +14,8 @@ struct CoingeckoManager {
     
     static var cancellable = Set<AnyCancellable>()
     
-    static func fetchTrending() -> AnyPublisher<[TrendingCoin], NetworkErrors> {
-        Future<[TrendingCoin], NetworkErrors> { promise in
+    static func fetchTrending() -> AnyPublisher<Trending, NetworkErrors> {
+        Future<Trending, NetworkErrors> { promise in
             let provider = MoyaProvider<CoingeckoAPI>()
             provider.requestPublisher(.trending)
                 .sink { completion in
@@ -29,7 +29,7 @@ struct CoingeckoManager {
                     do {
                         let data = try response.filterSuccessfulStatusCodes().data
                         let result = try JSONDecoder().decode(Trending.self, from: data)
-                        promise(.success(result.coins))
+                        promise(.success(result))
                     } catch {
                         promise(.failure(.networkError))
                     }

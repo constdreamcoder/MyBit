@@ -33,10 +33,10 @@ struct TrendingView: View {
                 Section {
                     ScrollView(.horizontal, showsIndicators: false) {
                         HStack {
-                            ForEach(0..<10) { _ in
+                            ForEach(intent.state.trendingCoins, id: \.[0].index) { trendingCoinChunk in
                                 VStack {
-                                    ForEach(0..<3) { index in
-                                        TopRankCell()
+                                    ForEach(trendingCoinChunk, id: \.coin.id) { trendingCoin in
+                                        TopRankCell(trendingType: .coin(trendingCoin))
                                     }
                                 }
                                 .padding(.leading, 16)
@@ -53,16 +53,15 @@ struct TrendingView: View {
                 
                 Section {
                     ScrollView(.horizontal, showsIndicators: false) {
-                        HStack {
-                            ForEach(0..<10) { _ in
+                        HStack(alignment: .top) {
+                            ForEach(intent.state.trendingNFTs, id: \.[0].index) { trendingNFTChunk in
                                 VStack {
-                                    ForEach(0..<3) { index in
-                                        TopRankCell()
+                                    ForEach(trendingNFTChunk, id: \.nft.id) { trendingNFT in
+                                        TopRankCell(trendingType: .nft(trendingNFT))
                                     }
                                 }
                                 .padding(.leading, 16)
                             }
-                            
                         }
                     }
                 } header: {
@@ -83,31 +82,6 @@ struct TrendingView: View {
 
 #Preview {
     TrendingView()
-}
-
-
-struct CoinInfoView: View {
-        
-    var body: some View {
-        HStack {
-           Image(systemName: "person.crop.circle")
-                .resizable()
-                .frame(width: 36, height: 36)
-                .padding(.trailing, 4)
-            
-            VStack(alignment: .leading, spacing: 2) {
-                Text("Bitcoin")
-                    .font(.system(size: 20))
-                    .fontWeight(.bold)
-                    .lineLimit(1)
-                    .foregroundStyle(.customBlack)
-                Text("BTC")
-                    .font(.system(size: 16))
-                    .lineLimit(1)
-                    .foregroundStyle(.customGray)
-            }
-        }
-    }
 }
 
 struct MyFavoriteCell: View {
@@ -137,26 +111,39 @@ struct MyFavoriteCell: View {
 }
 
 struct TopRankCell: View {
+    
+    let trendingType: TrendingRankingType
+    
     var body: some View {
         VStack {
             HStack {
-                HStack(spacing: 12) {
-                    Text("12")
-                        .font(.title)
+                HStack {
+                    Text("\(trendingType.index + 1)")
+                        .font(.system(size: 28))
                         .fontWeight(.semibold)
                         .foregroundStyle(.customDarkGray)
+                        .frame(minWidth: 32)
                     
-                    CoinInfoView()
+                    ItemInfoView(item: trendingType.item)
                 }
                 
                 Spacer()
                 
                 VStack(alignment: .trailing) {
-                    Text("$0.4173")
-                        .font(.system(size: 18))
-                    Text("+21.41%")
-                        .foregroundStyle(.customRed)
-                        .font(.system(size: 14))
+                    switch trendingType {
+                    case .coin(let trendingCoinType):
+                        Text("$\(trendingCoinType.coin.data?.price ?? 0, specifier: "%.4f")")
+                            .font(.system(size: 18))
+                        Text("\(trendingCoinType.coin.data?.price_change_percentage_24h.krw ?? 0, specifier: "%.2f")%")
+                            .foregroundStyle(trendingCoinType.coin.data?.price_change_percentage_24h.krw.changeRateColor ?? .customBlack)
+                            .font(.system(size: 14))
+                    case .nft(let trendingNFTType):
+                        Text("$\(trendingNFTType.nft.data.floor_price)")
+                            .font(.system(size: 18))
+                        Text("\(Double(trendingNFTType.nft.data.floor_price_in_usd_24h_percentage_change) ?? 0, specifier: "%.2f")%")
+                            .foregroundStyle(Double(trendingNFTType.nft.data.floor_price_in_usd_24h_percentage_change)?.changeRateColor ?? .customBlack)
+                            .font(.system(size: 14))
+                    }
                 }
             }
             .padding(.vertical, 8)
