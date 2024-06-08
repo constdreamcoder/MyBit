@@ -12,6 +12,7 @@ final class DetailIntent: ObservableObject {
     
     enum Action {
         case getCoinMarkets(idList: [String])
+        case favoriteButtonTap
     }
     
     @Published private(set) var state = DetailState()
@@ -22,6 +23,8 @@ final class DetailIntent: ObservableObject {
         switch action {
         case .getCoinMarkets(let idList):
             getCoinMarkets(idList)
+        case .favoriteButtonTap:
+            favoriteButtonTapped()
         }
     }
 }
@@ -42,8 +45,13 @@ extension DetailIntent {
                 state.isLoading = false
             } receiveValue: { [weak self] coinMarkets in
                 guard let self else { return }
-                print("coinMarkets:\(coinMarkets)")
+                
+                state.coinMarkets = coinMarkets
+
                 let market = coinMarkets[0]
+                            
+                state.isFavorite = FavoriteRepository.shared.read().contains(where: { $0.id == market.id })
+                
                 state.topViewDatas = .init(
                     image: market.image,
                     name: market.name,
@@ -63,6 +71,26 @@ extension DetailIntent {
                 state.lastUpdatedDate = market.last_updated
             }
             .store(in: &cancelable)
+    }
+    
+    private func favoriteButtonTapped() {
+        let tappedMarket = state.coinMarkets[0]
+        if FavoriteRepository.shared.read().contains(where: { $0.id == tappedMarket.id }) {
+            guard let tappedFavorite = FavoriteRepository.shared.read().first(where: { $0.id == tappedMarket.id }) else { return }
+            FavoriteRepository.shared.delete(tappedFavorite)
+            FavoriteRepository.shared.getLocationOfDefaultRealm()
+        } else {
+            let favorite = Favorite(
+                id: tappedMarket.id,
+                name: tappedMarket.name,
+                symbol: tappedMarket.symbol,
+                imageURLString: tappedMarket.image
+            )
+            FavoriteRepository.shared.write(favorite)
+            FavoriteRepository.shared.getLocationOfDefaultRealm()
+        }
+        
+        state.isFavorite.toggle()
     }
 }
 

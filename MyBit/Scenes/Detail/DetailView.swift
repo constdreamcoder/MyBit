@@ -45,7 +45,10 @@ struct DetailView: View {
             Spacer()
         }
         .toolbar {
-            FavoriteStarView()
+            FavoriteStarView(isFavorite: intent.state.isFavorite)
+                .onTapGesture {
+                    intent.send(.favoriteButtonTap)
+                }
         }
         .navigationBarTitle("", displayMode: .inline) // TODO: - 추후 사라지니 대응
         .onAppear {

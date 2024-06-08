@@ -35,7 +35,6 @@ struct CoingeckoManager {
                     }
                 }.store(in: &cancellable)
         }.eraseToAnyPublisher()
-
     }
     
     static func searchBitcoins(_ query: String) -> AnyPublisher<[Coin], NetworkErrors> {

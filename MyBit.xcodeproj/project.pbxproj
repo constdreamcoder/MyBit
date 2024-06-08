@@ -30,6 +30,11 @@
 		00ABCAEA2C1302460098CB84 /* DGCharts in Frameworks */ = {isa = PBXBuildFile; productRef = 00ABCAE92C1302460098CB84 /* DGCharts */; };
 		00ABCAED2C1303C20098CB84 /* ChartView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 00ABCAEC2C1303C20098CB84 /* ChartView.swift */; };
 		00ABCAEF2C1334130098CB84 /* String+Ext.swift in Sources */ = {isa = PBXBuildFile; fileRef = 00ABCAEE2C1334130098CB84 /* String+Ext.swift */; };
+		00ABCAFC2C13381A0098CB84 /* RealmSwift in Frameworks */ = {isa = PBXBuildFile; productRef = 00ABCAFB2C13381A0098CB84 /* RealmSwift */; };
+		00ABCAFD2C1338390098CB84 /* RealmSwift in Embed Frameworks */ = {isa = PBXBuildFile; productRef = 00ABCAFB2C13381A0098CB84 /* RealmSwift */; settings = {ATTRIBUTES = (CodeSignOnCopy, ); }; };
+		00ABCB002C1339270098CB84 /* RepositoryType.swift in Sources */ = {isa = PBXBuildFile; fileRef = 00ABCAFF2C1339270098CB84 /* RepositoryType.swift */; };
+		00ABCB062C1339960098CB84 /* FavoriteRepository.swift in Sources */ = {isa = PBXBuildFile; fileRef = 00ABCB052C1339960098CB84 /* FavoriteRepository.swift */; };
+		00ABCB092C1339C20098CB84 /* Favorite.swift in Sources */ = {isa = PBXBuildFile; fileRef = 00ABCB082C1339C20098CB84 /* Favorite.swift */; };
 		00BF1E702C11742000BCCFC8 /* Search.swift in Sources */ = {isa = PBXBuildFile; fileRef = 00BF1E6F2C11742000BCCFC8 /* Search.swift */; };
 		00BF1E722C1174CF00BCCFC8 /* SearchView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 00BF1E712C1174CF00BCCFC8 /* SearchView.swift */; };
 		00BF1E742C1174D600BCCFC8 /* SearchState.swift in Sources */ = {isa = PBXBuildFile; fileRef = 00BF1E732C1174D600BCCFC8 /* SearchState.swift */; };
@@ -43,6 +48,20 @@
 		00BF1E8C2C11872300BCCFC8 /* FavoriteView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 00BF1E8B2C11872300BCCFC8 /* FavoriteView.swift */; };
 		00BF1E8E2C11873400BCCFC8 /* ProfileView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 00BF1E8D2C11873400BCCFC8 /* ProfileView.swift */; };
 /* End PBXBuildFile section */
+
+/* Begin PBXCopyFilesBuildPhase section */
+		00ABCAFE2C1338390098CB84 /* Embed Frameworks */ = {
+			isa = PBXCopyFilesBuildPhase;
+			buildActionMask = 2147483647;
+			dstPath = "";
+			dstSubfolderSpec = 10;
+			files = (
+				00ABCAFD2C1338390098CB84 /* RealmSwift in Embed Frameworks */,
+			);
+			name = "Embed Frameworks";
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXCopyFilesBuildPhase section */
 
 /* Begin PBXFileReference section */
 		0006CE242C0F055C00BA213A /* CoingeckoAPI.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CoingeckoAPI.swift; sourceTree = "<group>"; };
@@ -66,6 +85,9 @@
 		00ABCAE62C12EE4A0098CB84 /* FavoriteStarView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FavoriteStarView.swift; sourceTree = "<group>"; };
 		00ABCAEC2C1303C20098CB84 /* ChartView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ChartView.swift; sourceTree = "<group>"; };
 		00ABCAEE2C1334130098CB84 /* String+Ext.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "String+Ext.swift"; sourceTree = "<group>"; };
+		00ABCAFF2C1339270098CB84 /* RepositoryType.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RepositoryType.swift; sourceTree = "<group>"; };
+		00ABCB052C1339960098CB84 /* FavoriteRepository.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FavoriteRepository.swift; sourceTree = "<group>"; };
+		00ABCB082C1339C20098CB84 /* Favorite.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Favorite.swift; sourceTree = "<group>"; };
 		00BF1E6F2C11742000BCCFC8 /* Search.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Search.swift; sourceTree = "<group>"; };
 		00BF1E712C1174CF00BCCFC8 /* SearchView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SearchView.swift; sourceTree = "<group>"; };
 		00BF1E732C1174D600BCCFC8 /* SearchState.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SearchState.swift; sourceTree = "<group>"; };
@@ -85,6 +107,7 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				00ABCAFC2C13381A0098CB84 /* RealmSwift in Frameworks */,
 				00175FA82C11E6B200D77BB6 /* Kingfisher in Frameworks */,
 				00ABCAEA2C1302460098CB84 /* DGCharts in Frameworks */,
 				0006CE222C0F049900BA213A /* CombineMoya in Frameworks */,
@@ -144,9 +167,11 @@
 		0006CE232C0F053B00BA213A /* Network */ = {
 			isa = PBXGroup;
 			children = (
-				0006CE242C0F055C00BA213A /* CoingeckoAPI.swift */,
-				0006CE2B2C0F0A8400BA213A /* CoingeckoManager.swift */,
-				0006CE2D2C0F13E900BA213A /* NetworkErrors.swift */,
+				00ABCB072C1339B30098CB84 /* RepositoryModels */,
+				00ABCB042C1339820098CB84 /* Repositories */,
+				00ABCB032C1339790098CB84 /* Routers */,
+				00ABCB012C13395F0098CB84 /* Managers */,
+				00ABCB022C13396C0098CB84 /* Errors */,
 				0006CE282C0F088C00BA213A /* ResponseModels */,
 			);
 			path = Network;
@@ -236,6 +261,46 @@
 			path = UIKitComponents;
 			sourceTree = "<group>";
 		};
+		00ABCB012C13395F0098CB84 /* Managers */ = {
+			isa = PBXGroup;
+			children = (
+				0006CE2B2C0F0A8400BA213A /* CoingeckoManager.swift */,
+			);
+			path = Managers;
+			sourceTree = "<group>";
+		};
+		00ABCB022C13396C0098CB84 /* Errors */ = {
+			isa = PBXGroup;
+			children = (
+				0006CE2D2C0F13E900BA213A /* NetworkErrors.swift */,
+			);
+			path = Errors;
+			sourceTree = "<group>";
+		};
+		00ABCB032C1339790098CB84 /* Routers */ = {
+			isa = PBXGroup;
+			children = (
+				0006CE242C0F055C00BA213A /* CoingeckoAPI.swift */,
+			);
+			path = Routers;
+			sourceTree = "<group>";
+		};
+		00ABCB042C1339820098CB84 /* Repositories */ = {
+			isa = PBXGroup;
+			children = (
+				00ABCB052C1339960098CB84 /* FavoriteRepository.swift */,
+			);
+			path = Repositories;
+			sourceTree = "<group>";
+		};
+		00ABCB072C1339B30098CB84 /* RepositoryModels */ = {
+			isa = PBXGroup;
+			children = (
+				00ABCB082C1339C20098CB84 /* Favorite.swift */,
+			);
+			path = RepositoryModels;
+			sourceTree = "<group>";
+		};
 		00BF1E7F2C117FA800BCCFC8 /* Detail */ = {
 			isa = PBXGroup;
 			children = (
@@ -262,6 +327,7 @@
 			children = (
 				00BF1E7B2C1176BF00BCCFC8 /* StateType.swift */,
 				00ABCADD2C12D1340098CB84 /* ItemEssentialElements.swift */,
+				00ABCAFF2C1339270098CB84 /* RepositoryType.swift */,
 			);
 			path = Protocols;
 			sourceTree = "<group>";
@@ -287,6 +353,7 @@
 				0037D8732C0EF11A00C24E7B /* Sources */,
 				0037D8742C0EF11A00C24E7B /* Frameworks */,
 				0037D8752C0EF11A00C24E7B /* Resources */,
+				00ABCAFE2C1338390098CB84 /* Embed Frameworks */,
 			);
 			buildRules = (
 			);
@@ -297,6 +364,7 @@
 				0006CE212C0F049900BA213A /* CombineMoya */,
 				00175FA72C11E6B200D77BB6 /* Kingfisher */,
 				00ABCAE92C1302460098CB84 /* DGCharts */,
+				00ABCAFB2C13381A0098CB84 /* RealmSwift */,
 			);
 			productName = MyBit;
 			productReference = 0037D8772C0EF11A00C24E7B /* MyBit.app */;
@@ -330,6 +398,7 @@
 				0006CE202C0F049900BA213A /* XCRemoteSwiftPackageReference "Moya" */,
 				00175FA62C11E6B200D77BB6 /* XCRemoteSwiftPackageReference "Kingfisher" */,
 				00ABCAE82C1302460098CB84 /* XCRemoteSwiftPackageReference "Charts" */,
+				00ABCAFA2C13381A0098CB84 /* XCRemoteSwiftPackageReference "realm-swift" */,
 			);
 			productRefGroup = 0037D8782C0EF11A00C24E7B /* Products */;
 			projectDirPath = "";
@@ -358,10 +427,12 @@
 			buildActionMask = 2147483647;
 			files = (
 				0006CE342C0F19FE00BA213A /* TrendingIntent.swift in Sources */,
+				00ABCB002C1339270098CB84 /* RepositoryType.swift in Sources */,
 				0006CE322C0F17BA00BA213A /* TrendingState.swift in Sources */,
 				00ABCAED2C1303C20098CB84 /* ChartView.swift in Sources */,
 				0006CE2C2C0F0A8400BA213A /* CoingeckoManager.swift in Sources */,
 				00BF1E742C1174D600BCCFC8 /* SearchState.swift in Sources */,
+				00ABCB092C1339C20098CB84 /* Favorite.swift in Sources */,
 				0006CE252C0F055C00BA213A /* CoingeckoAPI.swift in Sources */,
 				00BF1E892C1185CB00BCCFC8 /* MyBitTabView.swift in Sources */,
 				00BF1E7C2C1176BF00BCCFC8 /* StateType.swift in Sources */,
@@ -375,6 +446,7 @@
 				00BF1E852C117FD000BCCFC8 /* DetailIntent.swift in Sources */,
 				0006CE2E2C0F13E900BA213A /* NetworkErrors.swift in Sources */,
 				00BF1E812C117FBE00BCCFC8 /* DetailView.swift in Sources */,
+				00ABCB062C1339960098CB84 /* FavoriteRepository.swift in Sources */,
 				00ABCAEF2C1334130098CB84 /* String+Ext.swift in Sources */,
 				0006CE2A2C0F08A500BA213A /* Trending.swift in Sources */,
 				00ABCAE32C12DABD0098CB84 /* Double+Ext.swift in Sources */,
@@ -628,6 +700,14 @@
 				minimumVersion = 5.1.0;
 			};
 		};
+		00ABCAFA2C13381A0098CB84 /* XCRemoteSwiftPackageReference "realm-swift" */ = {
+			isa = XCRemoteSwiftPackageReference;
+			repositoryURL = "https://github.com/realm/realm-swift";
+			requirement = {
+				kind = upToNextMajorVersion;
+				minimumVersion = 10.51.0;
+			};
+		};
 /* End XCRemoteSwiftPackageReference section */
 
 /* Begin XCSwiftPackageProductDependency section */
@@ -645,6 +725,11 @@
 			isa = XCSwiftPackageProductDependency;
 			package = 00ABCAE82C1302460098CB84 /* XCRemoteSwiftPackageReference "Charts" */;
 			productName = DGCharts;
+		};
+		00ABCAFB2C13381A0098CB84 /* RealmSwift */ = {
+			isa = XCSwiftPackageProductDependency;
+			package = 00ABCAFA2C13381A0098CB84 /* XCRemoteSwiftPackageReference "realm-swift" */;
+			productName = RealmSwift;
 		};
 /* End XCSwiftPackageProductDependency section */
 	};

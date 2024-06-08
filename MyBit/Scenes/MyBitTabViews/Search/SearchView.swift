@@ -15,17 +15,23 @@ struct SearchView: View {
     
     var body: some View {
         CustomNavigationView(title: "Search") {
-            List(intent.state.searchedCoins) { coin in
-                NavigationLink(destination: DetailView(id: coin.id)) {
+            List(intent.state.searchedCoins, id: \.coin.id) { searchedCoin in
+                NavigationLink(destination: DetailView(id: searchedCoin.coin.id)) {
                     HStack {
-                        ItemInfoView(item: coin)
+                        ItemInfoView(item: searchedCoin.coin)
                         
                         Spacer()
                         
-                        FavoriteStarView()
+                        FavoriteStarView(isFavorite: searchedCoin.isFavorite)
+                            .onTapGesture {
+                                intent.send(.favoriteButtonTap(tappedCoin: searchedCoin))
+                            }
                     }
                 }
                 .listRowSeparator(.hidden)
+            }
+            .onAppear {
+                intent.send(.refresh)
             }
         }
         .searchable(

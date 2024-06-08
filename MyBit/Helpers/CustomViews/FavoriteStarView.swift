@@ -8,13 +8,16 @@
 import SwiftUI
 
 struct FavoriteStarView: View {
+    
+    let isFavorite: Bool
+    
     var body: some View {
-        Image("btn_star")
+        Image(isFavorite ? "btn_star_fill" : "btn_star")
             .resizable()
             .frame(width: 28, height: 28)
     }
 }
 
 #Preview {
-    FavoriteStarView()
+    FavoriteStarView(isFavorite: false)
 }

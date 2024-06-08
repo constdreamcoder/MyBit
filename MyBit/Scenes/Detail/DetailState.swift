@@ -11,7 +11,7 @@ import DGCharts
 
 struct DetailState: StateType {
     var isLoading: Bool = false
-    var selectedId: String = ""
+    var isFavorite: Bool = false
     var coinMarkets: [Market] = []
     var topViewDatas: TopViewData? = nil
     var middleViewData: [DetailMiddleItem] = [
