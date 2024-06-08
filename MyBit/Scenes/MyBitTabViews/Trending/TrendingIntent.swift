@@ -34,23 +34,25 @@ extension TrendingIntent {
         state.isLoading = true
         state.errorMessage = nil
         
-        let ids: [String] = FavoriteRepository.shared.read().map { $0.id }
+        let idList: [String] = FavoriteRepository.shared.read().map { $0.id }
         
-        CoingeckoManager.fetchCoinMarkets(ids)
-            .sink { [weak self] completion in
-                guard let self else { return }
-                
-                if case .failure(let error) = completion {
-                    print("errors", error)
-                    state.errorMessage = "Failed to fetch data: \(error.localizedDescription)"
-                }
-                state.isLoading = false
-            } receiveValue: { [weak self] coinMarkets in
-                guard let self else { return }
+        if idList.count > 0 {
+            CoingeckoManager.fetchCoinMarkets(idList)
+                .sink { [weak self] completion in
+                    guard let self else { return }
+                    
+                    if case .failure(let error) = completion {
+                        print("errors", error)
+                        state.errorMessage = "Failed to fetch data: \(error.localizedDescription)"
+                    }
+                    state.isLoading = false
+                } receiveValue: { [weak self] coinMarkets in
+                    guard let self else { return }
 
-                state.coinMarkets = coinMarkets
-            }
-            .store(in: &cancelable)
+                    state.coinMarkets = coinMarkets
+                }
+                .store(in: &cancelable)
+        }
     }
     
     private func getTrending() {

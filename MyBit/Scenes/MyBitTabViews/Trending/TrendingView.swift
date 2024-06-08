@@ -14,27 +14,29 @@ struct TrendingView: View {
     var body: some View {
         CustomNavigationView(title: "Crypto Coin") {
             List {
-                Section {
-                    ScrollView(.horizontal, showsIndicators: false)  {
-                        HStack(spacing: 16) {
-                            ForEach(intent.state.coinMarkets, id: \.id) { coinMarket in
-                                NavigationLink(destination: DetailView(id: coinMarket.id)) {
-                                    MyFavoriteCell(market: coinMarket, bottomStackAlignment: .leading)
-                                        .frame(width: 200, height: 130, alignment: .leading)
-                                        .padding()
-                                        .background(.customLightGray)
-                                        .clipShape(RoundedRectangle(cornerRadius: 24))
+                if intent.state.coinMarkets.count >= 2 {
+                    Section {
+                        ScrollView(.horizontal, showsIndicators: false)  {
+                            HStack(spacing: 16) {
+                                ForEach(intent.state.coinMarkets, id: \.id) { coinMarket in
+                                    NavigationLink(destination: DetailView(id: coinMarket.id)) {
+                                        MyFavoriteCell(market: coinMarket, bottomStackAlignment: .leading)
+                                            .frame(width: 200, height: 130, alignment: .leading)
+                                            .padding()
+                                            .background(.customLightGray)
+                                            .clipShape(RoundedRectangle(cornerRadius: 24))
+                                    }
                                 }
                             }
                         }
+                    } header: {
+                        Text("MyFavorite")
+                            .bold()
+                            .font(.title)
+                            .foregroundStyle(.customBlack)
                     }
-                } header: {
-                    Text("MyFavorite")
-                        .bold()
-                        .font(.title)
-                        .foregroundStyle(.customBlack)
+                    .listSectionSeparator(.hidden)
                 }
-                .listSectionSeparator(.hidden)
                 
                 Section {
                     ScrollView(.horizontal, showsIndicators: false) {
@@ -147,12 +149,14 @@ struct TopRankCell: View {
                     case .coin(let trendingCoinType):
                         Text("$\(trendingCoinType.coin.data?.price ?? 0, specifier: "%.4f")")
                             .font(.system(size: 18))
+                            .foregroundStyle(.customBlack)
                         Text("\(trendingCoinType.coin.data?.price_change_percentage_24h.krw ?? 0, specifier: "%.2f")%")
                             .foregroundStyle(trendingCoinType.coin.data?.price_change_percentage_24h.krw.changeRateColor ?? .customBlack)
                             .font(.system(size: 14))
                     case .nft(let trendingNFTType):
                         Text("$\(trendingNFTType.nft.data.floor_price)")
                             .font(.system(size: 18))
+                            .foregroundStyle(.customBlack)
                         Text("\(Double(trendingNFTType.nft.data.floor_price_in_usd_24h_percentage_change) ?? 0, specifier: "%.2f")%")
                             .foregroundStyle(Double(trendingNFTType.nft.data.floor_price_in_usd_24h_percentage_change)?.changeRateColor ?? .customBlack)
                             .font(.system(size: 14))
