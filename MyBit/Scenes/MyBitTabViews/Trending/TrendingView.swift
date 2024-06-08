@@ -18,11 +18,13 @@ struct TrendingView: View {
                     ScrollView(.horizontal, showsIndicators: false)  {
                         HStack(spacing: 16) {
                             ForEach(intent.state.coinMarkets, id: \.id) { coinMarket in
-                                MyFavoriteCell(market: coinMarket, bottomStackAlignment: .leading)
-                                    .frame(width: 200, height: 130, alignment: .leading)
-                                    .padding()
-                                    .background(.customLightGray)
-                                    .clipShape(RoundedRectangle(cornerRadius: 24))
+                                NavigationLink(destination: DetailView(id: coinMarket.id)) {
+                                    MyFavoriteCell(market: coinMarket, bottomStackAlignment: .leading)
+                                        .frame(width: 200, height: 130, alignment: .leading)
+                                        .padding()
+                                        .background(.customLightGray)
+                                        .clipShape(RoundedRectangle(cornerRadius: 24))
+                                }
                             }
                         }
                     }
@@ -40,7 +42,9 @@ struct TrendingView: View {
                             ForEach(intent.state.trendingCoins, id: \.[0].index) { trendingCoinChunk in
                                 VStack {
                                     ForEach(trendingCoinChunk, id: \.coin.id) { trendingCoin in
-                                        TopRankCell(trendingType: .coin(trendingCoin))
+                                        NavigationLink(destination: DetailView(id: trendingCoin.coin.id)) {
+                                            TopRankCell(trendingType: .coin(trendingCoin))
+                                        }
                                     }
                                 }
                                 .padding(.leading, 16)
@@ -104,6 +108,7 @@ struct MyFavoriteCell: View {
                 Text("₩\(market.current_price, specifier: "%.0f")")
                     .font(.system(size: 20))
                     .bold()
+                    .foregroundStyle(.customBlack)
                     .lineLimit(1)
                 Text("\(market.price_change_percentage_24h, specifier: "%.2f")%")
                     .font(.system(size: 18))
