@@ -18,6 +18,10 @@ struct MyBitTabView: View {
                 .tabItem {
                     Label("", systemImage: "magnifyingglass")
                 }
+            ExchangeView()
+                .tabItem {
+                    Label("", systemImage: "doc.plaintext")
+                }
             FavoriteView()
                 .tabItem {
                     Label("", systemImage: "bag")

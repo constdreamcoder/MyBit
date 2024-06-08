@@ -23,6 +23,15 @@
 		0037D8822C0EF11B00C24E7B /* Preview Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 0037D8812C0EF11B00C24E7B /* Preview Assets.xcassets */; };
 		00670F1E2C14223E0048ECD9 /* FavoriteState.swift in Sources */ = {isa = PBXBuildFile; fileRef = 00670F1D2C14223E0048ECD9 /* FavoriteState.swift */; };
 		00670F202C1422480048ECD9 /* FavoriteIntent.swift in Sources */ = {isa = PBXBuildFile; fileRef = 00670F1F2C1422480048ECD9 /* FavoriteIntent.swift */; };
+		00670F232C1488A00048ECD9 /* ExchangeView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 00670F222C1488A00048ECD9 /* ExchangeView.swift */; };
+		00670F252C1495D90048ECD9 /* WebSocketManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = 00670F242C1495D90048ECD9 /* WebSocketManager.swift */; };
+		00670F272C1496150048ECD9 /* Ticker.swift in Sources */ = {isa = PBXBuildFile; fileRef = 00670F262C1496150048ECD9 /* Ticker.swift */; };
+		00670F292C1496240048ECD9 /* ExchangeState.swift in Sources */ = {isa = PBXBuildFile; fileRef = 00670F282C1496240048ECD9 /* ExchangeState.swift */; };
+		00670F2B2C14962D0048ECD9 /* ExchangeIntent.swift in Sources */ = {isa = PBXBuildFile; fileRef = 00670F2A2C14962D0048ECD9 /* ExchangeIntent.swift */; };
+		00670F2D2C149C7E0048ECD9 /* CurrentPrice.swift in Sources */ = {isa = PBXBuildFile; fileRef = 00670F2C2C149C7E0048ECD9 /* CurrentPrice.swift */; };
+		00670F312C149CE50048ECD9 /* UpbitAPI.swift in Sources */ = {isa = PBXBuildFile; fileRef = 00670F302C149CE50048ECD9 /* UpbitAPI.swift */; };
+		00670F332C149EE60048ECD9 /* UpbitManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = 00670F322C149EE60048ECD9 /* UpbitManager.swift */; };
+		00670F352C14A0EE0048ECD9 /* MarketCode.swift in Sources */ = {isa = PBXBuildFile; fileRef = 00670F342C14A0EE0048ECD9 /* MarketCode.swift */; };
 		00ABCADC2C12C4820098CB84 /* Array+Ext.swift in Sources */ = {isa = PBXBuildFile; fileRef = 00ABCADB2C12C4820098CB84 /* Array+Ext.swift */; };
 		00ABCADE2C12D1340098CB84 /* ItemEssentialElements.swift in Sources */ = {isa = PBXBuildFile; fileRef = 00ABCADD2C12D1340098CB84 /* ItemEssentialElements.swift */; };
 		00ABCAE02C12D4170098CB84 /* TrendingRankingType.swift in Sources */ = {isa = PBXBuildFile; fileRef = 00ABCADF2C12D4170098CB84 /* TrendingRankingType.swift */; };
@@ -80,6 +89,15 @@
 		0037D8812C0EF11B00C24E7B /* Preview Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = "Preview Assets.xcassets"; sourceTree = "<group>"; };
 		00670F1D2C14223E0048ECD9 /* FavoriteState.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FavoriteState.swift; sourceTree = "<group>"; };
 		00670F1F2C1422480048ECD9 /* FavoriteIntent.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FavoriteIntent.swift; sourceTree = "<group>"; };
+		00670F222C1488A00048ECD9 /* ExchangeView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ExchangeView.swift; sourceTree = "<group>"; };
+		00670F242C1495D90048ECD9 /* WebSocketManager.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = WebSocketManager.swift; sourceTree = "<group>"; };
+		00670F262C1496150048ECD9 /* Ticker.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Ticker.swift; sourceTree = "<group>"; };
+		00670F282C1496240048ECD9 /* ExchangeState.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ExchangeState.swift; sourceTree = "<group>"; };
+		00670F2A2C14962D0048ECD9 /* ExchangeIntent.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ExchangeIntent.swift; sourceTree = "<group>"; };
+		00670F2C2C149C7E0048ECD9 /* CurrentPrice.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CurrentPrice.swift; sourceTree = "<group>"; };
+		00670F302C149CE50048ECD9 /* UpbitAPI.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UpbitAPI.swift; sourceTree = "<group>"; };
+		00670F322C149EE60048ECD9 /* UpbitManager.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UpbitManager.swift; sourceTree = "<group>"; };
+		00670F342C14A0EE0048ECD9 /* MarketCode.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MarketCode.swift; sourceTree = "<group>"; };
 		00ABCADB2C12C4820098CB84 /* Array+Ext.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "Array+Ext.swift"; sourceTree = "<group>"; };
 		00ABCADD2C12D1340098CB84 /* ItemEssentialElements.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ItemEssentialElements.swift; sourceTree = "<group>"; };
 		00ABCADF2C12D4170098CB84 /* TrendingRankingType.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TrendingRankingType.swift; sourceTree = "<group>"; };
@@ -184,9 +202,8 @@
 		0006CE282C0F088C00BA213A /* ResponseModels */ = {
 			isa = PBXGroup;
 			children = (
-				0006CE292C0F08A500BA213A /* Trending.swift */,
-				00BF1E6F2C11742000BCCFC8 /* Search.swift */,
-				00BF1E7D2C117E0200BCCFC8 /* Market.swift */,
+				00670F2E2C149C850048ECD9 /* Coingecko */,
+				00670F2F2C149C8C0048ECD9 /* Upbit */,
 			);
 			path = ResponseModels;
 			sourceTree = "<group>";
@@ -238,6 +255,36 @@
 			path = "Preview Content";
 			sourceTree = "<group>";
 		};
+		00670F212C1488650048ECD9 /* Exchange */ = {
+			isa = PBXGroup;
+			children = (
+				00670F222C1488A00048ECD9 /* ExchangeView.swift */,
+				00670F282C1496240048ECD9 /* ExchangeState.swift */,
+				00670F2A2C14962D0048ECD9 /* ExchangeIntent.swift */,
+			);
+			path = Exchange;
+			sourceTree = "<group>";
+		};
+		00670F2E2C149C850048ECD9 /* Coingecko */ = {
+			isa = PBXGroup;
+			children = (
+				0006CE292C0F08A500BA213A /* Trending.swift */,
+				00BF1E6F2C11742000BCCFC8 /* Search.swift */,
+				00BF1E7D2C117E0200BCCFC8 /* Market.swift */,
+			);
+			path = Coingecko;
+			sourceTree = "<group>";
+		};
+		00670F2F2C149C8C0048ECD9 /* Upbit */ = {
+			isa = PBXGroup;
+			children = (
+				00670F262C1496150048ECD9 /* Ticker.swift */,
+				00670F2C2C149C7E0048ECD9 /* CurrentPrice.swift */,
+				00670F342C14A0EE0048ECD9 /* MarketCode.swift */,
+			);
+			path = Upbit;
+			sourceTree = "<group>";
+		};
 		00ABCADA2C12C4710098CB84 /* Extensions */ = {
 			isa = PBXGroup;
 			children = (
@@ -268,6 +315,8 @@
 			isa = PBXGroup;
 			children = (
 				0006CE2B2C0F0A8400BA213A /* CoingeckoManager.swift */,
+				00670F322C149EE60048ECD9 /* UpbitManager.swift */,
+				00670F242C1495D90048ECD9 /* WebSocketManager.swift */,
 			);
 			path = Managers;
 			sourceTree = "<group>";
@@ -284,6 +333,7 @@
 			isa = PBXGroup;
 			children = (
 				0006CE242C0F055C00BA213A /* CoingeckoAPI.swift */,
+				00670F302C149CE50048ECD9 /* UpbitAPI.swift */,
 			);
 			path = Routers;
 			sourceTree = "<group>";
@@ -340,6 +390,7 @@
 			children = (
 				0006CE182C0EF2EE00BA213A /* Trending */,
 				0006CE192C0EF2F900BA213A /* Search */,
+				00670F212C1488650048ECD9 /* Exchange */,
 				0006CE1A2C0EF30500BA213A /* Favorite */,
 				0006CE1B2C0EF30D00BA213A /* Profile */,
 			);
@@ -432,27 +483,36 @@
 				0006CE342C0F19FE00BA213A /* TrendingIntent.swift in Sources */,
 				00ABCB002C1339270098CB84 /* RepositoryType.swift in Sources */,
 				0006CE322C0F17BA00BA213A /* TrendingState.swift in Sources */,
+				00670F2B2C14962D0048ECD9 /* ExchangeIntent.swift in Sources */,
 				00ABCAED2C1303C20098CB84 /* ChartView.swift in Sources */,
 				0006CE2C2C0F0A8400BA213A /* CoingeckoManager.swift in Sources */,
 				00BF1E742C1174D600BCCFC8 /* SearchState.swift in Sources */,
 				00ABCB092C1339C20098CB84 /* Favorite.swift in Sources */,
 				0006CE252C0F055C00BA213A /* CoingeckoAPI.swift in Sources */,
+				00670F232C1488A00048ECD9 /* ExchangeView.swift in Sources */,
 				00BF1E892C1185CB00BCCFC8 /* MyBitTabView.swift in Sources */,
 				00BF1E7C2C1176BF00BCCFC8 /* StateType.swift in Sources */,
 				00BF1E7E2C117E0200BCCFC8 /* Market.swift in Sources */,
+				00670F352C14A0EE0048ECD9 /* MarketCode.swift in Sources */,
 				00670F202C1422480048ECD9 /* FavoriteIntent.swift in Sources */,
 				00BF1E8C2C11872300BCCFC8 /* FavoriteView.swift in Sources */,
 				0006CE302C0F170100BA213A /* TrendingView.swift in Sources */,
 				00ABCAE72C12EE4A0098CB84 /* FavoriteStarView.swift in Sources */,
 				00ABCAE02C12D4170098CB84 /* TrendingRankingType.swift in Sources */,
 				00ABCADE2C12D1340098CB84 /* ItemEssentialElements.swift in Sources */,
+				00670F2D2C149C7E0048ECD9 /* CurrentPrice.swift in Sources */,
 				00ABCADC2C12C4820098CB84 /* Array+Ext.swift in Sources */,
+				00670F272C1496150048ECD9 /* Ticker.swift in Sources */,
 				00BF1E852C117FD000BCCFC8 /* DetailIntent.swift in Sources */,
 				0006CE2E2C0F13E900BA213A /* NetworkErrors.swift in Sources */,
+				00670F292C1496240048ECD9 /* ExchangeState.swift in Sources */,
 				00BF1E812C117FBE00BCCFC8 /* DetailView.swift in Sources */,
 				00ABCB062C1339960098CB84 /* FavoriteRepository.swift in Sources */,
+				00670F252C1495D90048ECD9 /* WebSocketManager.swift in Sources */,
+				00670F332C149EE60048ECD9 /* UpbitManager.swift in Sources */,
 				00ABCAEF2C1334130098CB84 /* String+Ext.swift in Sources */,
 				0006CE2A2C0F08A500BA213A /* Trending.swift in Sources */,
+				00670F312C149CE50048ECD9 /* UpbitAPI.swift in Sources */,
 				00670F1E2C14223E0048ECD9 /* FavoriteState.swift in Sources */,
 				00ABCAE32C12DABD0098CB84 /* Double+Ext.swift in Sources */,
 				00BF1E762C1174DE00BCCFC8 /* SearchIntent.swift in Sources */,
