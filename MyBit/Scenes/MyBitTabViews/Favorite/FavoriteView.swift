@@ -21,11 +21,13 @@ struct FavoriteView: View {
             ScrollView(showsIndicators: false) {
                 LazyVGrid(columns: columns, spacing: 20) {
                     ForEach(intent.state.coinMarkets, id: \.id) { coinMarket in
-                        MyFavoriteCell(market: coinMarket, bottomStackAlignment: .trailing)
-                            .padding()
-                            .background(.customWhite)
-                            .clipShape(RoundedRectangle(cornerRadius: 16))
-                            .shadow(radius: 16)
+                        NavigationLink(destination: DetailView(id: coinMarket.id)) {
+                            MyFavoriteCell(market: coinMarket, bottomStackAlignment: .trailing)
+                                .padding()
+                                .background(.customWhite)
+                                .clipShape(RoundedRectangle(cornerRadius: 16))
+                                .shadow(radius: 16)
+                        }
                     }
                 }
                 .padding(.horizontal)
