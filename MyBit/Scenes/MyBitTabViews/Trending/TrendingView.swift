@@ -17,8 +17,8 @@ struct TrendingView: View {
                 Section {
                     ScrollView(.horizontal, showsIndicators: false)  {
                         HStack(spacing: 16) {
-                            ForEach(0..<10) { index in
-                                MyFavoriteCell(bottomStackAlignment: .leading)
+                            ForEach(intent.state.coinMarkets, id: \.id) { coinMarket in
+                                MyFavoriteCell(market: coinMarket, bottomStackAlignment: .leading)
                                     .frame(width: 200, height: 130, alignment: .leading)
                                     .padding()
                                     .background(.customLightGray)
@@ -78,6 +78,7 @@ struct TrendingView: View {
                 
             }
             .onAppear {
+                intent.send(.getFavorites)
                 intent.send(.getTrending)
             }
         }
@@ -90,26 +91,27 @@ struct TrendingView: View {
 
 struct MyFavoriteCell: View {
     
+    let market: Market
     let bottomStackAlignment: HorizontalAlignment
     
     var body: some View {
-        VStack(alignment: .leading) {
-            CoinInfoView()
+        VStack(alignment: .leading) {            
+            ItemInfoView(item: market)
             
             Spacer()
             
             VStack(alignment: bottomStackAlignment, spacing: 4) {
-                Text("₩69,345,234")
+                Text("₩\(market.current_price, specifier: "%.0f")")
                     .font(.system(size: 20))
                     .bold()
                     .lineLimit(1)
-                Text("+0.64%")
+                Text("\(market.price_change_percentage_24h, specifier: "%.2f")%")
                     .font(.system(size: 18))
                     .fontWeight(.semibold)
-                    .foregroundStyle(.customRed)
+                    .foregroundStyle(market.price_change_percentage_24h > 0 ? .customRed : .customBlue)
                     .lineLimit(1)
                     .padding(8)
-                    .background(.customLightRed)
+                    .background(market.price_change_percentage_24h > 0 ? .customLightRed : .customSkyBlue)
                     .clipShape(RoundedRectangle(cornerRadius: 4))
             }
         }

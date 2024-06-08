@@ -9,7 +9,7 @@ import SwiftUI
 
 struct FavoriteView: View {
     
-    let data = (1...100).map { "Item \($0)" }
+    @StateObject private var intent = FavoriteIntent()
     
     let columns = [
         GridItem(.flexible()), GridItem(.flexible())
@@ -20,8 +20,8 @@ struct FavoriteView: View {
             // TODO: - showsIndicators iOS 16 대응
             ScrollView(showsIndicators: false) {
                 LazyVGrid(columns: columns, spacing: 20) {
-                    ForEach(data, id: \.self) { item in
-                        MyFavoriteCell(bottomStackAlignment: .trailing)
+                    ForEach(intent.state.coinMarkets, id: \.id) { coinMarket in
+                        MyFavoriteCell(market: coinMarket, bottomStackAlignment: .trailing)
                             .padding()
                             .background(.customWhite)
                             .clipShape(RoundedRectangle(cornerRadius: 16))
@@ -30,6 +30,9 @@ struct FavoriteView: View {
                 }
                 .padding(.horizontal)
             }
+        }
+        .onAppear {
+            intent.send(.getFavorites)
         }
     }
 }

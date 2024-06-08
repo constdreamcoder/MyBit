@@ -13,7 +13,6 @@ struct SearchState: StateType {
     var errorMessage: String? = nil
 }
 
-
 struct SearchedCoin {
     var coin: Coin
     var isFavorite: Bool

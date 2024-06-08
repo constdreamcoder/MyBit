@@ -11,6 +11,7 @@ import Combine
 final class TrendingIntent: ObservableObject {
     
     enum Action {
+        case getFavorites
         case getTrending
     }
     
@@ -20,6 +21,8 @@ final class TrendingIntent: ObservableObject {
     
     func send(_ action: Action) {
         switch action {
+        case .getFavorites:
+            getFavorites()
         case .getTrending:
             getTrending()
         }
@@ -27,6 +30,29 @@ final class TrendingIntent: ObservableObject {
 }
 
 extension TrendingIntent {
+    private func getFavorites() {
+        state.isLoading = true
+        state.errorMessage = nil
+        
+        let ids: [String] = FavoriteRepository.shared.read().map { $0.id }
+        
+        CoingeckoManager.fetchCoinMarkets(ids)
+            .sink { [weak self] completion in
+                guard let self else { return }
+                
+                if case .failure(let error) = completion {
+                    print("errors", error)
+                    state.errorMessage = "Failed to fetch data: \(error.localizedDescription)"
+                }
+                state.isLoading = false
+            } receiveValue: { [weak self] coinMarkets in
+                guard let self else { return }
+
+                state.coinMarkets = coinMarkets
+            }
+            .store(in: &cancelable)
+    }
+    
     private func getTrending() {
         state.isLoading = true
         state.errorMessage = nil

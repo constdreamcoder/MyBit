@@ -13,6 +13,7 @@ struct TrendingState: StateType {
     typealias TrendingNFTType = (index: Int, nft: TrendingNFT)
     
     var isLoading: Bool = false
+    var coinMarkets: [Market] = []
     var trendingCoins: [[TrendingCoinType]] = []
     var trendingNFTs: [[TrendingNFTType]] = []
     var errorMessage: String? = nil

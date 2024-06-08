@@ -53,7 +53,7 @@ extension DetailIntent {
                 state.isFavorite = FavoriteRepository.shared.read().contains(where: { $0.id == market.id })
                 
                 state.topViewDatas = .init(
-                    image: market.image,
+                    image: market.thumb,
                     name: market.name,
                     currentPrice: market.current_price,
                     priceChangePercentage24h: market.price_change_percentage_24h
@@ -84,7 +84,7 @@ extension DetailIntent {
                 id: tappedMarket.id,
                 name: tappedMarket.name,
                 symbol: tappedMarket.symbol,
-                imageURLString: tappedMarket.image
+                imageURLString: tappedMarket.thumb
             )
             FavoriteRepository.shared.write(favorite)
             FavoriteRepository.shared.getLocationOfDefaultRealm()
