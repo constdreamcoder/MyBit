@@ -11,16 +11,12 @@ import Combine
 final class ExchangeIntent: ObservableObject {
     
     enum Action {
-       case getCurrentPrices
+        case getCurrentPrices
     }
     
     @Published private(set) var state = ExchangeState()
     
     var cancelable = Set<AnyCancellable>()
-    
-    init() {
-        getRealtimeTickers()
-    }
         
     func send(_ action: Action) {
         switch action {
@@ -31,12 +27,13 @@ final class ExchangeIntent: ObservableObject {
 }
 
 extension ExchangeIntent {
-    private func getRealtimeTickers() {
+    private func getRealtimeTickers(_ marketCodeList: [MarketCode]) {
         WebSocketManager.shared.openWebSocket()
         
+        let marketCodeIdList = marketCodeList.map { $0.market }
         WebSocketManager.shared.send(
             """
-            [{"ticket":"test"},{"type":"ticker","codes":["KRW-BTC", "KRW-ETH"]}]
+            [{"ticket":"test"},{"type":"ticker","codes":\(marketCodeIdList)}]
             """
         )
         
@@ -50,7 +47,7 @@ extension ExchangeIntent {
                         return CurrentPrice(
                             market: ticker.code,
                             tradePrice: ticker.trade_price,
-                            change: ticker.change,
+                            change: CurrentPrice.Change(rawValue: ticker.change) ?? .even,
                             signedChangePrice: ticker.signed_change_price,
                             signedChangeRate: ticker.signed_change_rate,
                             accTradePrice24H: ticker.acc_trade_price_24h
@@ -80,6 +77,7 @@ extension ExchangeIntent {
             } receiveValue: { [weak self] marketCodeList in
                 guard let self else { return }
                 
+                getRealtimeTickers(marketCodeList)
                 getCurrentPrices(marketCodeList)
             }
             .store(in: &cancelable)

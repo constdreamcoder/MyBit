@@ -8,13 +8,20 @@
 import Foundation
 
 struct CurrentPrice: Identifiable, Hashable, Decodable {
+    
+    enum Change: String, Decodable {
+        case rise = "RISE"
+        case even = "EVEN"
+        case fall = "FALL"
+    }
+    
     let id = UUID()
     let market, tradeDate, tradeTime, tradeDateKst: String
     let tradeTimeKst: String
     let tradeTimestamp: Int
     let openingPrice, highPrice, lowPrice, tradePrice: Double
     let prevClosingPrice: Double
-    let change: String
+    let change: Change
     let changePrice, changeRate, signedChangePrice, signedChangeRate: Double
     let tradeVolume, accTradePrice, accTradePrice24H, accTradeVolume: Double
     let accTradeVolume24H, highest52_WeekPrice: Double
@@ -35,7 +42,7 @@ struct CurrentPrice: Identifiable, Hashable, Decodable {
         case lowPrice = "low_price"
         case tradePrice = "trade_price"
         case prevClosingPrice = "prev_closing_price"
-        case change
+        case change = "change"
         case changePrice = "change_price"
         case changeRate = "change_rate"
         case signedChangePrice = "signed_change_price"
@@ -52,6 +59,37 @@ struct CurrentPrice: Identifiable, Hashable, Decodable {
         case timestamp
     }
     
+    init(from decoder: any Decoder) throws {
+        let container = try decoder.container(keyedBy: CodingKeys.self)
+        self.market = try container.decode(String.self, forKey: .market)
+        self.tradeDate = try container.decode(String.self, forKey: .tradeDate)
+        self.tradeTime = try container.decode(String.self, forKey: .tradeTime)
+        self.tradeDateKst = try container.decode(String.self, forKey: .tradeDateKst)
+        self.tradeTimeKst = try container.decode(String.self, forKey: .tradeTimeKst)
+        self.tradeTimestamp = try container.decode(Int.self, forKey: .tradeTimestamp)
+        self.openingPrice = try container.decode(Double.self, forKey: .openingPrice)
+        self.highPrice = try container.decode(Double.self, forKey: .highPrice)
+        self.lowPrice = try container.decode(Double.self, forKey: .lowPrice)
+        self.tradePrice = try container.decode(Double.self, forKey: .tradePrice)
+        self.prevClosingPrice = try container.decode(Double.self, forKey: .prevClosingPrice)
+        let changeString = try container.decode(String.self, forKey: .change)
+        self.change = Change(rawValue: changeString) ?? .even
+        self.changePrice = try container.decode(Double.self, forKey: .changePrice)
+        self.changeRate = try container.decode(Double.self, forKey: .changeRate)
+        self.signedChangePrice = try container.decode(Double.self, forKey: .signedChangePrice)
+        self.signedChangeRate = try container.decode(Double.self, forKey: .signedChangeRate)
+        self.tradeVolume = try container.decode(Double.self, forKey: .tradeVolume)
+        self.accTradePrice = try container.decode(Double.self, forKey: .accTradePrice)
+        self.accTradePrice24H = try container.decode(Double.self, forKey: .accTradePrice24H)
+        self.accTradeVolume = try container.decode(Double.self, forKey: .accTradeVolume)
+        self.accTradeVolume24H = try container.decode(Double.self, forKey: .accTradeVolume24H)
+        self.highest52_WeekPrice = try container.decode(Double.self, forKey: .highest52_WeekPrice)
+        self.highest52_WeekDate = try container.decode(String.self, forKey: .highest52_WeekDate)
+        self.lowest52_WeekPrice = try container.decode(Double.self, forKey: .lowest52_WeekPrice)
+        self.lowest52_WeekDate = try container.decode(String.self, forKey: .lowest52_WeekDate)
+        self.timestamp = try container.decode(Int.self, forKey: .timestamp)
+    }
+    
     init(market: String,
          tradeDate: String = "",
          tradeTime: String = "",
@@ -63,7 +101,7 @@ struct CurrentPrice: Identifiable, Hashable, Decodable {
          lowPrice: Double = 0,
          tradePrice: Double,
          prevClosingPrice: Double = 0,
-         change: String,
+         change: Change,
          changePrice: Double = 0,
          changeRate: Double = 0,
          signedChangePrice: Double,

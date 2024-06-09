@@ -32,6 +32,7 @@
 		00670F312C149CE50048ECD9 /* UpbitAPI.swift in Sources */ = {isa = PBXBuildFile; fileRef = 00670F302C149CE50048ECD9 /* UpbitAPI.swift */; };
 		00670F332C149EE60048ECD9 /* UpbitManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = 00670F322C149EE60048ECD9 /* UpbitManager.swift */; };
 		00670F352C14A0EE0048ECD9 /* MarketCode.swift in Sources */ = {isa = PBXBuildFile; fileRef = 00670F342C14A0EE0048ECD9 /* MarketCode.swift */; };
+		008889C42C15C3EB008619A8 /* BitcoinChangeModifier.swift in Sources */ = {isa = PBXBuildFile; fileRef = 008889C32C15C3EB008619A8 /* BitcoinChangeModifier.swift */; };
 		00ABCADC2C12C4820098CB84 /* Array+Ext.swift in Sources */ = {isa = PBXBuildFile; fileRef = 00ABCADB2C12C4820098CB84 /* Array+Ext.swift */; };
 		00ABCADE2C12D1340098CB84 /* ItemEssentialElements.swift in Sources */ = {isa = PBXBuildFile; fileRef = 00ABCADD2C12D1340098CB84 /* ItemEssentialElements.swift */; };
 		00ABCAE02C12D4170098CB84 /* TrendingRankingType.swift in Sources */ = {isa = PBXBuildFile; fileRef = 00ABCADF2C12D4170098CB84 /* TrendingRankingType.swift */; };
@@ -98,6 +99,7 @@
 		00670F302C149CE50048ECD9 /* UpbitAPI.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UpbitAPI.swift; sourceTree = "<group>"; };
 		00670F322C149EE60048ECD9 /* UpbitManager.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UpbitManager.swift; sourceTree = "<group>"; };
 		00670F342C14A0EE0048ECD9 /* MarketCode.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MarketCode.swift; sourceTree = "<group>"; };
+		008889C32C15C3EB008619A8 /* BitcoinChangeModifier.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BitcoinChangeModifier.swift; sourceTree = "<group>"; };
 		00ABCADB2C12C4820098CB84 /* Array+Ext.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "Array+Ext.swift"; sourceTree = "<group>"; };
 		00ABCADD2C12D1340098CB84 /* ItemEssentialElements.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ItemEssentialElements.swift; sourceTree = "<group>"; };
 		00ABCADF2C12D4170098CB84 /* TrendingRankingType.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TrendingRankingType.swift; sourceTree = "<group>"; };
@@ -285,6 +287,14 @@
 			path = Upbit;
 			sourceTree = "<group>";
 		};
+		008889C22C15C3C0008619A8 /* CustomModifiers */ = {
+			isa = PBXGroup;
+			children = (
+				008889C32C15C3EB008619A8 /* BitcoinChangeModifier.swift */,
+			);
+			path = CustomModifiers;
+			sourceTree = "<group>";
+		};
 		00ABCADA2C12C4710098CB84 /* Extensions */ = {
 			isa = PBXGroup;
 			children = (
@@ -367,6 +377,7 @@
 		00BF1E862C11844000BCCFC8 /* Helpers */ = {
 			isa = PBXGroup;
 			children = (
+				008889C22C15C3C0008619A8 /* CustomModifiers */,
 				00ABCAEB2C13039E0098CB84 /* UIKitComponents */,
 				00ABCADA2C12C4710098CB84 /* Extensions */,
 				00175FA92C11EC3C00D77BB6 /* CustomViews */,
@@ -507,6 +518,7 @@
 				0006CE2E2C0F13E900BA213A /* NetworkErrors.swift in Sources */,
 				00670F292C1496240048ECD9 /* ExchangeState.swift in Sources */,
 				00BF1E812C117FBE00BCCFC8 /* DetailView.swift in Sources */,
+				008889C42C15C3EB008619A8 /* BitcoinChangeModifier.swift in Sources */,
 				00ABCB062C1339960098CB84 /* FavoriteRepository.swift in Sources */,
 				00670F252C1495D90048ECD9 /* WebSocketManager.swift in Sources */,
 				00670F332C149EE60048ECD9 /* UpbitManager.swift in Sources */,
@@ -656,6 +668,7 @@
 				CODE_SIGN_STYLE = Automatic;
 				CURRENT_PROJECT_VERSION = 1;
 				DEVELOPMENT_ASSET_PATHS = "\"MyBit/Preview Content\"";
+				DEVELOPMENT_TEAM = 59V6NJY3X6;
 				ENABLE_PREVIEWS = YES;
 				GENERATE_INFOPLIST_FILE = YES;
 				INFOPLIST_KEY_CFBundleDisplayName = MyBit;
@@ -690,6 +703,7 @@
 				CODE_SIGN_STYLE = Automatic;
 				CURRENT_PROJECT_VERSION = 1;
 				DEVELOPMENT_ASSET_PATHS = "\"MyBit/Preview Content\"";
+				DEVELOPMENT_TEAM = 59V6NJY3X6;
 				ENABLE_PREVIEWS = YES;
 				GENERATE_INFOPLIST_FILE = YES;
 				INFOPLIST_KEY_CFBundleDisplayName = MyBit;
