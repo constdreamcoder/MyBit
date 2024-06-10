@@ -11,6 +11,7 @@ struct OnboardingView: View {
     
     @Binding var isFirstLaunching: Bool
     @State private var isBottomSheetPresented: Bool = false
+    @State private var isAccountViewPresented: Bool = false
     
     var body: some View {
         ZStack(alignment: .bottom) {
@@ -34,7 +35,7 @@ struct OnboardingView: View {
                 .bottomButtonShape(.brandPoint)
 
                 Spacer()
-                    .frame(height: 24)
+                    .frame(height: 46)
             }
             
             if isBottomSheetPresented {
@@ -73,6 +74,7 @@ struct OnboardingView: View {
                         
                         CustomButton {
                             print("또는 새롭게 회원가입 하기")
+                            isAccountViewPresented = true
                         } label: {
                             HStack{
                                 Text("또는")
@@ -87,6 +89,9 @@ struct OnboardingView: View {
             }
         }
         .animation(.interactiveSpring, value: isBottomSheetPresented)
+        .sheet(isPresented: $isAccountViewPresented, content: {
+            SignUpView(isPresented: $isAccountViewPresented)
+        })
     }
 }
 

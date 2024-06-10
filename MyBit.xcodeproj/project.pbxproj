@@ -67,6 +67,11 @@
 		00D0EAA12C16C54900622339 /* RoundedCorner.swift in Sources */ = {isa = PBXBuildFile; fileRef = 00D0EAA02C16C54900622339 /* RoundedCorner.swift */; };
 		00D0EAA52C16CF4A00622339 /* CustomButton.swift in Sources */ = {isa = PBXBuildFile; fileRef = 00D0EAA42C16CF4A00622339 /* CustomButton.swift */; };
 		00D0EAA72C16D41F00622339 /* BottomButtonModifier.swift in Sources */ = {isa = PBXBuildFile; fileRef = 00D0EAA62C16D41F00622339 /* BottomButtonModifier.swift */; };
+		00D0EAAA2C16DB7B00622339 /* SignUpView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 00D0EAA92C16DB7B00622339 /* SignUpView.swift */; };
+		00D0EAAC2C16EA3900622339 /* SignUpState.swift in Sources */ = {isa = PBXBuildFile; fileRef = 00D0EAAB2C16EA3900622339 /* SignUpState.swift */; };
+		00D0EAAE2C16EA4100622339 /* SignUpIntent.swift in Sources */ = {isa = PBXBuildFile; fileRef = 00D0EAAD2C16EA4100622339 /* SignUpIntent.swift */; };
+		00D0EAB02C16FAA700622339 /* BottomViewGrabber.swift in Sources */ = {isa = PBXBuildFile; fileRef = 00D0EAAF2C16FAA700622339 /* BottomViewGrabber.swift */; };
+		00D0EAB22C17064F00622339 /* InputView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 00D0EAB12C17064F00622339 /* InputView.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXCopyFilesBuildPhase section */
@@ -140,6 +145,11 @@
 		00D0EAA02C16C54900622339 /* RoundedCorner.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RoundedCorner.swift; sourceTree = "<group>"; };
 		00D0EAA42C16CF4A00622339 /* CustomButton.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CustomButton.swift; sourceTree = "<group>"; };
 		00D0EAA62C16D41F00622339 /* BottomButtonModifier.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BottomButtonModifier.swift; sourceTree = "<group>"; };
+		00D0EAA92C16DB7B00622339 /* SignUpView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SignUpView.swift; sourceTree = "<group>"; };
+		00D0EAAB2C16EA3900622339 /* SignUpState.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SignUpState.swift; sourceTree = "<group>"; };
+		00D0EAAD2C16EA4100622339 /* SignUpIntent.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SignUpIntent.swift; sourceTree = "<group>"; };
+		00D0EAAF2C16FAA700622339 /* BottomViewGrabber.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BottomViewGrabber.swift; sourceTree = "<group>"; };
+		00D0EAB12C17064F00622339 /* InputView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = InputView.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -232,6 +242,8 @@
 				00175FAA2C11EC4D00D77BB6 /* CustomNavigationView.swift */,
 				00ABCAE62C12EE4A0098CB84 /* FavoriteStarView.swift */,
 				00D0EAA42C16CF4A00622339 /* CustomButton.swift */,
+				00D0EAAF2C16FAA700622339 /* BottomViewGrabber.swift */,
+				00D0EAB12C17064F00622339 /* InputView.swift */,
 			);
 			path = CustomViews;
 			sourceTree = "<group>";
@@ -446,6 +458,7 @@
 				00D0EA9B2C16AC7200622339 /* ContentView.swift */,
 				008889CA2C160AD3008619A8 /* LaunchScreen */,
 				00BF1E8A2C1185F600BCCFC8 /* MyBitTabViews */,
+				00D0EAA82C16DB3300622339 /* SignUp */,
 				00D0EA9D2C16B23A00622339 /* BottomSheet */,
 			);
 			path = Content;
@@ -457,6 +470,16 @@
 				00D0EA9E2C16B27D00622339 /* BottomSheetView.swift */,
 			);
 			path = BottomSheet;
+			sourceTree = "<group>";
+		};
+		00D0EAA82C16DB3300622339 /* SignUp */ = {
+			isa = PBXGroup;
+			children = (
+				00D0EAA92C16DB7B00622339 /* SignUpView.swift */,
+				00D0EAAB2C16EA3900622339 /* SignUpState.swift */,
+				00D0EAAD2C16EA4100622339 /* SignUpIntent.swift */,
+			);
+			path = SignUp;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -559,6 +582,7 @@
 				00BF1E7E2C117E0200BCCFC8 /* Market.swift in Sources */,
 				00D0EAA72C16D41F00622339 /* BottomButtonModifier.swift in Sources */,
 				00670F352C14A0EE0048ECD9 /* MarketCode.swift in Sources */,
+				00D0EAB02C16FAA700622339 /* BottomViewGrabber.swift in Sources */,
 				00670F202C1422480048ECD9 /* FavoriteIntent.swift in Sources */,
 				00BF1E8C2C11872300BCCFC8 /* FavoriteView.swift in Sources */,
 				0006CE302C0F170100BA213A /* TrendingView.swift in Sources */,
@@ -567,6 +591,8 @@
 				00ABCAE72C12EE4A0098CB84 /* FavoriteStarView.swift in Sources */,
 				00ABCAE02C12D4170098CB84 /* TrendingRankingType.swift in Sources */,
 				00D0EAA52C16CF4A00622339 /* CustomButton.swift in Sources */,
+				00D0EAAC2C16EA3900622339 /* SignUpState.swift in Sources */,
+				00D0EAB22C17064F00622339 /* InputView.swift in Sources */,
 				00ABCADE2C12D1340098CB84 /* ItemEssentialElements.swift in Sources */,
 				00D0EA992C16A52E00622339 /* SplashTopView.swift in Sources */,
 				00D0EA9F2C16B27D00622339 /* BottomSheetView.swift in Sources */,
@@ -580,6 +606,7 @@
 				008889C42C15C3EB008619A8 /* BitcoinChangeModifier.swift in Sources */,
 				00ABCB062C1339960098CB84 /* FavoriteRepository.swift in Sources */,
 				00670F252C1495D90048ECD9 /* WebSocketManager.swift in Sources */,
+				00D0EAAE2C16EA4100622339 /* SignUpIntent.swift in Sources */,
 				00670F332C149EE60048ECD9 /* UpbitManager.swift in Sources */,
 				00ABCAEF2C1334130098CB84 /* String+Ext.swift in Sources */,
 				0006CE2A2C0F08A500BA213A /* Trending.swift in Sources */,
@@ -590,6 +617,7 @@
 				00BF1E762C1174DE00BCCFC8 /* SearchIntent.swift in Sources */,
 				00BF1E702C11742000BCCFC8 /* Search.swift in Sources */,
 				00BF1E832C117FC900BCCFC8 /* DetailState.swift in Sources */,
+				00D0EAAA2C16DB7B00622339 /* SignUpView.swift in Sources */,
 				0006CE272C0F068100BA213A /* APIKeys.swift in Sources */,
 				0037D87B2C0EF11A00C24E7B /* MyBitApp.swift in Sources */,
 				00175FAB2C11EC4D00D77BB6 /* CustomNavigationView.swift in Sources */,

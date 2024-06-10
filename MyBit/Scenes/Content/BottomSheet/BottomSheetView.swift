@@ -35,9 +35,7 @@ struct BottomSheetView<Content>: View where Content: View {
                     .fill(.white)
                     .frame(height: 30)
                     .overlay(
-                        RoundedRectangle(cornerRadius: 100)
-                            .foregroundColor(.gray)
-                            .frame(width: 30, height: 5)
+                        BottomViewGrabber()
                     )
                 
                 self.content
@@ -76,4 +74,3 @@ struct BottomSheetView<Content>: View where Content: View {
         Text("안뇽")
     }
 }
-
