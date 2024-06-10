@@ -33,6 +33,9 @@
 		00670F332C149EE60048ECD9 /* UpbitManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = 00670F322C149EE60048ECD9 /* UpbitManager.swift */; };
 		00670F352C14A0EE0048ECD9 /* MarketCode.swift in Sources */ = {isa = PBXBuildFile; fileRef = 00670F342C14A0EE0048ECD9 /* MarketCode.swift */; };
 		008889C42C15C3EB008619A8 /* BitcoinChangeModifier.swift in Sources */ = {isa = PBXBuildFile; fileRef = 008889C32C15C3EB008619A8 /* BitcoinChangeModifier.swift */; };
+		008889C92C160AA9008619A8 /* SplashView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 008889C82C160AA9008619A8 /* SplashView.swift */; };
+		008889CC2C160AE8008619A8 /* LaunchScreenView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 008889CB2C160AE8008619A8 /* LaunchScreenView.swift */; };
+		008889CE2C160B61008619A8 /* OnboardingView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 008889CD2C160B61008619A8 /* OnboardingView.swift */; };
 		00ABCADC2C12C4820098CB84 /* Array+Ext.swift in Sources */ = {isa = PBXBuildFile; fileRef = 00ABCADB2C12C4820098CB84 /* Array+Ext.swift */; };
 		00ABCADE2C12D1340098CB84 /* ItemEssentialElements.swift in Sources */ = {isa = PBXBuildFile; fileRef = 00ABCADD2C12D1340098CB84 /* ItemEssentialElements.swift */; };
 		00ABCAE02C12D4170098CB84 /* TrendingRankingType.swift in Sources */ = {isa = PBXBuildFile; fileRef = 00ABCADF2C12D4170098CB84 /* TrendingRankingType.swift */; };
@@ -58,6 +61,8 @@
 		00BF1E892C1185CB00BCCFC8 /* MyBitTabView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 00BF1E882C1185CB00BCCFC8 /* MyBitTabView.swift */; };
 		00BF1E8C2C11872300BCCFC8 /* FavoriteView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 00BF1E8B2C11872300BCCFC8 /* FavoriteView.swift */; };
 		00BF1E8E2C11873400BCCFC8 /* ProfileView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 00BF1E8D2C11873400BCCFC8 /* ProfileView.swift */; };
+		00D0EA992C16A52E00622339 /* SplashTopView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 00D0EA982C16A52E00622339 /* SplashTopView.swift */; };
+		00D0EA9C2C16AC7200622339 /* ContentView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 00D0EA9B2C16AC7200622339 /* ContentView.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXCopyFilesBuildPhase section */
@@ -100,6 +105,9 @@
 		00670F322C149EE60048ECD9 /* UpbitManager.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UpbitManager.swift; sourceTree = "<group>"; };
 		00670F342C14A0EE0048ECD9 /* MarketCode.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MarketCode.swift; sourceTree = "<group>"; };
 		008889C32C15C3EB008619A8 /* BitcoinChangeModifier.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BitcoinChangeModifier.swift; sourceTree = "<group>"; };
+		008889C82C160AA9008619A8 /* SplashView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SplashView.swift; sourceTree = "<group>"; };
+		008889CB2C160AE8008619A8 /* LaunchScreenView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LaunchScreenView.swift; sourceTree = "<group>"; };
+		008889CD2C160B61008619A8 /* OnboardingView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = OnboardingView.swift; sourceTree = "<group>"; };
 		00ABCADB2C12C4820098CB84 /* Array+Ext.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "Array+Ext.swift"; sourceTree = "<group>"; };
 		00ABCADD2C12D1340098CB84 /* ItemEssentialElements.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ItemEssentialElements.swift; sourceTree = "<group>"; };
 		00ABCADF2C12D4170098CB84 /* TrendingRankingType.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TrendingRankingType.swift; sourceTree = "<group>"; };
@@ -122,6 +130,8 @@
 		00BF1E882C1185CB00BCCFC8 /* MyBitTabView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MyBitTabView.swift; sourceTree = "<group>"; };
 		00BF1E8B2C11872300BCCFC8 /* FavoriteView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FavoriteView.swift; sourceTree = "<group>"; };
 		00BF1E8D2C11873400BCCFC8 /* ProfileView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ProfileView.swift; sourceTree = "<group>"; };
+		00D0EA982C16A52E00622339 /* SplashTopView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SplashTopView.swift; sourceTree = "<group>"; };
+		00D0EA9B2C16AC7200622339 /* ContentView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ContentView.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -145,6 +155,8 @@
 				00BF1E882C1185CB00BCCFC8 /* MyBitTabView.swift */,
 				00BF1E8A2C1185F600BCCFC8 /* MyBitTabViews */,
 				00BF1E7F2C117FA800BCCFC8 /* Detail */,
+				008889CA2C160AD3008619A8 /* LaunchScreen */,
+				00D0EA9A2C16AC6500622339 /* Content */,
 			);
 			path = Scenes;
 			sourceTree = "<group>";
@@ -295,6 +307,17 @@
 			path = CustomModifiers;
 			sourceTree = "<group>";
 		};
+		008889CA2C160AD3008619A8 /* LaunchScreen */ = {
+			isa = PBXGroup;
+			children = (
+				008889CB2C160AE8008619A8 /* LaunchScreenView.swift */,
+				008889C82C160AA9008619A8 /* SplashView.swift */,
+				008889CD2C160B61008619A8 /* OnboardingView.swift */,
+				00D0EA982C16A52E00622339 /* SplashTopView.swift */,
+			);
+			path = LaunchScreen;
+			sourceTree = "<group>";
+		};
 		00ABCADA2C12C4710098CB84 /* Extensions */ = {
 			isa = PBXGroup;
 			children = (
@@ -408,6 +431,14 @@
 			path = MyBitTabViews;
 			sourceTree = "<group>";
 		};
+		00D0EA9A2C16AC6500622339 /* Content */ = {
+			isa = PBXGroup;
+			children = (
+				00D0EA9B2C16AC7200622339 /* ContentView.swift */,
+			);
+			path = Content;
+			sourceTree = "<group>";
+		};
 /* End PBXGroup section */
 
 /* Begin PBXNativeTarget section */
@@ -498,7 +529,9 @@
 				00ABCAED2C1303C20098CB84 /* ChartView.swift in Sources */,
 				0006CE2C2C0F0A8400BA213A /* CoingeckoManager.swift in Sources */,
 				00BF1E742C1174D600BCCFC8 /* SearchState.swift in Sources */,
+				008889CC2C160AE8008619A8 /* LaunchScreenView.swift in Sources */,
 				00ABCB092C1339C20098CB84 /* Favorite.swift in Sources */,
+				00D0EA9C2C16AC7200622339 /* ContentView.swift in Sources */,
 				0006CE252C0F055C00BA213A /* CoingeckoAPI.swift in Sources */,
 				00670F232C1488A00048ECD9 /* ExchangeView.swift in Sources */,
 				00BF1E892C1185CB00BCCFC8 /* MyBitTabView.swift in Sources */,
@@ -508,9 +541,12 @@
 				00670F202C1422480048ECD9 /* FavoriteIntent.swift in Sources */,
 				00BF1E8C2C11872300BCCFC8 /* FavoriteView.swift in Sources */,
 				0006CE302C0F170100BA213A /* TrendingView.swift in Sources */,
+				008889CE2C160B61008619A8 /* OnboardingView.swift in Sources */,
+				008889C92C160AA9008619A8 /* SplashView.swift in Sources */,
 				00ABCAE72C12EE4A0098CB84 /* FavoriteStarView.swift in Sources */,
 				00ABCAE02C12D4170098CB84 /* TrendingRankingType.swift in Sources */,
 				00ABCADE2C12D1340098CB84 /* ItemEssentialElements.swift in Sources */,
+				00D0EA992C16A52E00622339 /* SplashTopView.swift in Sources */,
 				00670F2D2C149C7E0048ECD9 /* CurrentPrice.swift in Sources */,
 				00ABCADC2C12C4820098CB84 /* Array+Ext.swift in Sources */,
 				00670F272C1496150048ECD9 /* Ticker.swift in Sources */,
