@@ -12,7 +12,7 @@ struct FavoriteStarView: View {
     let isFavorite: Bool
     
     var body: some View {
-        Image(isFavorite ? "btn_star_fill" : "btn_star")
+        Image(isFavorite ? .btnStarFill : .btnStar)
             .resizable()
             .frame(width: 28, height: 28)
     }

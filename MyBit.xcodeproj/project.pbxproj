@@ -63,6 +63,10 @@
 		00BF1E8E2C11873400BCCFC8 /* ProfileView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 00BF1E8D2C11873400BCCFC8 /* ProfileView.swift */; };
 		00D0EA992C16A52E00622339 /* SplashTopView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 00D0EA982C16A52E00622339 /* SplashTopView.swift */; };
 		00D0EA9C2C16AC7200622339 /* ContentView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 00D0EA9B2C16AC7200622339 /* ContentView.swift */; };
+		00D0EA9F2C16B27D00622339 /* BottomSheetView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 00D0EA9E2C16B27D00622339 /* BottomSheetView.swift */; };
+		00D0EAA12C16C54900622339 /* RoundedCorner.swift in Sources */ = {isa = PBXBuildFile; fileRef = 00D0EAA02C16C54900622339 /* RoundedCorner.swift */; };
+		00D0EAA52C16CF4A00622339 /* CustomButton.swift in Sources */ = {isa = PBXBuildFile; fileRef = 00D0EAA42C16CF4A00622339 /* CustomButton.swift */; };
+		00D0EAA72C16D41F00622339 /* BottomButtonModifier.swift in Sources */ = {isa = PBXBuildFile; fileRef = 00D0EAA62C16D41F00622339 /* BottomButtonModifier.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXCopyFilesBuildPhase section */
@@ -132,6 +136,10 @@
 		00BF1E8D2C11873400BCCFC8 /* ProfileView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ProfileView.swift; sourceTree = "<group>"; };
 		00D0EA982C16A52E00622339 /* SplashTopView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SplashTopView.swift; sourceTree = "<group>"; };
 		00D0EA9B2C16AC7200622339 /* ContentView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ContentView.swift; sourceTree = "<group>"; };
+		00D0EA9E2C16B27D00622339 /* BottomSheetView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BottomSheetView.swift; sourceTree = "<group>"; };
+		00D0EAA02C16C54900622339 /* RoundedCorner.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RoundedCorner.swift; sourceTree = "<group>"; };
+		00D0EAA42C16CF4A00622339 /* CustomButton.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CustomButton.swift; sourceTree = "<group>"; };
+		00D0EAA62C16D41F00622339 /* BottomButtonModifier.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BottomButtonModifier.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -152,10 +160,6 @@
 		0006CE172C0EF2E200BA213A /* Scenes */ = {
 			isa = PBXGroup;
 			children = (
-				00BF1E882C1185CB00BCCFC8 /* MyBitTabView.swift */,
-				00BF1E8A2C1185F600BCCFC8 /* MyBitTabViews */,
-				00BF1E7F2C117FA800BCCFC8 /* Detail */,
-				008889CA2C160AD3008619A8 /* LaunchScreen */,
 				00D0EA9A2C16AC6500622339 /* Content */,
 			);
 			path = Scenes;
@@ -227,6 +231,7 @@
 			children = (
 				00175FAA2C11EC4D00D77BB6 /* CustomNavigationView.swift */,
 				00ABCAE62C12EE4A0098CB84 /* FavoriteStarView.swift */,
+				00D0EAA42C16CF4A00622339 /* CustomButton.swift */,
 			);
 			path = CustomViews;
 			sourceTree = "<group>";
@@ -303,6 +308,8 @@
 			isa = PBXGroup;
 			children = (
 				008889C32C15C3EB008619A8 /* BitcoinChangeModifier.swift */,
+				00D0EAA02C16C54900622339 /* RoundedCorner.swift */,
+				00D0EAA62C16D41F00622339 /* BottomButtonModifier.swift */,
 			);
 			path = CustomModifiers;
 			sourceTree = "<group>";
@@ -422,11 +429,13 @@
 		00BF1E8A2C1185F600BCCFC8 /* MyBitTabViews */ = {
 			isa = PBXGroup;
 			children = (
+				00BF1E882C1185CB00BCCFC8 /* MyBitTabView.swift */,
 				0006CE182C0EF2EE00BA213A /* Trending */,
 				0006CE192C0EF2F900BA213A /* Search */,
 				00670F212C1488650048ECD9 /* Exchange */,
 				0006CE1A2C0EF30500BA213A /* Favorite */,
 				0006CE1B2C0EF30D00BA213A /* Profile */,
+				00BF1E7F2C117FA800BCCFC8 /* Detail */,
 			);
 			path = MyBitTabViews;
 			sourceTree = "<group>";
@@ -435,8 +444,19 @@
 			isa = PBXGroup;
 			children = (
 				00D0EA9B2C16AC7200622339 /* ContentView.swift */,
+				008889CA2C160AD3008619A8 /* LaunchScreen */,
+				00BF1E8A2C1185F600BCCFC8 /* MyBitTabViews */,
+				00D0EA9D2C16B23A00622339 /* BottomSheet */,
 			);
 			path = Content;
+			sourceTree = "<group>";
+		};
+		00D0EA9D2C16B23A00622339 /* BottomSheet */ = {
+			isa = PBXGroup;
+			children = (
+				00D0EA9E2C16B27D00622339 /* BottomSheetView.swift */,
+			);
+			path = BottomSheet;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -537,6 +557,7 @@
 				00BF1E892C1185CB00BCCFC8 /* MyBitTabView.swift in Sources */,
 				00BF1E7C2C1176BF00BCCFC8 /* StateType.swift in Sources */,
 				00BF1E7E2C117E0200BCCFC8 /* Market.swift in Sources */,
+				00D0EAA72C16D41F00622339 /* BottomButtonModifier.swift in Sources */,
 				00670F352C14A0EE0048ECD9 /* MarketCode.swift in Sources */,
 				00670F202C1422480048ECD9 /* FavoriteIntent.swift in Sources */,
 				00BF1E8C2C11872300BCCFC8 /* FavoriteView.swift in Sources */,
@@ -545,8 +566,10 @@
 				008889C92C160AA9008619A8 /* SplashView.swift in Sources */,
 				00ABCAE72C12EE4A0098CB84 /* FavoriteStarView.swift in Sources */,
 				00ABCAE02C12D4170098CB84 /* TrendingRankingType.swift in Sources */,
+				00D0EAA52C16CF4A00622339 /* CustomButton.swift in Sources */,
 				00ABCADE2C12D1340098CB84 /* ItemEssentialElements.swift in Sources */,
 				00D0EA992C16A52E00622339 /* SplashTopView.swift in Sources */,
+				00D0EA9F2C16B27D00622339 /* BottomSheetView.swift in Sources */,
 				00670F2D2C149C7E0048ECD9 /* CurrentPrice.swift in Sources */,
 				00ABCADC2C12C4820098CB84 /* Array+Ext.swift in Sources */,
 				00670F272C1496150048ECD9 /* Ticker.swift in Sources */,
@@ -563,6 +586,7 @@
 				00670F312C149CE50048ECD9 /* UpbitAPI.swift in Sources */,
 				00670F1E2C14223E0048ECD9 /* FavoriteState.swift in Sources */,
 				00ABCAE32C12DABD0098CB84 /* Double+Ext.swift in Sources */,
+				00D0EAA12C16C54900622339 /* RoundedCorner.swift in Sources */,
 				00BF1E762C1174DE00BCCFC8 /* SearchIntent.swift in Sources */,
 				00BF1E702C11742000BCCFC8 /* Search.swift in Sources */,
 				00BF1E832C117FC900BCCFC8 /* DetailState.swift in Sources */,

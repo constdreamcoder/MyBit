@@ -18,7 +18,7 @@ struct SplashTopView: View {
             .font(.system(size: 22, weight: .bold))
             .padding(.bottom, 30)
         
-        Image("cryptocurrencies")
+        Image(.cryptocurrencies)
             .resizable()
             .aspectRatio(1, contentMode: .fit)
             .frame(maxWidth: .infinity)
