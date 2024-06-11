@@ -65,7 +65,7 @@ struct CoingeckoManager {
         Future<[Market], NetworkErrors> { promise in
             let provider = MoyaProvider<CoingeckoAPI>()
             let ids = idList.joined(separator: ",")
-            provider.requestPublisher(.coinMarket(ids: idList.joined(separator: ",")))
+            provider.requestPublisher(.coinMarket(ids: ids))
                 .sink { completion in
                     switch completion {
                     case .finished:

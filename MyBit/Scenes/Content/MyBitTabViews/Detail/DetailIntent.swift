@@ -8,7 +8,7 @@
 import Foundation
 import Combine
 
-final class DetailIntent: ObservableObject {
+final class DetailIntent: IntentType {
     
     enum Action {
         case getCoinMarkets(idList: [String])

@@ -9,9 +9,10 @@ import SwiftUI
 
 struct OnboardingView: View {
     
-    @Binding var isFirstLaunching: Bool
+    @Binding var isOnOnBoarding: Bool
     @State private var isBottomSheetPresented: Bool = false
-    @State private var isAccountViewPresented: Bool = false
+    @State private var isLoginViewPresented: Bool = false
+    @State private var isSignUpViewPresented: Bool = false
     
     var body: some View {
         ZStack(alignment: .bottom) {
@@ -64,6 +65,7 @@ struct OnboardingView: View {
                         
                         CustomButton {
                             print("이메일로 계속하기")
+                            isLoginViewPresented = true
                         } label: {
                             HStack{
                                 Image(.emailIcon)
@@ -74,7 +76,7 @@ struct OnboardingView: View {
                         
                         CustomButton {
                             print("또는 새롭게 회원가입 하기")
-                            isAccountViewPresented = true
+                            isSignUpViewPresented = true
                         } label: {
                             HStack{
                                 Text("또는")
@@ -89,12 +91,21 @@ struct OnboardingView: View {
             }
         }
         .animation(.interactiveSpring, value: isBottomSheetPresented)
-        .sheet(isPresented: $isAccountViewPresented, content: {
-            SignUpView(isPresented: $isAccountViewPresented)
-        })
+        .sheet(isPresented: $isLoginViewPresented) {
+            LoginView(
+                isPresented: $isLoginViewPresented,
+                isOnOnBoarding: $isOnOnBoarding
+            )
+        }
+        .sheet(isPresented: $isSignUpViewPresented) {
+            SignUpView(
+                isPresented: $isSignUpViewPresented,
+                isOnOnBoarding: $isOnOnBoarding
+            )
+        }
     }
 }
 
 #Preview {
-    OnboardingView(isFirstLaunching: .constant(true))
+    OnboardingView(isOnOnBoarding: .constant(true))
 }

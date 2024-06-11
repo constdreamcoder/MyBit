@@ -8,7 +8,7 @@
 import Foundation
 import Combine
 
-final class SearchIntent: ObservableObject {
+final class SearchIntent: IntentType {
     
     enum Action {
         case searchCoins(query: String)

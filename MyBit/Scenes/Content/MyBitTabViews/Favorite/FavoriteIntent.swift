@@ -8,7 +8,7 @@
 import Foundation
 import Combine
 
-final class FavoriteIntent: ObservableObject {
+final class FavoriteIntent: IntentType {
     
     enum Action {
         case getFavorites

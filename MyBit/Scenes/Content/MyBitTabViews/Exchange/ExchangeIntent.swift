@@ -8,7 +8,7 @@
 import Foundation
 import Combine
 
-final class ExchangeIntent: ObservableObject {
+final class ExchangeIntent: IntentType {
     
     enum Action {
         case getCurrentPrices
