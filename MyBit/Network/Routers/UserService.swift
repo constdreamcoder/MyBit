@@ -11,6 +11,7 @@ import Moya
 enum UserService {
     case validate(email: String)
     case join(email: String, password: String, nickname: String, phone: String?)
+    case login(email: String, password: String)
 }
 
 extension UserService: TargetType {
@@ -22,12 +23,14 @@ extension UserService: TargetType {
             return "/users/validation/email"
         case .join:
             return "/users/join"
+        case .login:
+            return "/users/login"
         }
     }
     
     var method: Moya.Method {
         switch self {
-        case .validate, .join:
+        case .validate, .join, .login:
             return .post
         }
     }
@@ -40,6 +43,9 @@ extension UserService: TargetType {
         case .join(let email, let passowrd, let nickname, let phone):
             let join = Join(email: email, password: passowrd, nickname: nickname, phone: phone, deviceToken: APIKeys.sampleDeviceToken)
             return .requestJSONEncodable(join)
+        case .login(let email, let password):
+            let login = Login(email: email, password: password, deviceToken: APIKeys.sampleDeviceToken)
+            return .requestJSONEncodable(login)
         }
     }
     

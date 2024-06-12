@@ -20,6 +20,7 @@
 		000FAF192C1951E5005DD853 /* Data+Ext.swift in Sources */ = {isa = PBXBuildFile; fileRef = 000FAF182C1951E5005DD853 /* Data+Ext.swift */; };
 		000FAF1B2C19A63B005DD853 /* Join.swift in Sources */ = {isa = PBXBuildFile; fileRef = 000FAF1A2C19A63B005DD853 /* Join.swift */; };
 		000FAF1D2C19A6EF005DD853 /* UserInfo.swift in Sources */ = {isa = PBXBuildFile; fileRef = 000FAF1C2C19A6EF005DD853 /* UserInfo.swift */; };
+		000FAF1F2C19DDED005DD853 /* Login.swift in Sources */ = {isa = PBXBuildFile; fileRef = 000FAF1E2C19DDED005DD853 /* Login.swift */; };
 		00175FA82C11E6B200D77BB6 /* Kingfisher in Frameworks */ = {isa = PBXBuildFile; productRef = 00175FA72C11E6B200D77BB6 /* Kingfisher */; };
 		00175FAB2C11EC4D00D77BB6 /* CustomNavigationView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 00175FAA2C11EC4D00D77BB6 /* CustomNavigationView.swift */; };
 		0037D87B2C0EF11A00C24E7B /* MyBitApp.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0037D87A2C0EF11A00C24E7B /* MyBitApp.swift */; };
@@ -113,6 +114,7 @@
 		000FAF182C1951E5005DD853 /* Data+Ext.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "Data+Ext.swift"; sourceTree = "<group>"; };
 		000FAF1A2C19A63B005DD853 /* Join.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Join.swift; sourceTree = "<group>"; };
 		000FAF1C2C19A6EF005DD853 /* UserInfo.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UserInfo.swift; sourceTree = "<group>"; };
+		000FAF1E2C19DDED005DD853 /* Login.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Login.swift; sourceTree = "<group>"; };
 		00175FAA2C11EC4D00D77BB6 /* CustomNavigationView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CustomNavigationView.swift; sourceTree = "<group>"; };
 		0037D8772C0EF11A00C24E7B /* MyBit.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = MyBit.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		0037D87A2C0EF11A00C24E7B /* MyBitApp.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MyBitApp.swift; sourceTree = "<group>"; };
@@ -377,6 +379,7 @@
 			children = (
 				006F01332C1880D00053E118 /* EmailValidation.swift */,
 				000FAF1A2C19A63B005DD853 /* Join.swift */,
+				000FAF1E2C19DDED005DD853 /* Login.swift */,
 			);
 			path = Bodies;
 			sourceTree = "<group>";
@@ -643,6 +646,7 @@
 				00ABCAED2C1303C20098CB84 /* ChartView.swift in Sources */,
 				0006CE2C2C0F0A8400BA213A /* CoingeckoManager.swift in Sources */,
 				00BF1E742C1174D600BCCFC8 /* SearchState.swift in Sources */,
+				000FAF1F2C19DDED005DD853 /* Login.swift in Sources */,
 				008889CC2C160AE8008619A8 /* LaunchScreenView.swift in Sources */,
 				00ABCB092C1339C20098CB84 /* Favorite.swift in Sources */,
 				00D0EA9C2C16AC7200622339 /* ContentView.swift in Sources */,

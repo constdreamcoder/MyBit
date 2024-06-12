@@ -11,7 +11,8 @@ import Combine
 final class SearchIntent: IntentType {
     
     enum Action {
-        case searchCoins(query: String)
+        case inputSearchQueryString(query: String)
+        case searchCoins
         case favoriteButtonTap(tappedCoin: SearchedCoin)
         case refresh
     }
@@ -22,8 +23,10 @@ final class SearchIntent: IntentType {
     
     func send(_ action: Action) {
         switch action {
-        case .searchCoins(let query):
-            searchCoins(query)
+        case .inputSearchQueryString(let query):
+            inputSearchQueryString(query)
+        case .searchCoins:
+            searchCoins()
         case .favoriteButtonTap(let tappedCoin):
             favoriteButtonTapped(tappedCoin)
         case .refresh:
@@ -33,11 +36,17 @@ final class SearchIntent: IntentType {
 }
 
 extension SearchIntent {
-    private func searchCoins(_ query: String) {
+    private func inputSearchQueryString(_ query: String) {
+        state.searchQueryString = query
+    }
+}
+
+extension SearchIntent {
+    private func searchCoins() {
         state.isLoading = true
         state.errorMessage = nil
         
-        CoingeckoManager.searchBitcoins(query)
+        CoingeckoManager.searchBitcoins(state.searchQueryString)
             .sink { [weak self] completion in
                 guard let self else { return }
                 

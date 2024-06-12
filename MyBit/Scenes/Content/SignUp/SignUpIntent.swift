@@ -157,13 +157,13 @@ extension SignUpIntent {
         
         
         state.signUpValidation = state.emailDoubleCheckButtonValidation
-                                && state.emailValidation
-                                && state.nicknameValidation
-                                && state.passwordValidation
-                                && state.passwordConfirmValidation
+        && state.emailValidation
+        && state.nicknameValidation
+        && state.passwordValidation
+        && state.passwordConfirmValidation
         print("signUpValidation", state.signUpValidation)
         print("----------------------------------------------------------")
-
+        
     }
 }
 
@@ -190,7 +190,7 @@ extension SignUpIntent {
         
         if isValidFormattedPhoneNumber(phoneNumber) {
             phone = phoneNumber.replacingOccurrences(of: "-", with: "")
-
+            
         }
         let phoneRegEx = "^01\\d{8,9}$"
         let phonePred = NSPredicate(format: "SELF MATCHES %@", phoneRegEx)
@@ -215,10 +215,10 @@ extension SignUpIntent {
         
         // 모든 조건을 만족하는지 확인
         return lengthPredicate.evaluate(with: password) &&
-               uppercasePredicate.evaluate(with: password) &&
-               lowercasePredicate.evaluate(with: password) &&
-               numberPredicate.evaluate(with: password) &&
-               specialCharacterPredicate.evaluate(with: password)
+        uppercasePredicate.evaluate(with: password) &&
+        lowercasePredicate.evaluate(with: password) &&
+        numberPredicate.evaluate(with: password) &&
+        specialCharacterPredicate.evaluate(with: password)
     }
     
     private func isValidPasswordConfirm(_ passwordConfirm: String) -> Bool {
@@ -227,7 +227,7 @@ extension SignUpIntent {
 }
 
 extension SignUpIntent {
-   private func formatPhoneNumber(_ phoneNumber: String) -> String {
+    private func formatPhoneNumber(_ phoneNumber: String) -> String {
         
         guard isValidPhoneNumber(phoneNumber) else { return phoneNumber }
         
@@ -238,7 +238,7 @@ extension SignUpIntent {
             let formattedNumber = phoneNumber.prefix(3) + "-" + phoneNumber.dropFirst(3).prefix(4) + "-" + phoneNumber.suffix(4)
             return String(formattedNumber)
         }
-    
+        
         return phoneNumber
     }
 }

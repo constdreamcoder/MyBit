@@ -11,7 +11,6 @@ import Kingfisher
 struct SearchView: View {
     
     @StateObject private var intent = SearchIntent()
-    @State private var searchQueryString: String = ""
     
     var body: some View {
         CustomNavigationView(title: "Search") {
@@ -35,12 +34,15 @@ struct SearchView: View {
             }
         }
         .searchable(
-            text: $searchQueryString,
+            text: Binding(
+                get: { intent.state.searchQueryString },
+                set: { intent.send(.inputSearchQueryString(query: $0)) }
+            ),
             placement: .navigationBarDrawer,
             prompt: "코인명을 검색해주세요"
         )
         .onSubmit(of: .search) {
-            intent.send(.searchCoins(query: searchQueryString))
+            intent.send(.searchCoins)
         }
     }
 }

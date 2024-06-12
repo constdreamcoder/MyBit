@@ -9,12 +9,12 @@ import SwiftUI
 
 struct ContentView: View {
     
-    @AppStorage("isOnOnBoarding") var isOnOnBoarding: Bool = true
+    @AppStorage("isOnBoardingPresented") var isOnBoardingPresented: Bool = true
 
     var body: some View {
         MyBitTabView()
-            .fullScreenCover(isPresented: $isOnOnBoarding) {
-                OnboardingView(isOnOnBoarding: $isOnOnBoarding)
+            .fullScreenCover(isPresented: $isOnBoardingPresented) {
+                OnboardingView(isOnBoardingPresented: $isOnBoardingPresented)
             }
     }
 }

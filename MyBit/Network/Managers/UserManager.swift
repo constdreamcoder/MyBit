@@ -37,7 +37,6 @@ struct UserManager {
     }
     
     static func join(email: String, password: String, nickname: String, phone: String?) -> AnyPublisher<UserInfo, NetworkErrors> {
-        print("phone phone", phone)
         return Future<UserInfo, NetworkErrors> { promise in
             let provider = MoyaProvider<UserService>(plugins: [MoyaLoggingPlugin()])
             provider.requestPublisher(.join(email: email, password: password, nickname: nickname, phone: phone))
@@ -59,4 +58,29 @@ struct UserManager {
                 }.store(in: &cancellable)
         }.eraseToAnyPublisher()
     }
+    
+    static func login(email: String, password: String) -> AnyPublisher<UserInfo, NetworkErrors> {
+        return Future<UserInfo, NetworkErrors> { promise in
+            let provider = MoyaProvider<UserService>(plugins: [MoyaLoggingPlugin()])
+            provider.requestPublisher(.login(email: email, password: password))
+                .sink { completion in
+                    switch completion {
+                    case .finished:
+                        print("Successfully Logined!!")
+                    case .failure(let error):
+                        print("Login Error", error)
+                    }
+                } receiveValue: { response in
+                    do {
+                        let data = try response.filterSuccessfulStatusCodes().data
+                        let result = try JSONDecoder().decode(UserInfo.self, from: data)
+                        promise(.success(result))
+                    } catch {
+                        promise(.failure(.networkError))
+                    }
+                }.store(in: &cancellable)
+        }.eraseToAnyPublisher()
+    }
+
+    
 }

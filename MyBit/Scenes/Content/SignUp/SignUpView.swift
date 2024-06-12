@@ -12,7 +12,7 @@ struct SignUpView: View {
     
     @StateObject private var intent = SignUpIntent()
     @Binding var isPresented: Bool
-    @Binding var isOnOnBoarding: Bool
+    @Binding var isOnBoardingPresented: Bool
     
     var body: some View {
         ZStack {
@@ -91,7 +91,7 @@ struct SignUpView: View {
                 CustomButton {
                     print("가입하기")
                     DispatchQueue.main.asyncAfter(deadline: .now() + 2) {
-                        isOnOnBoarding = false
+                        isOnBoardingPresented = false
                     }
                     intent.send(.join)
                 } label: {
@@ -105,5 +105,5 @@ struct SignUpView: View {
 }
 
 #Preview {
-    SignUpView(isPresented: .constant(true), isOnOnBoarding: .constant(true))
+    SignUpView(isPresented: .constant(true), isOnBoardingPresented: .constant(true))
 }

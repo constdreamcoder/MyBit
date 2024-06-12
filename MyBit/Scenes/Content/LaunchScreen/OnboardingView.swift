@@ -9,7 +9,7 @@ import SwiftUI
 
 struct OnboardingView: View {
     
-    @Binding var isOnOnBoarding: Bool
+    @Binding var isOnBoardingPresented: Bool
     @State private var isBottomSheetPresented: Bool = false
     @State private var isLoginViewPresented: Bool = false
     @State private var isSignUpViewPresented: Bool = false
@@ -94,18 +94,18 @@ struct OnboardingView: View {
         .sheet(isPresented: $isLoginViewPresented) {
             LoginView(
                 isPresented: $isLoginViewPresented,
-                isOnOnBoarding: $isOnOnBoarding
+                isOnBoardingPresented: $isOnBoardingPresented
             )
         }
         .sheet(isPresented: $isSignUpViewPresented) {
             SignUpView(
                 isPresented: $isSignUpViewPresented,
-                isOnOnBoarding: $isOnOnBoarding
+                isOnBoardingPresented: $isOnBoardingPresented
             )
         }
     }
 }
 
 #Preview {
-    OnboardingView(isOnOnBoarding: .constant(true))
+    OnboardingView(isOnBoardingPresented: .constant(true))
 }

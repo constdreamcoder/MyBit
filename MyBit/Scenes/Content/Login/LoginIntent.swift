@@ -13,6 +13,7 @@ final class LoginIntent: IntentType {
     enum Action {
         case writeEmail(text: String)
         case writePassword(text: String)
+        case login
     }
     
     @Published private(set) var state = LoginState()
@@ -25,6 +26,8 @@ final class LoginIntent: IntentType {
             writeEmail(text)
         case .writePassword(let text):
             writePassword(text)
+        case .login:
+            login()
         }
     }
 }
@@ -38,5 +41,29 @@ extension LoginIntent {
     private func writePassword(_ text: String) {
         state.passwordInputText = text
         print("Password:", text)
+    }
+}
+
+extension LoginIntent {
+    private func login() {
+        UserManager.login(
+            email: state.emailInputText,
+            password: state.passwordInputText
+        )
+        .sink { [weak self] completion in
+            guard let 
+                    self else { return }
+            
+            if case .failure(let error) = completion {
+                print("errors", error)
+                state.errorMessage = "Failed to fetch data: \(error.localizedDescription)"
+            }
+            state.isLoading = false
+        } receiveValue: { [weak self] userInfo in
+            guard let self else { return }
+            
+            print(userInfo)
+        }
+        .store(in: &cancelable)
     }
 }

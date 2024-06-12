@@ -11,7 +11,7 @@ struct LoginView: View {
     
     @StateObject private var intent = LoginIntent()
     @Binding var isPresented: Bool
-    @Binding var isOnOnBoarding: Bool
+    @Binding var isOnBoardingPresented: Bool
     
     var body: some View {
         ZStack {
@@ -47,7 +47,10 @@ struct LoginView: View {
                 
                 CustomButton {
                     print("로그인")
-                    isOnOnBoarding = false
+                    DispatchQueue.main.asyncAfter(deadline: .now() + 2) {
+                        isOnBoardingPresented = false
+                    }
+                    intent.send(.login)
                 } label: {
                     Text("로그인")
                 }
@@ -59,5 +62,5 @@ struct LoginView: View {
 }
 
 #Preview {
-    LoginView(isPresented: .constant(true), isOnOnBoarding: .constant(true))
+    LoginView(isPresented: .constant(true), isOnBoardingPresented: .constant(true))
 }

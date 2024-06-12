@@ -10,6 +10,7 @@ import Foundation
 struct SearchState: StateType {
     var isLoading: Bool = false
     var searchedCoins: [SearchedCoin] = []
+    var searchQueryString: String = ""
     var errorMessage: String? = nil
 }
 
