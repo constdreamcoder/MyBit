@@ -16,7 +16,7 @@ struct UpbitManager {
     
     static func fetchMarketCodes() -> AnyPublisher<[MarketCode], NetworkErrors> {
         Future<[MarketCode], NetworkErrors> { promise in
-            let provider = MoyaProvider<UpbitAPI>()
+            let provider = MoyaProvider<UpbitService>()
             provider.requestPublisher(.marketCodes)
                 .sink { completion in
                     switch completion {
@@ -39,7 +39,7 @@ struct UpbitManager {
     
     static func fetchCurrentPrices(_ marketCodes: String) -> AnyPublisher<[CurrentPrice], NetworkErrors> {
         Future<[CurrentPrice], NetworkErrors> { promise in
-            let provider = MoyaProvider<UpbitAPI>()
+            let provider = MoyaProvider<UpbitService>()
             provider.requestPublisher(.currentPrices(marketCodes: marketCodes))
                 .sink { completion in
                     switch completion {

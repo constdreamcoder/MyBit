@@ -16,6 +16,7 @@ final class SignUpIntent: IntentType {
         case writePhoneNumber(text: String)
         case writePassword(text: String)
         case writePasswordConfirm(text: String)
+        case emailDoubleCheck
     }
     
     @Published private(set) var state = SignUpState()
@@ -34,6 +35,8 @@ final class SignUpIntent: IntentType {
             writePassword(text)
         case .writePasswordConfirm(let text):
             writePasswordConfirm(text)
+        case .emailDoubleCheck:
+            emailDoubleCheck()
         }
     }
 }
@@ -63,4 +66,27 @@ extension SignUpIntent {
         state.passwordConfirmInputText = text
         print("PasswordConfirm:", text)
     }
+    
+    private func emailDoubleCheck() {
+        print("중복 확인:", state.emailInputText)
+        state.isLoading = true
+        state.errorMessage = nil
+        
+        UserManager.emailValidation(state.emailInputText)
+            .sink { [weak self] completion in
+                guard let self else { return }
+                
+                if case .failure(let error) = completion {
+                    print("errors", error)
+                    state.errorMessage = "Failed to fetch data: \(error.localizedDescription)"
+                }
+                state.isLoading = false
+            } receiveValue: { [weak self] success in
+                guard let self else { return }
+                
+                print(success)
+            }
+            .store(in: &cancelable)
+    }
 }
+

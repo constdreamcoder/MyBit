@@ -9,14 +9,15 @@ import SwiftUI
 
 struct InputView: View {
     
-   private let title: String
-   private let placeholder: String
-   private let showRightButton: Bool
-   private let isSecure: Bool
-   private let textFieldGetter: () -> String
-   private let textFieldSetter: (String) -> Void
-   private let secureFieldGetter: () -> String
-   private let secureFieldSetter: (String) -> Void
+    private let title: String
+    private let placeholder: String
+    private let showRightButton: Bool
+    private let isSecure: Bool
+    private let textFieldGetter: () -> String
+    private let textFieldSetter: (String) -> Void
+    private let secureFieldGetter: () -> String
+    private let secureFieldSetter: (String) -> Void
+    private let rightButtonAction: () -> Void
     
     init(
         title: String,
@@ -26,7 +27,8 @@ struct InputView: View {
         textFieldGetter: @escaping (() -> String),
         textFieldSetter: @escaping (String) -> Void,
         secureFieldGetter: @escaping () -> String,
-        secureFieldSetter: @escaping (String) -> Void
+        secureFieldSetter: @escaping (String) -> Void,
+        rightButtonAction: @escaping () -> Void
     ) {
         self.title = title
         self.placeholder = placeholder
@@ -36,6 +38,7 @@ struct InputView: View {
         self.textFieldSetter = textFieldSetter
         self.secureFieldGetter = secureFieldGetter
         self.secureFieldSetter = secureFieldSetter
+        self.rightButtonAction = rightButtonAction
     }
     
     var body: some View {
@@ -56,7 +59,7 @@ struct InputView: View {
                             placeholder,
                             text: Binding(get: textFieldGetter, set: textFieldSetter)
                         )
-                       
+                        
                     }
                 }
                 .font(.system(size: 13, weight: .bold))
@@ -66,10 +69,10 @@ struct InputView: View {
                 .padding(.trailing, showRightButton ? 0 : 12)
                 .background(.customWhite)
                 .clipShape(RoundedRectangle(cornerRadius: 8))
-                                
+                
                 if showRightButton {
                     CustomButton(action: {
-                        print("액션가면")
+                        rightButtonAction()
                     }, label: {
                         Text("중복 확인")
                     })

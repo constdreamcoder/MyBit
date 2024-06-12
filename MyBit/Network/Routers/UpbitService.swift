@@ -1,5 +1,5 @@
 //
-//  UpbitAPI.swift
+//  UpbitService.swift
 //  MyBit
 //
 //  Created by SUCHAN CHANG on 6/8/24.
@@ -8,12 +8,12 @@
 import Foundation
 import Moya
 
-enum UpbitAPI {
+enum UpbitService {
     case marketCodes
     case currentPrices(marketCodes: String)
 }
 
-extension UpbitAPI: TargetType {
+extension UpbitService: TargetType {
     var baseURL: URL { URL(string: APIKeys.realtimeCoinBaseURL)! }
     
     var path: String {

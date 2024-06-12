@@ -1,5 +1,5 @@
 //
-//  CoingeckoAPI.swift
+//  CoingeckoService.swift
 //  MyBit
 //
 //  Created by SUCHAN CHANG on 6/4/24.
@@ -8,13 +8,13 @@
 import Foundation
 import Moya
 
-enum CoingeckoAPI {
+enum CoingeckoService {
     case trending
     case search(query: String)
     case coinMarket(currency: String = "krw", ids: String)
 }
 
-extension CoingeckoAPI: TargetType {
+extension CoingeckoService: TargetType {
     var baseURL: URL { URL(string: APIKeys.baseURL)! }
     
     var path: String {

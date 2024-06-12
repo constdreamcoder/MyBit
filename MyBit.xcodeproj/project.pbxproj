@@ -8,7 +8,7 @@
 
 /* Begin PBXBuildFile section */
 		0006CE222C0F049900BA213A /* CombineMoya in Frameworks */ = {isa = PBXBuildFile; productRef = 0006CE212C0F049900BA213A /* CombineMoya */; };
-		0006CE252C0F055C00BA213A /* CoingeckoAPI.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0006CE242C0F055C00BA213A /* CoingeckoAPI.swift */; };
+		0006CE252C0F055C00BA213A /* CoingeckoService.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0006CE242C0F055C00BA213A /* CoingeckoService.swift */; };
 		0006CE272C0F068100BA213A /* APIKeys.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0006CE262C0F068100BA213A /* APIKeys.swift */; };
 		0006CE2A2C0F08A500BA213A /* Trending.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0006CE292C0F08A500BA213A /* Trending.swift */; };
 		0006CE2C2C0F0A8400BA213A /* CoingeckoManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0006CE2B2C0F0A8400BA213A /* CoingeckoManager.swift */; };
@@ -29,7 +29,7 @@
 		00670F292C1496240048ECD9 /* ExchangeState.swift in Sources */ = {isa = PBXBuildFile; fileRef = 00670F282C1496240048ECD9 /* ExchangeState.swift */; };
 		00670F2B2C14962D0048ECD9 /* ExchangeIntent.swift in Sources */ = {isa = PBXBuildFile; fileRef = 00670F2A2C14962D0048ECD9 /* ExchangeIntent.swift */; };
 		00670F2D2C149C7E0048ECD9 /* CurrentPrice.swift in Sources */ = {isa = PBXBuildFile; fileRef = 00670F2C2C149C7E0048ECD9 /* CurrentPrice.swift */; };
-		00670F312C149CE50048ECD9 /* UpbitAPI.swift in Sources */ = {isa = PBXBuildFile; fileRef = 00670F302C149CE50048ECD9 /* UpbitAPI.swift */; };
+		00670F312C149CE50048ECD9 /* UpbitService.swift in Sources */ = {isa = PBXBuildFile; fileRef = 00670F302C149CE50048ECD9 /* UpbitService.swift */; };
 		00670F332C149EE60048ECD9 /* UpbitManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = 00670F322C149EE60048ECD9 /* UpbitManager.swift */; };
 		00670F352C14A0EE0048ECD9 /* MarketCode.swift in Sources */ = {isa = PBXBuildFile; fileRef = 00670F342C14A0EE0048ECD9 /* MarketCode.swift */; };
 		006F01132C17E8870053E118 /* NavigationBarForCreatingNewFeature.swift in Sources */ = {isa = PBXBuildFile; fileRef = 006F01122C17E8870053E118 /* NavigationBarForCreatingNewFeature.swift */; };
@@ -37,6 +37,9 @@
 		006F01192C17E9410053E118 /* LoginState.swift in Sources */ = {isa = PBXBuildFile; fileRef = 006F01182C17E9410053E118 /* LoginState.swift */; };
 		006F011B2C17EBAA0053E118 /* LoginIntent.swift in Sources */ = {isa = PBXBuildFile; fileRef = 006F011A2C17EBAA0053E118 /* LoginIntent.swift */; };
 		006F01212C1821250053E118 /* IntentType.swift in Sources */ = {isa = PBXBuildFile; fileRef = 006F01202C1821250053E118 /* IntentType.swift */; };
+		006F01252C186C420053E118 /* UserService.swift in Sources */ = {isa = PBXBuildFile; fileRef = 006F01242C186C420053E118 /* UserService.swift */; };
+		006F012A2C186FB20053E118 /* UserManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = 006F01292C186FB20053E118 /* UserManager.swift */; };
+		006F01342C1880D00053E118 /* EmailValidation.swift in Sources */ = {isa = PBXBuildFile; fileRef = 006F01332C1880D00053E118 /* EmailValidation.swift */; };
 		008889C42C15C3EB008619A8 /* BitcoinChangeModifier.swift in Sources */ = {isa = PBXBuildFile; fileRef = 008889C32C15C3EB008619A8 /* BitcoinChangeModifier.swift */; };
 		008889C92C160AA9008619A8 /* SplashView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 008889C82C160AA9008619A8 /* SplashView.swift */; };
 		008889CC2C160AE8008619A8 /* LaunchScreenView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 008889CB2C160AE8008619A8 /* LaunchScreenView.swift */; };
@@ -94,7 +97,7 @@
 /* End PBXCopyFilesBuildPhase section */
 
 /* Begin PBXFileReference section */
-		0006CE242C0F055C00BA213A /* CoingeckoAPI.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CoingeckoAPI.swift; sourceTree = "<group>"; };
+		0006CE242C0F055C00BA213A /* CoingeckoService.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CoingeckoService.swift; sourceTree = "<group>"; };
 		0006CE262C0F068100BA213A /* APIKeys.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = APIKeys.swift; sourceTree = "<group>"; };
 		0006CE292C0F08A500BA213A /* Trending.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Trending.swift; sourceTree = "<group>"; };
 		0006CE2B2C0F0A8400BA213A /* CoingeckoManager.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CoingeckoManager.swift; sourceTree = "<group>"; };
@@ -115,7 +118,7 @@
 		00670F282C1496240048ECD9 /* ExchangeState.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ExchangeState.swift; sourceTree = "<group>"; };
 		00670F2A2C14962D0048ECD9 /* ExchangeIntent.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ExchangeIntent.swift; sourceTree = "<group>"; };
 		00670F2C2C149C7E0048ECD9 /* CurrentPrice.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CurrentPrice.swift; sourceTree = "<group>"; };
-		00670F302C149CE50048ECD9 /* UpbitAPI.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UpbitAPI.swift; sourceTree = "<group>"; };
+		00670F302C149CE50048ECD9 /* UpbitService.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UpbitService.swift; sourceTree = "<group>"; };
 		00670F322C149EE60048ECD9 /* UpbitManager.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UpbitManager.swift; sourceTree = "<group>"; };
 		00670F342C14A0EE0048ECD9 /* MarketCode.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MarketCode.swift; sourceTree = "<group>"; };
 		006F01122C17E8870053E118 /* NavigationBarForCreatingNewFeature.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NavigationBarForCreatingNewFeature.swift; sourceTree = "<group>"; };
@@ -123,6 +126,10 @@
 		006F01182C17E9410053E118 /* LoginState.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LoginState.swift; sourceTree = "<group>"; };
 		006F011A2C17EBAA0053E118 /* LoginIntent.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LoginIntent.swift; sourceTree = "<group>"; };
 		006F01202C1821250053E118 /* IntentType.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = IntentType.swift; sourceTree = "<group>"; };
+		006F01242C186C420053E118 /* UserService.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UserService.swift; sourceTree = "<group>"; };
+		006F01292C186FB20053E118 /* UserManager.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UserManager.swift; sourceTree = "<group>"; };
+		006F012B2C1877530053E118 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist; path = Info.plist; sourceTree = "<group>"; };
+		006F01332C1880D00053E118 /* EmailValidation.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = EmailValidation.swift; sourceTree = "<group>"; };
 		008889C32C15C3EB008619A8 /* BitcoinChangeModifier.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BitcoinChangeModifier.swift; sourceTree = "<group>"; };
 		008889C82C160AA9008619A8 /* SplashView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SplashView.swift; sourceTree = "<group>"; };
 		008889CB2C160AE8008619A8 /* LaunchScreenView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LaunchScreenView.swift; sourceTree = "<group>"; };
@@ -232,6 +239,7 @@
 				00ABCB032C1339790098CB84 /* Routers */,
 				00ABCB012C13395F0098CB84 /* Managers */,
 				00ABCB022C13396C0098CB84 /* Errors */,
+				000FAF112C1930AC005DD853 /* RequestModels */,
 				0006CE282C0F088C00BA213A /* ResponseModels */,
 			);
 			path = Network;
@@ -240,10 +248,19 @@
 		0006CE282C0F088C00BA213A /* ResponseModels */ = {
 			isa = PBXGroup;
 			children = (
+				006F01262C186F110053E118 /* User */,
 				00670F2E2C149C850048ECD9 /* Coingecko */,
 				00670F2F2C149C8C0048ECD9 /* Upbit */,
 			);
 			path = ResponseModels;
+			sourceTree = "<group>";
+		};
+		000FAF112C1930AC005DD853 /* RequestModels */ = {
+			isa = PBXGroup;
+			children = (
+				006F01322C1880AA0053E118 /* Bodies */,
+			);
+			path = RequestModels;
 			sourceTree = "<group>";
 		};
 		00175FA92C11EC3C00D77BB6 /* CustomViews */ = {
@@ -278,6 +295,7 @@
 		0037D8792C0EF11A00C24E7B /* MyBit */ = {
 			isa = PBXGroup;
 			children = (
+				006F012B2C1877530053E118 /* Info.plist */,
 				00BF1E862C11844000BCCFC8 /* Helpers */,
 				0006CE232C0F053B00BA213A /* Network */,
 				0006CE172C0EF2E200BA213A /* Scenes */,
@@ -337,6 +355,21 @@
 			path = Login;
 			sourceTree = "<group>";
 		};
+		006F01262C186F110053E118 /* User */ = {
+			isa = PBXGroup;
+			children = (
+			);
+			path = User;
+			sourceTree = "<group>";
+		};
+		006F01322C1880AA0053E118 /* Bodies */ = {
+			isa = PBXGroup;
+			children = (
+				006F01332C1880D00053E118 /* EmailValidation.swift */,
+			);
+			path = Bodies;
+			sourceTree = "<group>";
+		};
 		008889C22C15C3C0008619A8 /* CustomModifiers */ = {
 			isa = PBXGroup;
 			children = (
@@ -390,6 +423,7 @@
 				0006CE2B2C0F0A8400BA213A /* CoingeckoManager.swift */,
 				00670F322C149EE60048ECD9 /* UpbitManager.swift */,
 				00670F242C1495D90048ECD9 /* WebSocketManager.swift */,
+				006F01292C186FB20053E118 /* UserManager.swift */,
 			);
 			path = Managers;
 			sourceTree = "<group>";
@@ -405,8 +439,9 @@
 		00ABCB032C1339790098CB84 /* Routers */ = {
 			isa = PBXGroup;
 			children = (
-				0006CE242C0F055C00BA213A /* CoingeckoAPI.swift */,
-				00670F302C149CE50048ECD9 /* UpbitAPI.swift */,
+				0006CE242C0F055C00BA213A /* CoingeckoService.swift */,
+				00670F302C149CE50048ECD9 /* UpbitService.swift */,
+				006F01242C186C420053E118 /* UserService.swift */,
 			);
 			path = Routers;
 			sourceTree = "<group>";
@@ -591,6 +626,7 @@
 				0006CE342C0F19FE00BA213A /* TrendingIntent.swift in Sources */,
 				00ABCB002C1339270098CB84 /* RepositoryType.swift in Sources */,
 				0006CE322C0F17BA00BA213A /* TrendingState.swift in Sources */,
+				006F012A2C186FB20053E118 /* UserManager.swift in Sources */,
 				00670F2B2C14962D0048ECD9 /* ExchangeIntent.swift in Sources */,
 				00ABCAED2C1303C20098CB84 /* ChartView.swift in Sources */,
 				0006CE2C2C0F0A8400BA213A /* CoingeckoManager.swift in Sources */,
@@ -598,7 +634,8 @@
 				008889CC2C160AE8008619A8 /* LaunchScreenView.swift in Sources */,
 				00ABCB092C1339C20098CB84 /* Favorite.swift in Sources */,
 				00D0EA9C2C16AC7200622339 /* ContentView.swift in Sources */,
-				0006CE252C0F055C00BA213A /* CoingeckoAPI.swift in Sources */,
+				006F01342C1880D00053E118 /* EmailValidation.swift in Sources */,
+				0006CE252C0F055C00BA213A /* CoingeckoService.swift in Sources */,
 				00670F232C1488A00048ECD9 /* ExchangeView.swift in Sources */,
 				00BF1E892C1185CB00BCCFC8 /* MyBitTabView.swift in Sources */,
 				00BF1E7C2C1176BF00BCCFC8 /* StateType.swift in Sources */,
@@ -621,6 +658,7 @@
 				00D0EAB22C17064F00622339 /* InputView.swift in Sources */,
 				006F01132C17E8870053E118 /* NavigationBarForCreatingNewFeature.swift in Sources */,
 				00ABCADE2C12D1340098CB84 /* ItemEssentialElements.swift in Sources */,
+				006F01252C186C420053E118 /* UserService.swift in Sources */,
 				00D0EA992C16A52E00622339 /* SplashTopView.swift in Sources */,
 				00D0EA9F2C16B27D00622339 /* BottomSheetView.swift in Sources */,
 				00670F2D2C149C7E0048ECD9 /* CurrentPrice.swift in Sources */,
@@ -637,7 +675,7 @@
 				00670F332C149EE60048ECD9 /* UpbitManager.swift in Sources */,
 				00ABCAEF2C1334130098CB84 /* String+Ext.swift in Sources */,
 				0006CE2A2C0F08A500BA213A /* Trending.swift in Sources */,
-				00670F312C149CE50048ECD9 /* UpbitAPI.swift in Sources */,
+				00670F312C149CE50048ECD9 /* UpbitService.swift in Sources */,
 				00670F1E2C14223E0048ECD9 /* FavoriteState.swift in Sources */,
 				00ABCAE32C12DABD0098CB84 /* Double+Ext.swift in Sources */,
 				00D0EAA12C16C54900622339 /* RoundedCorner.swift in Sources */,
@@ -787,6 +825,7 @@
 				DEVELOPMENT_TEAM = 59V6NJY3X6;
 				ENABLE_PREVIEWS = YES;
 				GENERATE_INFOPLIST_FILE = YES;
+				INFOPLIST_FILE = MyBit/Info.plist;
 				INFOPLIST_KEY_CFBundleDisplayName = MyBit;
 				INFOPLIST_KEY_UIApplicationSceneManifest_Generation = YES;
 				INFOPLIST_KEY_UIApplicationSupportsIndirectInputEvents = YES;
@@ -822,6 +861,7 @@
 				DEVELOPMENT_TEAM = 59V6NJY3X6;
 				ENABLE_PREVIEWS = YES;
 				GENERATE_INFOPLIST_FILE = YES;
+				INFOPLIST_FILE = MyBit/Info.plist;
 				INFOPLIST_KEY_CFBundleDisplayName = MyBit;
 				INFOPLIST_KEY_UIApplicationSceneManifest_Generation = YES;
 				INFOPLIST_KEY_UIApplicationSupportsIndirectInputEvents = YES;

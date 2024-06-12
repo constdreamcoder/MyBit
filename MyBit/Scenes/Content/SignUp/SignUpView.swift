@@ -26,10 +26,12 @@ struct SignUpView: View {
                 InputView(
                     title: "이메일",
                     placeholder: "이메일을 입력하세요",
+                    showRightButton: true,
                     textFieldGetter: { intent.state.emailInputText },
                     textFieldSetter: { intent.send(.writeEmail(text: $0)) },
-                    secureFieldGetter: {""},
-                    secureFieldSetter: { _ in }
+                    secureFieldGetter: { "" },
+                    secureFieldSetter: { _ in }, 
+                    rightButtonAction: { intent.send(.emailDoubleCheck) }
                 )
                 
                 InputView(
@@ -37,8 +39,9 @@ struct SignUpView: View {
                     placeholder: "닉네임을 입력하세요",
                     textFieldGetter: { intent.state.nicknameInputText },
                     textFieldSetter: { intent.send(.writeNickname(text: $0)) },
-                    secureFieldGetter: {""},
-                    secureFieldSetter: { _ in }
+                    secureFieldGetter: { "" },
+                    secureFieldSetter: { _ in }, 
+                    rightButtonAction: {}
                 )
                 
                 InputView(
@@ -46,8 +49,9 @@ struct SignUpView: View {
                     placeholder: "전화번호를 입력하세요",
                     textFieldGetter: { intent.state.phoneNumberInputText },
                     textFieldSetter: { intent.send(.writePhoneNumber(text: $0)) },
-                    secureFieldGetter: {""},
-                    secureFieldSetter: { _ in }
+                    secureFieldGetter: { "" },
+                    secureFieldSetter: { _ in }, 
+                    rightButtonAction: {}
                 )
                 
                 InputView(
@@ -57,7 +61,8 @@ struct SignUpView: View {
                     textFieldGetter: { "" },
                     textFieldSetter: { _ in },
                     secureFieldGetter: { intent.state.passwordInputText },
-                    secureFieldSetter: { intent.send(.writePassword(text: $0)) }
+                    secureFieldSetter: { intent.send(.writePassword(text: $0)) }, 
+                    rightButtonAction: {}
                 )
                 
                 InputView(
@@ -67,7 +72,8 @@ struct SignUpView: View {
                     textFieldGetter: { "" },
                     textFieldSetter: { _ in },
                     secureFieldGetter: { intent.state.passwordConfirmInputText },
-                    secureFieldSetter: { intent.send(.writePasswordConfirm(text: $0)) }
+                    secureFieldSetter: { intent.send(.writePasswordConfirm(text: $0)) }, 
+                    rightButtonAction: {}
                 )
                 
                 Spacer()

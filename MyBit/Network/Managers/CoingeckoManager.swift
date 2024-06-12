@@ -16,7 +16,7 @@ struct CoingeckoManager {
     
     static func fetchTrending() -> AnyPublisher<Trending, NetworkErrors> {
         Future<Trending, NetworkErrors> { promise in
-            let provider = MoyaProvider<CoingeckoAPI>()
+            let provider = MoyaProvider<CoingeckoService>()
             provider.requestPublisher(.trending)
                 .sink { completion in
                     switch completion {
@@ -39,7 +39,7 @@ struct CoingeckoManager {
     
     static func searchBitcoins(_ query: String) -> AnyPublisher<[Coin], NetworkErrors> {
         Future<[Coin], NetworkErrors> { promise in
-            let provider = MoyaProvider<CoingeckoAPI>()
+            let provider = MoyaProvider<CoingeckoService>()
             provider.requestPublisher(.search(query: query))
                 .sink { completion in
                     switch completion {
@@ -63,7 +63,7 @@ struct CoingeckoManager {
     
     static func fetchCoinMarkets(_ idList: [String]) -> AnyPublisher<[Market], NetworkErrors> {
         Future<[Market], NetworkErrors> { promise in
-            let provider = MoyaProvider<CoingeckoAPI>()
+            let provider = MoyaProvider<CoingeckoService>()
             let ids = idList.joined(separator: ",")
             provider.requestPublisher(.coinMarket(ids: ids))
                 .sink { completion in
