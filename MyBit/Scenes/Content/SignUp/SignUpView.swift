@@ -6,6 +6,7 @@
 //
 
 import SwiftUI
+import Combine
 
 struct SignUpView: View {
     
@@ -31,7 +32,7 @@ struct SignUpView: View {
                     textFieldGetter: { intent.state.emailInputText },
                     textFieldSetter: { intent.send(.writeEmail(text: $0)) },
                     secureFieldGetter: { "" },
-                    secureFieldSetter: { _ in }, 
+                    secureFieldSetter: { _ in },
                     rightButtonAction: { intent.send(.emailDoubleCheck) }
                 )
                 .keyboardType(.emailAddress)
@@ -42,20 +43,26 @@ struct SignUpView: View {
                     textFieldGetter: { intent.state.nicknameInputText },
                     textFieldSetter: { intent.send(.writeNickname(text: $0)) },
                     secureFieldGetter: { "" },
-                    secureFieldSetter: { _ in }, 
+                    secureFieldSetter: { _ in },
                     rightButtonAction: {}
                 )
                 
                 InputView(
                     title: "연락처",
                     placeholder: "전화번호를 입력하세요",
-                    textFieldGetter: { intent.formatPhoneNumber(intent.state.phoneNumberInputText) },
+                    textFieldGetter: { intent.state.phoneNumberInputText },
                     textFieldSetter: { intent.send(.writePhoneNumber(text: $0)) },
                     secureFieldGetter: { "" },
-                    secureFieldSetter: { _ in }, 
+                    secureFieldSetter: { _ in },
                     rightButtonAction: {}
                 )
-                .keyboardType(.phonePad)
+                .keyboardType(.numberPad)
+                .onReceive(Just(intent.state.phoneNumberInputText)) { newValue in
+                    let filtered = newValue.filter { "0123456789-".contains($0) }
+                    if filtered != newValue {
+                        intent.send(.writePhoneNumber(text: filtered))
+                    }
+                }
                 
                 InputView(
                     title: "비밀번호",
@@ -64,7 +71,7 @@ struct SignUpView: View {
                     textFieldGetter: { "" },
                     textFieldSetter: { _ in },
                     secureFieldGetter: { intent.state.passwordInputText },
-                    secureFieldSetter: { intent.send(.writePassword(text: $0)) }, 
+                    secureFieldSetter: { intent.send(.writePassword(text: $0)) },
                     rightButtonAction: {}
                 )
                 
@@ -75,7 +82,7 @@ struct SignUpView: View {
                     textFieldGetter: { "" },
                     textFieldSetter: { _ in },
                     secureFieldGetter: { intent.state.passwordConfirmInputText },
-                    secureFieldSetter: { intent.send(.writePasswordConfirm(text: $0)) }, 
+                    secureFieldSetter: { intent.send(.writePasswordConfirm(text: $0)) },
                     rightButtonAction: {}
                 )
                 
@@ -83,7 +90,10 @@ struct SignUpView: View {
                 
                 CustomButton {
                     print("가입하기")
-                    isOnOnBoarding = false
+                    DispatchQueue.main.asyncAfter(deadline: .now() + 2) {
+                        isOnOnBoarding = false
+                    }
+                    intent.send(.join)
                 } label: {
                     Text("가입하기")
                 }

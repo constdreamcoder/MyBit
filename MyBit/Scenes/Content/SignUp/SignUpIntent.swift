@@ -17,6 +17,7 @@ final class SignUpIntent: IntentType {
         case writePassword(text: String)
         case writePasswordConfirm(text: String)
         case emailDoubleCheck
+        case join
     }
     
     @Published private(set) var state = SignUpState()
@@ -43,6 +44,8 @@ final class SignUpIntent: IntentType {
             writePasswordConfirm(text)
         case .emailDoubleCheck:
             inputEmailDoubleCheck.send(())
+        case .join:
+            join()
         }
     }
     
@@ -58,45 +61,6 @@ final class SignUpIntent: IntentType {
 }
 
 extension SignUpIntent {
-    
-    private func writeEmail(_ text: String) {
-        print("email:", text)
-        state.emailInputText = text
-        state.emailDoubleCheckButtonValidation = isValidEmail(text)
-        isValidSignUp()
-    }
-    
-    private func writeNickname(_ text: String) {
-        print("Nickname:", text)
-        state.nicknameInputText = text
-        state.nicknameValidation = isValidNickname(text)
-        isValidSignUp()
-    }
-    
-    private func writePhoneNumber(_ text: String) {
-        print("PhoneNumber:", text)
-        
-        if isValidPhoneNumber(text) {
-            state.phoneNubmerValidation = isValidPhoneNumber(text)
-            state.phoneNumberInputText = text
-        }
-        isValidSignUp()
-    }
-    
-    private func writePassword(_ text: String) {
-        print("Password:", text)
-        state.passwordInputText = text
-        state.passwordValidation = isValidPassword(text)
-        isValidSignUp()
-    }
-    
-    private func writePasswordConfirm(_ text: String) {
-        print("PasswordConfirm:", text)
-        state.passwordConfirmInputText = text
-        state.passwordConfirmValidation = isValidPasswordConfirm(text)
-        isValidSignUp()
-    }
-    
     private func emailDoubleCheck() {
         print("중복 확인:", state.emailInputText)
         state.isLoading = true
@@ -122,12 +86,72 @@ extension SignUpIntent {
             .store(in: &cancelable)
     }
     
+    private func join() {
+        UserManager.join(
+            email: state.emailInputText,
+            password: state.passwordInputText,
+            nickname: state.nicknameInputText,
+            phone: isValidPhoneNumber(state.phoneNumberInputText) ? state.phoneNumberInputText : nil
+        )
+        .sink { [weak self] completion in
+            guard let self else { return }
+            
+            if case .failure(let error) = completion {
+                print("errors", error)
+                state.errorMessage = "Failed to fetch data: \(error.localizedDescription)"
+            }
+            state.isLoading = false
+        } receiveValue: { [weak self] userInfo in
+            guard let self else { return }
+            
+            print(userInfo)
+        }
+        .store(in: &cancelable)
+    }
+}
+
+
+extension SignUpIntent {
+    
+    private func writeEmail(_ text: String) {
+        print("email:", text)
+        state.emailInputText = text
+        state.emailDoubleCheckButtonValidation = isValidEmail(text)
+        isValidSignUp()
+    }
+    
+    private func writeNickname(_ text: String) {
+        print("Nickname:", text)
+        state.nicknameInputText = text
+        state.nicknameValidation = isValidNickname(text)
+        isValidSignUp()
+    }
+    
+    private func writePhoneNumber(_ text: String) {
+        print("PhoneNumber:", text)
+        
+        state.phoneNumberInputText = formatPhoneNumber(text)
+    }
+    
+    private func writePassword(_ text: String) {
+        print("Password:", text)
+        state.passwordInputText = text
+        state.passwordValidation = isValidPassword(text)
+        isValidSignUp()
+    }
+    
+    private func writePasswordConfirm(_ text: String) {
+        print("PasswordConfirm:", text)
+        state.passwordConfirmInputText = text
+        state.passwordConfirmValidation = isValidPasswordConfirm(text)
+        isValidSignUp()
+    }
+    
     private func isValidSignUp() {
         print("----------------------유효성 검사-------------------------")
         print("emailDoubleCheckButtonValidation", state.emailDoubleCheckButtonValidation)
         print("emailValidation", state.emailValidation)
         print("nicknameValidation", state.nicknameValidation)
-        print("phoneNubmerValidation", state.phoneNubmerValidation)
         print("passwordValidation", state.passwordValidation)
         print("passwordConfirmValidation", state.passwordConfirmValidation)
         
@@ -135,7 +159,6 @@ extension SignUpIntent {
         state.signUpValidation = state.emailDoubleCheckButtonValidation
                                 && state.emailValidation
                                 && state.nicknameValidation
-                                && state.phoneNubmerValidation
                                 && state.passwordValidation
                                 && state.passwordConfirmValidation
         print("signUpValidation", state.signUpValidation)
@@ -155,10 +178,23 @@ extension SignUpIntent {
         return nickname.count >= 1 && nickname.count <= 30
     }
     
+    private func isValidFormattedPhoneNumber(_ phoneNumber: String) -> Bool {
+        let regex = "^01\\d{1}-\\d{3,4}-\\d{4}$"
+        let predicate = NSPredicate(format: "SELF MATCHES %@", regex)
+        return predicate.evaluate(with: phoneNumber)
+    }
+    
     private func isValidPhoneNumber(_ phoneNumber: String) -> Bool {
+        
+        var phone: String = phoneNumber
+        
+        if isValidFormattedPhoneNumber(phoneNumber) {
+            phone = phoneNumber.replacingOccurrences(of: "-", with: "")
+
+        }
         let phoneRegEx = "^01\\d{8,9}$"
         let phonePred = NSPredicate(format: "SELF MATCHES %@", phoneRegEx)
-        return phonePred.evaluate(with: phoneNumber)
+        return phonePred.evaluate(with: phone)
     }
     
     private func isValidPassword(_ password: String) -> Bool {
@@ -191,7 +227,7 @@ extension SignUpIntent {
 }
 
 extension SignUpIntent {
-    func formatPhoneNumber(_ phoneNumber: String) -> String {
+   private func formatPhoneNumber(_ phoneNumber: String) -> String {
         
         guard isValidPhoneNumber(phoneNumber) else { return phoneNumber }
         

@@ -18,6 +18,8 @@
 		0006CE342C0F19FE00BA213A /* TrendingIntent.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0006CE332C0F19FE00BA213A /* TrendingIntent.swift */; };
 		000FAF172C1951C4005DD853 /* LoggingPlugin.swift in Sources */ = {isa = PBXBuildFile; fileRef = 000FAF162C1951C4005DD853 /* LoggingPlugin.swift */; };
 		000FAF192C1951E5005DD853 /* Data+Ext.swift in Sources */ = {isa = PBXBuildFile; fileRef = 000FAF182C1951E5005DD853 /* Data+Ext.swift */; };
+		000FAF1B2C19A63B005DD853 /* Join.swift in Sources */ = {isa = PBXBuildFile; fileRef = 000FAF1A2C19A63B005DD853 /* Join.swift */; };
+		000FAF1D2C19A6EF005DD853 /* UserInfo.swift in Sources */ = {isa = PBXBuildFile; fileRef = 000FAF1C2C19A6EF005DD853 /* UserInfo.swift */; };
 		00175FA82C11E6B200D77BB6 /* Kingfisher in Frameworks */ = {isa = PBXBuildFile; productRef = 00175FA72C11E6B200D77BB6 /* Kingfisher */; };
 		00175FAB2C11EC4D00D77BB6 /* CustomNavigationView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 00175FAA2C11EC4D00D77BB6 /* CustomNavigationView.swift */; };
 		0037D87B2C0EF11A00C24E7B /* MyBitApp.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0037D87A2C0EF11A00C24E7B /* MyBitApp.swift */; };
@@ -109,6 +111,8 @@
 		0006CE332C0F19FE00BA213A /* TrendingIntent.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TrendingIntent.swift; sourceTree = "<group>"; };
 		000FAF162C1951C4005DD853 /* LoggingPlugin.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LoggingPlugin.swift; sourceTree = "<group>"; };
 		000FAF182C1951E5005DD853 /* Data+Ext.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "Data+Ext.swift"; sourceTree = "<group>"; };
+		000FAF1A2C19A63B005DD853 /* Join.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Join.swift; sourceTree = "<group>"; };
+		000FAF1C2C19A6EF005DD853 /* UserInfo.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UserInfo.swift; sourceTree = "<group>"; };
 		00175FAA2C11EC4D00D77BB6 /* CustomNavigationView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CustomNavigationView.swift; sourceTree = "<group>"; };
 		0037D8772C0EF11A00C24E7B /* MyBit.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = MyBit.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		0037D87A2C0EF11A00C24E7B /* MyBitApp.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MyBitApp.swift; sourceTree = "<group>"; };
@@ -363,6 +367,7 @@
 		006F01262C186F110053E118 /* User */ = {
 			isa = PBXGroup;
 			children = (
+				000FAF1C2C19A6EF005DD853 /* UserInfo.swift */,
 			);
 			path = User;
 			sourceTree = "<group>";
@@ -371,6 +376,7 @@
 			isa = PBXGroup;
 			children = (
 				006F01332C1880D00053E118 /* EmailValidation.swift */,
+				000FAF1A2C19A63B005DD853 /* Join.swift */,
 			);
 			path = Bodies;
 			sourceTree = "<group>";
@@ -676,10 +682,12 @@
 				0006CE2E2C0F13E900BA213A /* NetworkErrors.swift in Sources */,
 				00670F292C1496240048ECD9 /* ExchangeState.swift in Sources */,
 				00BF1E812C117FBE00BCCFC8 /* DetailView.swift in Sources */,
+				000FAF1B2C19A63B005DD853 /* Join.swift in Sources */,
 				008889C42C15C3EB008619A8 /* BitcoinChangeModifier.swift in Sources */,
 				00ABCB062C1339960098CB84 /* FavoriteRepository.swift in Sources */,
 				00670F252C1495D90048ECD9 /* WebSocketManager.swift in Sources */,
 				00D0EAAE2C16EA4100622339 /* SignUpIntent.swift in Sources */,
+				000FAF1D2C19A6EF005DD853 /* UserInfo.swift in Sources */,
 				00670F332C149EE60048ECD9 /* UpbitManager.swift in Sources */,
 				00ABCAEF2C1334130098CB84 /* String+Ext.swift in Sources */,
 				0006CE2A2C0F08A500BA213A /* Trending.swift in Sources */,

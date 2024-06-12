@@ -19,7 +19,6 @@ struct SignUpState: StateType {
     var emailDoubleCheckButtonValidation: Bool = false
     var emailValidation: Bool = false
     var nicknameValidation: Bool = false
-    var phoneNubmerValidation: Bool = false
     var passwordValidation: Bool = false
     var passwordConfirmValidation: Bool = false
     
