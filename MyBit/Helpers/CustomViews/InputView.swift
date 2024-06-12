@@ -13,6 +13,7 @@ struct InputView: View {
     private let placeholder: String
     private let showRightButton: Bool
     private let isSecure: Bool
+    private let isRightButtonDisable: Bool
     private let textFieldGetter: () -> String
     private let textFieldSetter: (String) -> Void
     private let secureFieldGetter: () -> String
@@ -24,6 +25,7 @@ struct InputView: View {
         placeholder: String,
         showRightButton: Bool = false,
         isSecure: Bool = false,
+        isRightButtonDisable: Bool = true,
         textFieldGetter: @escaping (() -> String),
         textFieldSetter: @escaping (String) -> Void,
         secureFieldGetter: @escaping () -> String,
@@ -34,6 +36,7 @@ struct InputView: View {
         self.placeholder = placeholder
         self.showRightButton = showRightButton
         self.isSecure = isSecure
+        self.isRightButtonDisable = isRightButtonDisable
         self.textFieldGetter = textFieldGetter
         self.textFieldSetter = textFieldSetter
         self.secureFieldGetter = secureFieldGetter
@@ -76,8 +79,9 @@ struct InputView: View {
                     }, label: {
                         Text("중복 확인")
                     })
-                    .bottomButtonShape(.brandPoint)
+                    .bottomButtonShape(isRightButtonDisable ? .customGray : .brandPoint)
                     .frame(width: 120, height: 45)
+                    .disabled(isRightButtonDisable)
                 }
             }
         }

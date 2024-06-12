@@ -14,5 +14,6 @@ struct SignUpState: StateType {
     var phoneNumberInputText: String = ""
     var passwordInputText: String = ""
     var passwordConfirmInputText: String = ""
+    var emailDoubleCheckValidation: Bool = false
     var errorMessage: String? = nil
 }

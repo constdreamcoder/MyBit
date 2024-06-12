@@ -21,7 +21,13 @@ final class SignUpIntent: IntentType {
     
     @Published private(set) var state = SignUpState()
     
+    private var inputemailDoubleCheck = PassthroughSubject<Void, Never>()
+    
     var cancelable = Set<AnyCancellable>()
+    
+    init() {
+        action()
+    }
     
     func send(_ action: Action) {
         switch action {
@@ -36,15 +42,27 @@ final class SignUpIntent: IntentType {
         case .writePasswordConfirm(let text):
             writePasswordConfirm(text)
         case .emailDoubleCheck:
-            emailDoubleCheck()
+            inputemailDoubleCheck.send(())
         }
+    }
+    
+    private func action() {
+        inputemailDoubleCheck
+            .debounce(for: 1, scheduler: RunLoop.main)
+            .sink { [weak self] _ in
+                guard let self else { return }
+                emailDoubleCheck()
+            }
+            .store(in: &cancelable)
     }
 }
 
 extension SignUpIntent {
     private func writeEmail(_ text: String) {
-        state.emailInputText = text
         print("email:", text)
+        state.emailInputText = text
+        let trimmedText = text.trimmingCharacters(in: .whitespacesAndNewlines)
+        state.emailDoubleCheckValidation = isValidEmail(trimmedText)
     }
     
     private func writeNickname(_ text: String) {
@@ -87,6 +105,14 @@ extension SignUpIntent {
                 print(success)
             }
             .store(in: &cancelable)
+    }
+}
+
+extension SignUpIntent {
+    func isValidEmail(_ email: String) -> Bool {
+        let emailRegEx = "[A-Z0-9a-z._%+-]+@[A-Za-z0-9.-]+\\.[A-Za-z]{2,64}"
+        let emailPred = NSPredicate(format:"SELF MATCHES %@", emailRegEx)
+        return emailPred.evaluate(with: email)
     }
 }
 

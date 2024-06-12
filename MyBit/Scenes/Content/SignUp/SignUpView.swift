@@ -27,6 +27,7 @@ struct SignUpView: View {
                     title: "이메일",
                     placeholder: "이메일을 입력하세요",
                     showRightButton: true,
+                    isRightButtonDisable: !intent.state.emailDoubleCheckValidation,
                     textFieldGetter: { intent.state.emailInputText },
                     textFieldSetter: { intent.send(.writeEmail(text: $0)) },
                     secureFieldGetter: { "" },
