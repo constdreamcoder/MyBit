@@ -62,7 +62,6 @@ struct InputView: View {
                             placeholder,
                             text: Binding(get: textFieldGetter, set: textFieldSetter)
                         )
-                        
                     }
                 }
                 .font(.system(size: 13, weight: .bold))

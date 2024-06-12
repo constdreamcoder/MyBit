@@ -14,8 +14,8 @@ struct UserManager {
     
     static var cancellable = Set<AnyCancellable>()
     
-    static func emailValidation(_ email: String) -> AnyPublisher<String, NetworkErrors> {
-        Future<String, NetworkErrors> { promise in
+    static func emailValidation(_ email: String) -> AnyPublisher<Bool, NetworkErrors> {
+        Future<Bool, NetworkErrors> { promise in
             let provider = MoyaProvider<UserService>(plugins: [MoyaLoggingPlugin()])
             provider.requestPublisher(.validate(email: email))
                 .sink { completion in
@@ -28,7 +28,7 @@ struct UserManager {
                 } receiveValue: { response in
                     do {
                         let _ = try response.filterSuccessfulStatusCodes()
-                        promise(.success("성공"))
+                        promise(.success(true))
                     } catch {
                         promise(.failure(.networkError))
                     }

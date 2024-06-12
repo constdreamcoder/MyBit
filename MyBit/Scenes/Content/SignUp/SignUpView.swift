@@ -27,13 +27,14 @@ struct SignUpView: View {
                     title: "이메일",
                     placeholder: "이메일을 입력하세요",
                     showRightButton: true,
-                    isRightButtonDisable: !intent.state.emailDoubleCheckValidation,
+                    isRightButtonDisable: !intent.state.emailDoubleCheckButtonValidation,
                     textFieldGetter: { intent.state.emailInputText },
                     textFieldSetter: { intent.send(.writeEmail(text: $0)) },
                     secureFieldGetter: { "" },
                     secureFieldSetter: { _ in }, 
                     rightButtonAction: { intent.send(.emailDoubleCheck) }
                 )
+                .keyboardType(.emailAddress)
                 
                 InputView(
                     title: "닉네임",
@@ -48,12 +49,13 @@ struct SignUpView: View {
                 InputView(
                     title: "연락처",
                     placeholder: "전화번호를 입력하세요",
-                    textFieldGetter: { intent.state.phoneNumberInputText },
+                    textFieldGetter: { intent.formatPhoneNumber(intent.state.phoneNumberInputText) },
                     textFieldSetter: { intent.send(.writePhoneNumber(text: $0)) },
                     secureFieldGetter: { "" },
                     secureFieldSetter: { _ in }, 
                     rightButtonAction: {}
                 )
+                .keyboardType(.phonePad)
                 
                 InputView(
                     title: "비밀번호",
@@ -85,7 +87,8 @@ struct SignUpView: View {
                 } label: {
                     Text("가입하기")
                 }
-                .bottomButtonShape(.brandPoint)
+                .bottomButtonShape(intent.state.signUpValidation ? .brandPoint : .customGray)
+                .disabled(!intent.state.signUpValidation)
             }
         }
     }

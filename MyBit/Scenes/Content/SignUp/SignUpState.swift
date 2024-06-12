@@ -9,11 +9,21 @@ import Foundation
 
 struct SignUpState: StateType {
     var isLoading: Bool = false
+    
     var emailInputText: String = ""
     var nicknameInputText: String = ""
     var phoneNumberInputText: String = ""
     var passwordInputText: String = ""
     var passwordConfirmInputText: String = ""
-    var emailDoubleCheckValidation: Bool = false
+    
+    var emailDoubleCheckButtonValidation: Bool = false
+    var emailValidation: Bool = false
+    var nicknameValidation: Bool = false
+    var phoneNubmerValidation: Bool = false
+    var passwordValidation: Bool = false
+    var passwordConfirmValidation: Bool = false
+    
+    var signUpValidation: Bool = false
+    
     var errorMessage: String? = nil
 }

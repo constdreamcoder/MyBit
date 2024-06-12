@@ -9,19 +9,19 @@ import SwiftUI
 
 struct BottomSheetView<Content>: View where Content: View {
     
-    @Binding public var isPresented: Bool
+    @Binding var isPresented: Bool
     private var height: CGFloat
     private var content: Content
     
     @GestureState private var translation: CGFloat = .zero
     
-    public init(_ isPresented: Binding<Bool>, height: CGFloat, content: () -> Content) {
+    init(_ isPresented: Binding<Bool>, height: CGFloat, content: () -> Content) {
         self._isPresented = isPresented
         self.height = height
         self.content = content()
     }
     
-    public var body: some View {
+    var body: some View {
         ZStack(alignment: .bottom) {
             
             Color.black.opacity(0.1)
