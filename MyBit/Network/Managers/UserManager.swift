@@ -16,7 +16,7 @@ struct UserManager {
     
     static func emailValidation(_ email: String) -> AnyPublisher<String, NetworkErrors> {
         Future<String, NetworkErrors> { promise in
-            let provider = MoyaProvider<UserService>()
+            let provider = MoyaProvider<UserService>(plugins: [MoyaLoggingPlugin()])
             provider.requestPublisher(.validate(email: email))
                 .sink { completion in
                     switch completion {

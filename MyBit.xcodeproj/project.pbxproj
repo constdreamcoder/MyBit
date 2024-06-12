@@ -16,6 +16,8 @@
 		0006CE302C0F170100BA213A /* TrendingView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0006CE2F2C0F170100BA213A /* TrendingView.swift */; };
 		0006CE322C0F17BA00BA213A /* TrendingState.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0006CE312C0F17BA00BA213A /* TrendingState.swift */; };
 		0006CE342C0F19FE00BA213A /* TrendingIntent.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0006CE332C0F19FE00BA213A /* TrendingIntent.swift */; };
+		000FAF172C1951C4005DD853 /* LoggingPlugin.swift in Sources */ = {isa = PBXBuildFile; fileRef = 000FAF162C1951C4005DD853 /* LoggingPlugin.swift */; };
+		000FAF192C1951E5005DD853 /* Data+Ext.swift in Sources */ = {isa = PBXBuildFile; fileRef = 000FAF182C1951E5005DD853 /* Data+Ext.swift */; };
 		00175FA82C11E6B200D77BB6 /* Kingfisher in Frameworks */ = {isa = PBXBuildFile; productRef = 00175FA72C11E6B200D77BB6 /* Kingfisher */; };
 		00175FAB2C11EC4D00D77BB6 /* CustomNavigationView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 00175FAA2C11EC4D00D77BB6 /* CustomNavigationView.swift */; };
 		0037D87B2C0EF11A00C24E7B /* MyBitApp.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0037D87A2C0EF11A00C24E7B /* MyBitApp.swift */; };
@@ -105,6 +107,8 @@
 		0006CE2F2C0F170100BA213A /* TrendingView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TrendingView.swift; sourceTree = "<group>"; };
 		0006CE312C0F17BA00BA213A /* TrendingState.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TrendingState.swift; sourceTree = "<group>"; };
 		0006CE332C0F19FE00BA213A /* TrendingIntent.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TrendingIntent.swift; sourceTree = "<group>"; };
+		000FAF162C1951C4005DD853 /* LoggingPlugin.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LoggingPlugin.swift; sourceTree = "<group>"; };
+		000FAF182C1951E5005DD853 /* Data+Ext.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "Data+Ext.swift"; sourceTree = "<group>"; };
 		00175FAA2C11EC4D00D77BB6 /* CustomNavigationView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CustomNavigationView.swift; sourceTree = "<group>"; };
 		0037D8772C0EF11A00C24E7B /* MyBit.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = MyBit.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		0037D87A2C0EF11A00C24E7B /* MyBitApp.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MyBitApp.swift; sourceTree = "<group>"; };
@@ -234,6 +238,7 @@
 		0006CE232C0F053B00BA213A /* Network */ = {
 			isa = PBXGroup;
 			children = (
+				000FAF162C1951C4005DD853 /* LoggingPlugin.swift */,
 				00ABCB072C1339B30098CB84 /* RepositoryModels */,
 				00ABCB042C1339820098CB84 /* Repositories */,
 				00ABCB032C1339790098CB84 /* Routers */,
@@ -397,6 +402,7 @@
 				00ABCADB2C12C4820098CB84 /* Array+Ext.swift */,
 				00ABCAE22C12DABD0098CB84 /* Double+Ext.swift */,
 				00ABCAEE2C1334130098CB84 /* String+Ext.swift */,
+				000FAF182C1951E5005DD853 /* Data+Ext.swift */,
 			);
 			path = Extensions;
 			sourceTree = "<group>";
@@ -646,6 +652,7 @@
 				006F01162C17E9300053E118 /* LoginView.swift in Sources */,
 				006F01192C17E9410053E118 /* LoginState.swift in Sources */,
 				00670F202C1422480048ECD9 /* FavoriteIntent.swift in Sources */,
+				000FAF172C1951C4005DD853 /* LoggingPlugin.swift in Sources */,
 				00BF1E8C2C11872300BCCFC8 /* FavoriteView.swift in Sources */,
 				0006CE302C0F170100BA213A /* TrendingView.swift in Sources */,
 				008889CE2C160B61008619A8 /* OnboardingView.swift in Sources */,
@@ -665,6 +672,7 @@
 				00ABCADC2C12C4820098CB84 /* Array+Ext.swift in Sources */,
 				00670F272C1496150048ECD9 /* Ticker.swift in Sources */,
 				00BF1E852C117FD000BCCFC8 /* DetailIntent.swift in Sources */,
+				000FAF192C1951E5005DD853 /* Data+Ext.swift in Sources */,
 				0006CE2E2C0F13E900BA213A /* NetworkErrors.swift in Sources */,
 				00670F292C1496240048ECD9 /* ExchangeState.swift in Sources */,
 				00BF1E812C117FBE00BCCFC8 /* DetailView.swift in Sources */,
