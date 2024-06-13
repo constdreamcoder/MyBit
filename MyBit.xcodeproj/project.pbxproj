@@ -24,6 +24,11 @@
 		000FAF212C19F94A005DD853 /* KeychainManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = 000FAF202C19F94A005DD853 /* KeychainManager.swift */; };
 		00175FA82C11E6B200D77BB6 /* Kingfisher in Frameworks */ = {isa = PBXBuildFile; productRef = 00175FA72C11E6B200D77BB6 /* Kingfisher */; };
 		00175FAB2C11EC4D00D77BB6 /* CustomNavigationView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 00175FAA2C11EC4D00D77BB6 /* CustomNavigationView.swift */; };
+		003108AA2C1AC3E200082651 /* KakaoSDKAuth in Frameworks */ = {isa = PBXBuildFile; productRef = 003108A92C1AC3E200082651 /* KakaoSDKAuth */; };
+		003108AC2C1AC3E200082651 /* KakaoSDKUser in Frameworks */ = {isa = PBXBuildFile; productRef = 003108AB2C1AC3E200082651 /* KakaoSDKUser */; };
+		003108AF2C1ACE9800082651 /* OnboardingState.swift in Sources */ = {isa = PBXBuildFile; fileRef = 003108AE2C1ACE9800082651 /* OnboardingState.swift */; };
+		003108B22C1ACEA800082651 /* OnboardingIntent.swift in Sources */ = {isa = PBXBuildFile; fileRef = 003108B12C1ACEA800082651 /* OnboardingIntent.swift */; };
+		003108B52C1AD0AE00082651 /* LoginWithKakaTalk.swift in Sources */ = {isa = PBXBuildFile; fileRef = 003108B42C1AD0AE00082651 /* LoginWithKakaTalk.swift */; };
 		0037D87B2C0EF11A00C24E7B /* MyBitApp.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0037D87A2C0EF11A00C24E7B /* MyBitApp.swift */; };
 		0037D87F2C0EF11B00C24E7B /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 0037D87E2C0EF11B00C24E7B /* Assets.xcassets */; };
 		0037D8822C0EF11B00C24E7B /* Preview Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 0037D8812C0EF11B00C24E7B /* Preview Assets.xcassets */; };
@@ -118,6 +123,9 @@
 		000FAF1E2C19DDED005DD853 /* Login.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Login.swift; sourceTree = "<group>"; };
 		000FAF202C19F94A005DD853 /* KeychainManager.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = KeychainManager.swift; sourceTree = "<group>"; };
 		00175FAA2C11EC4D00D77BB6 /* CustomNavigationView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CustomNavigationView.swift; sourceTree = "<group>"; };
+		003108AE2C1ACE9800082651 /* OnboardingState.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = OnboardingState.swift; sourceTree = "<group>"; };
+		003108B12C1ACEA800082651 /* OnboardingIntent.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = OnboardingIntent.swift; sourceTree = "<group>"; };
+		003108B42C1AD0AE00082651 /* LoginWithKakaTalk.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LoginWithKakaTalk.swift; sourceTree = "<group>"; };
 		0037D8772C0EF11A00C24E7B /* MyBit.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = MyBit.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		0037D87A2C0EF11A00C24E7B /* MyBitApp.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MyBitApp.swift; sourceTree = "<group>"; };
 		0037D87E2C0EF11B00C24E7B /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
@@ -140,7 +148,6 @@
 		006F01202C1821250053E118 /* IntentType.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = IntentType.swift; sourceTree = "<group>"; };
 		006F01242C186C420053E118 /* UserService.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UserService.swift; sourceTree = "<group>"; };
 		006F01292C186FB20053E118 /* UserManager.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UserManager.swift; sourceTree = "<group>"; };
-		006F012B2C1877530053E118 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist; path = Info.plist; sourceTree = "<group>"; };
 		006F01332C1880D00053E118 /* EmailValidation.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = EmailValidation.swift; sourceTree = "<group>"; };
 		008889C32C15C3EB008619A8 /* BitcoinChangeModifier.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BitcoinChangeModifier.swift; sourceTree = "<group>"; };
 		008889C82C160AA9008619A8 /* SplashView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SplashView.swift; sourceTree = "<group>"; };
@@ -188,8 +195,10 @@
 			files = (
 				00ABCAFC2C13381A0098CB84 /* RealmSwift in Frameworks */,
 				00175FA82C11E6B200D77BB6 /* Kingfisher in Frameworks */,
+				003108AC2C1AC3E200082651 /* KakaoSDKUser in Frameworks */,
 				00ABCAEA2C1302460098CB84 /* DGCharts in Frameworks */,
 				0006CE222C0F049900BA213A /* CombineMoya in Frameworks */,
+				003108AA2C1AC3E200082651 /* KakaoSDKAuth in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -289,6 +298,27 @@
 			path = CustomViews;
 			sourceTree = "<group>";
 		};
+		003108AD2C1ACE8200082651 /* Onboarding */ = {
+			isa = PBXGroup;
+			children = (
+				008889CD2C160B61008619A8 /* OnboardingView.swift */,
+				003108AE2C1ACE9800082651 /* OnboardingState.swift */,
+				003108B12C1ACEA800082651 /* OnboardingIntent.swift */,
+			);
+			path = Onboarding;
+			sourceTree = "<group>";
+		};
+		003108B32C1AD0A300082651 /* User */ = {
+			isa = PBXGroup;
+			children = (
+				006F01332C1880D00053E118 /* EmailValidation.swift */,
+				000FAF1A2C19A63B005DD853 /* Join.swift */,
+				000FAF1E2C19DDED005DD853 /* Login.swift */,
+				003108B42C1AD0AE00082651 /* LoginWithKakaTalk.swift */,
+			);
+			path = User;
+			sourceTree = "<group>";
+		};
 		0037D86E2C0EF11A00C24E7B = {
 			isa = PBXGroup;
 			children = (
@@ -308,7 +338,6 @@
 		0037D8792C0EF11A00C24E7B /* MyBit */ = {
 			isa = PBXGroup;
 			children = (
-				006F012B2C1877530053E118 /* Info.plist */,
 				00BF1E862C11844000BCCFC8 /* Helpers */,
 				0006CE232C0F053B00BA213A /* Network */,
 				0006CE172C0EF2E200BA213A /* Scenes */,
@@ -379,9 +408,7 @@
 		006F01322C1880AA0053E118 /* Bodies */ = {
 			isa = PBXGroup;
 			children = (
-				006F01332C1880D00053E118 /* EmailValidation.swift */,
-				000FAF1A2C19A63B005DD853 /* Join.swift */,
-				000FAF1E2C19DDED005DD853 /* Login.swift */,
+				003108B32C1AD0A300082651 /* User */,
 			);
 			path = Bodies;
 			sourceTree = "<group>";
@@ -401,7 +428,7 @@
 			children = (
 				008889CB2C160AE8008619A8 /* LaunchScreenView.swift */,
 				008889C82C160AA9008619A8 /* SplashView.swift */,
-				008889CD2C160B61008619A8 /* OnboardingView.swift */,
+				003108AD2C1ACE8200082651 /* Onboarding */,
 				00D0EA982C16A52E00622339 /* SplashTopView.swift */,
 			);
 			path = LaunchScreen;
@@ -580,6 +607,8 @@
 				00175FA72C11E6B200D77BB6 /* Kingfisher */,
 				00ABCAE92C1302460098CB84 /* DGCharts */,
 				00ABCAFB2C13381A0098CB84 /* RealmSwift */,
+				003108A92C1AC3E200082651 /* KakaoSDKAuth */,
+				003108AB2C1AC3E200082651 /* KakaoSDKUser */,
 			);
 			productName = MyBit;
 			productReference = 0037D8772C0EF11A00C24E7B /* MyBit.app */;
@@ -614,6 +643,7 @@
 				00175FA62C11E6B200D77BB6 /* XCRemoteSwiftPackageReference "Kingfisher" */,
 				00ABCAE82C1302460098CB84 /* XCRemoteSwiftPackageReference "Charts" */,
 				00ABCAFA2C13381A0098CB84 /* XCRemoteSwiftPackageReference "realm-swift" */,
+				003108A82C1AC3E200082651 /* XCRemoteSwiftPackageReference "kakao-ios-sdk" */,
 			);
 			productRefGroup = 0037D8782C0EF11A00C24E7B /* Products */;
 			projectDirPath = "";
@@ -647,6 +677,7 @@
 				006F012A2C186FB20053E118 /* UserManager.swift in Sources */,
 				00670F2B2C14962D0048ECD9 /* ExchangeIntent.swift in Sources */,
 				00ABCAED2C1303C20098CB84 /* ChartView.swift in Sources */,
+				003108B22C1ACEA800082651 /* OnboardingIntent.swift in Sources */,
 				0006CE2C2C0F0A8400BA213A /* CoingeckoManager.swift in Sources */,
 				00BF1E742C1174D600BCCFC8 /* SearchState.swift in Sources */,
 				000FAF1F2C19DDED005DD853 /* Login.swift in Sources */,
@@ -679,6 +710,7 @@
 				00D0EAB22C17064F00622339 /* InputView.swift in Sources */,
 				006F01132C17E8870053E118 /* NavigationBarForCreatingNewFeature.swift in Sources */,
 				00ABCADE2C12D1340098CB84 /* ItemEssentialElements.swift in Sources */,
+				003108B52C1AD0AE00082651 /* LoginWithKakaTalk.swift in Sources */,
 				006F01252C186C420053E118 /* UserService.swift in Sources */,
 				00D0EA992C16A52E00622339 /* SplashTopView.swift in Sources */,
 				00D0EA9F2C16B27D00622339 /* BottomSheetView.swift in Sources */,
@@ -703,6 +735,7 @@
 				00670F1E2C14223E0048ECD9 /* FavoriteState.swift in Sources */,
 				00ABCAE32C12DABD0098CB84 /* Double+Ext.swift in Sources */,
 				00D0EAA12C16C54900622339 /* RoundedCorner.swift in Sources */,
+				003108AF2C1ACE9800082651 /* OnboardingState.swift in Sources */,
 				00BF1E762C1174DE00BCCFC8 /* SearchIntent.swift in Sources */,
 				00BF1E702C11742000BCCFC8 /* Search.swift in Sources */,
 				00BF1E832C117FC900BCCFC8 /* DetailState.swift in Sources */,
@@ -950,6 +983,14 @@
 				minimumVersion = 7.11.0;
 			};
 		};
+		003108A82C1AC3E200082651 /* XCRemoteSwiftPackageReference "kakao-ios-sdk" */ = {
+			isa = XCRemoteSwiftPackageReference;
+			repositoryURL = "https://github.com/kakao/kakao-ios-sdk";
+			requirement = {
+				branch = master;
+				kind = branch;
+			};
+		};
 		00ABCAE82C1302460098CB84 /* XCRemoteSwiftPackageReference "Charts" */ = {
 			isa = XCRemoteSwiftPackageReference;
 			repositoryURL = "https://github.com/ChartsOrg/Charts.git";
@@ -978,6 +1019,16 @@
 			isa = XCSwiftPackageProductDependency;
 			package = 00175FA62C11E6B200D77BB6 /* XCRemoteSwiftPackageReference "Kingfisher" */;
 			productName = Kingfisher;
+		};
+		003108A92C1AC3E200082651 /* KakaoSDKAuth */ = {
+			isa = XCSwiftPackageProductDependency;
+			package = 003108A82C1AC3E200082651 /* XCRemoteSwiftPackageReference "kakao-ios-sdk" */;
+			productName = KakaoSDKAuth;
+		};
+		003108AB2C1AC3E200082651 /* KakaoSDKUser */ = {
+			isa = XCSwiftPackageProductDependency;
+			package = 003108A82C1AC3E200082651 /* XCRemoteSwiftPackageReference "kakao-ios-sdk" */;
+			productName = KakaoSDKUser;
 		};
 		00ABCAE92C1302460098CB84 /* DGCharts */ = {
 			isa = XCSwiftPackageProductDependency;

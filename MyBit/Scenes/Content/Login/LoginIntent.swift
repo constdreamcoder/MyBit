@@ -29,7 +29,7 @@ final class LoginIntent: IntentType {
         case .writePassword(let text):
             writePassword(text)
         case .login:
-            login()
+            login() // TODO: - 과도한 네트워크 요청 방지를 위한 debounce 추가하기
         }
     }
 }

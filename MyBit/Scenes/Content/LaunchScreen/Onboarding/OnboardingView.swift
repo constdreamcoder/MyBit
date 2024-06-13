@@ -6,8 +6,12 @@
 //
 
 import SwiftUI
+import KakaoSDKUser
+import Combine
 
 struct OnboardingView: View {
+    
+    @StateObject private var intent = OnboardingIntent()
     
     @Binding var isOnBoardingPresented: Bool
     @State private var isBottomSheetPresented: Bool = false
@@ -34,7 +38,7 @@ struct OnboardingView: View {
                     Text("시작하기")
                 }
                 .bottomButtonShape(.brandPoint)
-
+                
                 Spacer()
                     .frame(height: 46)
             }
@@ -54,6 +58,7 @@ struct OnboardingView: View {
                         
                         CustomButton {
                             print("카카오톡으로 계속하기")
+                            loginWithKakaoTalk()
                         } label: {
                             HStack{
                                 Image(.kakaoLogo)
@@ -103,6 +108,27 @@ struct OnboardingView: View {
                 isOnBoardingPresented: $isOnBoardingPresented
             )
         }
+        .onReceive(Just(intent.state.userInfo)) { newValue in
+            if newValue != nil { isOnBoardingPresented = false }
+        }
+    }
+
+    private func loginWithKakaoTalk() {
+        // 카카오톡 실행 가능 여부 확인
+        if (UserApi.isKakaoTalkLoginAvailable()) {
+            UserApi.shared.loginWithKakaoTalk {(oauthToken, error) in
+                if let error = error {
+                    print("Fail to login with KakaoTalk.")
+                    print(error)
+                }
+                else {
+                    print("Successfully login with KakaoTak.")
+                    
+                    intent.send(.loginWithKakao(oauthToken: oauthToken?.accessToken))
+                }
+            }
+        }
+        
     }
 }
 

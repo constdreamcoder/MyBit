@@ -48,8 +48,6 @@ struct LoginView: View {
                 
                 CustomButton {
                     print("로그인")
-                    DispatchQueue.main.asyncAfter(deadline: .now() + 2) {
-                    }
                     intent.send(.login)
                 } label: {
                     Text("로그인")

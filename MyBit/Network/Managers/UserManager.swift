@@ -82,5 +82,28 @@ struct UserManager {
         }.eraseToAnyPublisher()
     }
 
+    static func loginWithKakaTalk(oauthToken: String) -> AnyPublisher<UserInfo, NetworkErrors> {
+        return Future<UserInfo, NetworkErrors> { promise in
+            let provider = MoyaProvider<UserService>(plugins: [MoyaLoggingPlugin()])
+            provider.requestPublisher(.loginWithKakaoTalk(oauthToken: oauthToken))
+                .sink { completion in
+                    switch completion {
+                    case .finished:
+                        print("Successfully Logined!!")
+                    case .failure(let error):
+                        print("Login Error", error)
+                    }
+                } receiveValue: { response in
+                    do {
+                        let data = try response.filterSuccessfulStatusCodes().data
+                        let result = try JSONDecoder().decode(UserInfo.self, from: data)
+                        promise(.success(result))
+                    } catch {
+                        promise(.failure(.networkError))
+                    }
+                }.store(in: &cancellable)
+        }.eraseToAnyPublisher()
+    }
+
     
 }
