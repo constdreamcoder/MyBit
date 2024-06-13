@@ -8,6 +8,7 @@
 import SwiftUI
 import KakaoSDKUser
 import Combine
+import AuthenticationServices
 
 struct OnboardingView: View {
     
@@ -48,6 +49,7 @@ struct OnboardingView: View {
                     VStack(spacing: 16) {
                         CustomButton {
                             print("Apple으로 계속하기")
+                            loginWithAppleID()
                         } label: {
                             HStack{
                                 Image(.appleLogo)
@@ -112,7 +114,20 @@ struct OnboardingView: View {
             if newValue != nil { isOnBoardingPresented = false }
         }
     }
+}
 
+extension OnboardingView {
+    private func loginWithAppleID() {
+        let appleIDProvider = ASAuthorizationAppleIDProvider()
+        let request = appleIDProvider.createRequest()
+        request.requestedScopes = [.fullName, .email]
+        
+        let authorizationController = ASAuthorizationController(authorizationRequests: [request])
+        authorizationController.delegate = intent
+        authorizationController.presentationContextProvider = intent
+        authorizationController.performRequests()
+    }
+    
     private func loginWithKakaoTalk() {
         // 카카오톡 실행 가능 여부 확인
         if (UserApi.isKakaoTalkLoginAvailable()) {
@@ -128,9 +143,9 @@ struct OnboardingView: View {
                 }
             }
         }
-        
     }
 }
+
 
 #Preview {
     OnboardingView(isOnBoardingPresented: .constant(true))

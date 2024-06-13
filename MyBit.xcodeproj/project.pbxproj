@@ -29,6 +29,7 @@
 		003108AF2C1ACE9800082651 /* OnboardingState.swift in Sources */ = {isa = PBXBuildFile; fileRef = 003108AE2C1ACE9800082651 /* OnboardingState.swift */; };
 		003108B22C1ACEA800082651 /* OnboardingIntent.swift in Sources */ = {isa = PBXBuildFile; fileRef = 003108B12C1ACEA800082651 /* OnboardingIntent.swift */; };
 		003108B52C1AD0AE00082651 /* LoginWithKakaTalk.swift in Sources */ = {isa = PBXBuildFile; fileRef = 003108B42C1AD0AE00082651 /* LoginWithKakaTalk.swift */; };
+		003108B82C1AF20F00082651 /* LoginWithAppleID.swift in Sources */ = {isa = PBXBuildFile; fileRef = 003108B72C1AF20F00082651 /* LoginWithAppleID.swift */; };
 		0037D87B2C0EF11A00C24E7B /* MyBitApp.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0037D87A2C0EF11A00C24E7B /* MyBitApp.swift */; };
 		0037D87F2C0EF11B00C24E7B /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 0037D87E2C0EF11B00C24E7B /* Assets.xcassets */; };
 		0037D8822C0EF11B00C24E7B /* Preview Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 0037D8812C0EF11B00C24E7B /* Preview Assets.xcassets */; };
@@ -126,6 +127,8 @@
 		003108AE2C1ACE9800082651 /* OnboardingState.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = OnboardingState.swift; sourceTree = "<group>"; };
 		003108B12C1ACEA800082651 /* OnboardingIntent.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = OnboardingIntent.swift; sourceTree = "<group>"; };
 		003108B42C1AD0AE00082651 /* LoginWithKakaTalk.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LoginWithKakaTalk.swift; sourceTree = "<group>"; };
+		003108B62C1AE08400082651 /* MyBit.entitlements */ = {isa = PBXFileReference; lastKnownFileType = text.plist.entitlements; path = MyBit.entitlements; sourceTree = "<group>"; };
+		003108B72C1AF20F00082651 /* LoginWithAppleID.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LoginWithAppleID.swift; sourceTree = "<group>"; };
 		0037D8772C0EF11A00C24E7B /* MyBit.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = MyBit.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		0037D87A2C0EF11A00C24E7B /* MyBitApp.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MyBitApp.swift; sourceTree = "<group>"; };
 		0037D87E2C0EF11B00C24E7B /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
@@ -315,6 +318,7 @@
 				000FAF1A2C19A63B005DD853 /* Join.swift */,
 				000FAF1E2C19DDED005DD853 /* Login.swift */,
 				003108B42C1AD0AE00082651 /* LoginWithKakaTalk.swift */,
+				003108B72C1AF20F00082651 /* LoginWithAppleID.swift */,
 			);
 			path = User;
 			sourceTree = "<group>";
@@ -338,6 +342,7 @@
 		0037D8792C0EF11A00C24E7B /* MyBit */ = {
 			isa = PBXGroup;
 			children = (
+				003108B62C1AE08400082651 /* MyBit.entitlements */,
 				00BF1E862C11844000BCCFC8 /* Helpers */,
 				0006CE232C0F053B00BA213A /* Network */,
 				0006CE172C0EF2E200BA213A /* Scenes */,
@@ -728,6 +733,7 @@
 				00670F252C1495D90048ECD9 /* WebSocketManager.swift in Sources */,
 				00D0EAAE2C16EA4100622339 /* SignUpIntent.swift in Sources */,
 				000FAF1D2C19A6EF005DD853 /* UserInfo.swift in Sources */,
+				003108B82C1AF20F00082651 /* LoginWithAppleID.swift in Sources */,
 				00670F332C149EE60048ECD9 /* UpbitManager.swift in Sources */,
 				00ABCAEF2C1334130098CB84 /* String+Ext.swift in Sources */,
 				0006CE2A2C0F08A500BA213A /* Trending.swift in Sources */,
@@ -876,6 +882,7 @@
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				ASSETCATALOG_COMPILER_GLOBAL_ACCENT_COLOR_NAME = AccentColor;
+				CODE_SIGN_ENTITLEMENTS = MyBit/MyBit.entitlements;
 				CODE_SIGN_STYLE = Automatic;
 				CURRENT_PROJECT_VERSION = 1;
 				DEVELOPMENT_ASSET_PATHS = "\"MyBit/Preview Content\"";
@@ -912,6 +919,7 @@
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				ASSETCATALOG_COMPILER_GLOBAL_ACCENT_COLOR_NAME = AccentColor;
+				CODE_SIGN_ENTITLEMENTS = MyBit/MyBit.entitlements;
 				CODE_SIGN_STYLE = Automatic;
 				CURRENT_PROJECT_VERSION = 1;
 				DEVELOPMENT_ASSET_PATHS = "\"MyBit/Preview Content\"";
