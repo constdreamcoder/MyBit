@@ -21,6 +21,8 @@ final class SignUpIntent: IntentType {
     }
     
     @Published private(set) var state = SignUpState()
+    @KeychainStorage(key: .accessToken) private var accessToken: String?
+    @KeychainStorage(key: .refreshToken) private var refreshToken: String?
     
     private var inputEmailDoubleCheck = PassthroughSubject<Void, Never>()
     
@@ -105,6 +107,10 @@ extension SignUpIntent {
             guard let self else { return }
             
             print(userInfo)
+            accessToken = userInfo.token.accessToken
+            refreshToken = userInfo.token.refreshToken
+            
+            state.userInfo = userInfo
         }
         .store(in: &cancelable)
     }
@@ -145,25 +151,6 @@ extension SignUpIntent {
         state.passwordConfirmInputText = text
         state.passwordConfirmValidation = isValidPasswordConfirm(text)
         isValidSignUp()
-    }
-    
-    private func isValidSignUp() {
-        print("----------------------유효성 검사-------------------------")
-        print("emailDoubleCheckButtonValidation", state.emailDoubleCheckButtonValidation)
-        print("emailValidation", state.emailValidation)
-        print("nicknameValidation", state.nicknameValidation)
-        print("passwordValidation", state.passwordValidation)
-        print("passwordConfirmValidation", state.passwordConfirmValidation)
-        
-        
-        state.signUpValidation = state.emailDoubleCheckButtonValidation
-        && state.emailValidation
-        && state.nicknameValidation
-        && state.passwordValidation
-        && state.passwordConfirmValidation
-        print("signUpValidation", state.signUpValidation)
-        print("----------------------------------------------------------")
-        
     }
 }
 
@@ -224,6 +211,25 @@ extension SignUpIntent {
     private func isValidPasswordConfirm(_ passwordConfirm: String) -> Bool {
         return !passwordConfirm.isEmpty && !state.passwordInputText.isEmpty && state.passwordInputText == passwordConfirm
     }
+    
+    private func isValidSignUp() {
+        print("----------------------유효성 검사-------------------------")
+        print("emailDoubleCheckButtonValidation", state.emailDoubleCheckButtonValidation)
+        print("emailValidation", state.emailValidation)
+        print("nicknameValidation", state.nicknameValidation)
+        print("passwordValidation", state.passwordValidation)
+        print("passwordConfirmValidation", state.passwordConfirmValidation)
+        
+        
+        state.signUpValidation = state.emailDoubleCheckButtonValidation
+        && state.emailValidation
+        && state.nicknameValidation
+        && state.passwordValidation
+        && state.passwordConfirmValidation
+        print("signUpValidation", state.signUpValidation)
+        print("----------------------------------------------------------")
+        
+    }
 }
 
 extension SignUpIntent {
@@ -242,4 +248,3 @@ extension SignUpIntent {
         return phoneNumber
     }
 }
-

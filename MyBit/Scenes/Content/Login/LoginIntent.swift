@@ -17,6 +17,8 @@ final class LoginIntent: IntentType {
     }
     
     @Published private(set) var state = LoginState()
+    @KeychainStorage(key: .accessToken) private var accessToken: String?
+    @KeychainStorage(key: .refreshToken) private var refreshToken: String?
     
     var cancelable = Set<AnyCancellable>()
     
@@ -34,13 +36,17 @@ final class LoginIntent: IntentType {
 
 extension LoginIntent {
     private func writeEmail(_ text: String) {
-        state.emailInputText = text
         print("email:", text)
+        state.emailInputText = text
+        state.emailValidation = isValidEmail(text)
+        isValidSignUp()
     }
     
     private func writePassword(_ text: String) {
-        state.passwordInputText = text
         print("Password:", text)
+        state.passwordInputText = text
+        state.passwordValidation = isValidPassword(text)
+        isValidSignUp()
     }
 }
 
@@ -63,7 +69,54 @@ extension LoginIntent {
             guard let self else { return }
             
             print(userInfo)
+            
+            accessToken = userInfo.token.accessToken
+            refreshToken = userInfo.token.refreshToken
+            state.userInfo = userInfo
         }
         .store(in: &cancelable)
+    }
+}
+
+extension LoginIntent {
+    private func isValidEmail(_ email: String) -> Bool {
+        let emailRegEx = "[A-Z0-9a-z._%+-]+@[A-Za-z0-9.-]+\\.[A-Za-z]{2,64}"
+        let emailPred = NSPredicate(format:"SELF MATCHES %@", emailRegEx)
+        return emailPred.evaluate(with: email)
+    }
+    
+    private func isValidPassword(_ password: String) -> Bool {
+        // 최소 8자 이상
+        let lengthPredicate = NSPredicate(format: "SELF MATCHES %@", ".{8,}")
+        
+        // 하나 이상의 대문자
+        let uppercasePredicate = NSPredicate(format: "SELF MATCHES %@", ".*[A-Z]+.*")
+        
+        // 하나 이상의 소문자
+        let lowercasePredicate = NSPredicate(format: "SELF MATCHES %@", ".*[a-z]+.*")
+        
+        // 하나 이상의 숫자
+        let numberPredicate = NSPredicate(format: "SELF MATCHES %@", ".*[0-9]+.*")
+        
+        // 하나 이상의 특수 문자
+        let specialCharacterPredicate = NSPredicate(format: "SELF MATCHES %@", ".*[!@#$%^&*(),.?\":{}|<>]+.*")
+        
+        // 모든 조건을 만족하는지 확인
+        return lengthPredicate.evaluate(with: password) &&
+        uppercasePredicate.evaluate(with: password) &&
+        lowercasePredicate.evaluate(with: password) &&
+        numberPredicate.evaluate(with: password) &&
+        specialCharacterPredicate.evaluate(with: password)
+    }
+    
+    private func isValidSignUp() {
+        print("----------------------유효성 검사-------------------------")
+        print("emailValidation", state.emailValidation)
+        print("passwordValidation", state.passwordValidation)
+        
+        state.loginValidation = state.emailValidation && state.passwordValidation
+        print("signUpValidation", state.loginValidation)
+        print("----------------------------------------------------------")
+        
     }
 }

@@ -24,5 +24,7 @@ struct SignUpState: StateType {
     
     var signUpValidation: Bool = false
     
+    var userInfo: UserInfo? = nil
+    
     var errorMessage: String? = nil
 }

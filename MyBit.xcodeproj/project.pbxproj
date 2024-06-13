@@ -21,6 +21,7 @@
 		000FAF1B2C19A63B005DD853 /* Join.swift in Sources */ = {isa = PBXBuildFile; fileRef = 000FAF1A2C19A63B005DD853 /* Join.swift */; };
 		000FAF1D2C19A6EF005DD853 /* UserInfo.swift in Sources */ = {isa = PBXBuildFile; fileRef = 000FAF1C2C19A6EF005DD853 /* UserInfo.swift */; };
 		000FAF1F2C19DDED005DD853 /* Login.swift in Sources */ = {isa = PBXBuildFile; fileRef = 000FAF1E2C19DDED005DD853 /* Login.swift */; };
+		000FAF212C19F94A005DD853 /* KeychainManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = 000FAF202C19F94A005DD853 /* KeychainManager.swift */; };
 		00175FA82C11E6B200D77BB6 /* Kingfisher in Frameworks */ = {isa = PBXBuildFile; productRef = 00175FA72C11E6B200D77BB6 /* Kingfisher */; };
 		00175FAB2C11EC4D00D77BB6 /* CustomNavigationView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 00175FAA2C11EC4D00D77BB6 /* CustomNavigationView.swift */; };
 		0037D87B2C0EF11A00C24E7B /* MyBitApp.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0037D87A2C0EF11A00C24E7B /* MyBitApp.swift */; };
@@ -115,6 +116,7 @@
 		000FAF1A2C19A63B005DD853 /* Join.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Join.swift; sourceTree = "<group>"; };
 		000FAF1C2C19A6EF005DD853 /* UserInfo.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UserInfo.swift; sourceTree = "<group>"; };
 		000FAF1E2C19DDED005DD853 /* Login.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Login.swift; sourceTree = "<group>"; };
+		000FAF202C19F94A005DD853 /* KeychainManager.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = KeychainManager.swift; sourceTree = "<group>"; };
 		00175FAA2C11EC4D00D77BB6 /* CustomNavigationView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CustomNavigationView.swift; sourceTree = "<group>"; };
 		0037D8772C0EF11A00C24E7B /* MyBit.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = MyBit.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		0037D87A2C0EF11A00C24E7B /* MyBitApp.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MyBitApp.swift; sourceTree = "<group>"; };
@@ -439,6 +441,7 @@
 				00670F322C149EE60048ECD9 /* UpbitManager.swift */,
 				00670F242C1495D90048ECD9 /* WebSocketManager.swift */,
 				006F01292C186FB20053E118 /* UserManager.swift */,
+				000FAF202C19F94A005DD853 /* KeychainManager.swift */,
 			);
 			path = Managers;
 			sourceTree = "<group>";
@@ -669,6 +672,7 @@
 				006F01212C1821250053E118 /* IntentType.swift in Sources */,
 				008889C92C160AA9008619A8 /* SplashView.swift in Sources */,
 				00ABCAE72C12EE4A0098CB84 /* FavoriteStarView.swift in Sources */,
+				000FAF212C19F94A005DD853 /* KeychainManager.swift in Sources */,
 				00ABCAE02C12D4170098CB84 /* TrendingRankingType.swift in Sources */,
 				00D0EAA52C16CF4A00622339 /* CustomButton.swift in Sources */,
 				00D0EAAC2C16EA3900622339 /* SignUpState.swift in Sources */,

@@ -90,9 +90,6 @@ struct SignUpView: View {
                 
                 CustomButton {
                     print("가입하기")
-                    DispatchQueue.main.asyncAfter(deadline: .now() + 2) {
-                        isOnBoardingPresented = false
-                    }
                     intent.send(.join)
                 } label: {
                     Text("가입하기")
@@ -100,6 +97,9 @@ struct SignUpView: View {
                 .bottomButtonShape(intent.state.signUpValidation ? .brandPoint : .customGray)
                 .disabled(!intent.state.signUpValidation)
             }
+        }
+        .onReceive(Just(intent.state.userInfo)) { newValue in
+            if newValue != nil { isOnBoardingPresented = false }
         }
     }
 }

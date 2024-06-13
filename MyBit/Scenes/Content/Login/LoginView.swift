@@ -6,6 +6,7 @@
 //
 
 import SwiftUI
+import Combine
 
 struct LoginView: View {
     
@@ -48,14 +49,17 @@ struct LoginView: View {
                 CustomButton {
                     print("로그인")
                     DispatchQueue.main.asyncAfter(deadline: .now() + 2) {
-                        isOnBoardingPresented = false
                     }
                     intent.send(.login)
                 } label: {
                     Text("로그인")
                 }
-                .bottomButtonShape(.brandPoint)
+                .bottomButtonShape(intent.state.loginValidation ? .brandPoint : .customGray)
+                .disabled(!intent.state.loginValidation)
             }
+        }
+        .onReceive(Just(intent.state.userInfo)) { newValue in
+            if newValue != nil { isOnBoardingPresented = false }
         }
         
     }
