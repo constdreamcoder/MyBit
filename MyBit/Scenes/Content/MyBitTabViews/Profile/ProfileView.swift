@@ -19,10 +19,10 @@ struct ProfileView: View {
                 if #available(iOS 16.0, *) {
                     List {
                         Section {
-                            NavigationLink(destination: EditProfileView(title: "닉네임")) {
+                            NavigationLink(destination: EditProfileView(navigationTitle: "닉네임", placeholder: "닉네임을 입력하세요")) {
                                 ProfileCell(title: "닉네임", data: intent.state.myProfile?.nickname)
                             }
-                            NavigationLink(destination: EditProfileView(title: "연락처")) {
+                            NavigationLink(destination: EditProfileView(navigationTitle: "연락처", placeholder: "연락처를 입력하세요")) {
                                 ProfileCell(title: "연락처", data: intent.state.myProfile?.phone)
                             }
                         }
@@ -41,10 +41,11 @@ struct ProfileView: View {
                 }
             }
             .background(.customLightGray)
+            .onAppear {
+                intent.send(.fetchMyProfile)
+            }
         }
-        .onAppear {
-            intent.send(.fetchMyProfile)
-        }
+        
     }
 }
 

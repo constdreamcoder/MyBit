@@ -56,6 +56,7 @@
 		0072D9632C1BEACA0092DBA9 /* ProfileIntent.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0072D9622C1BEACA0092DBA9 /* ProfileIntent.swift */; };
 		0072D9652C1C017F0092DBA9 /* MyProfileInfo.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0072D9642C1C017F0092DBA9 /* MyProfileInfo.swift */; };
 		0072D9682C1C0B800092DBA9 /* SocialLoginLogo.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0072D9672C1C0B800092DBA9 /* SocialLoginLogo.swift */; };
+		0072D96C2C1C1CA40092DBA9 /* EditProfileView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0072D96B2C1C1CA40092DBA9 /* EditProfileView.swift */; };
 		008889C42C15C3EB008619A8 /* BitcoinChangeModifier.swift in Sources */ = {isa = PBXBuildFile; fileRef = 008889C32C15C3EB008619A8 /* BitcoinChangeModifier.swift */; };
 		008889C92C160AA9008619A8 /* SplashView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 008889C82C160AA9008619A8 /* SplashView.swift */; };
 		008889CC2C160AE8008619A8 /* LaunchScreenView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 008889CB2C160AE8008619A8 /* LaunchScreenView.swift */; };
@@ -160,6 +161,7 @@
 		0072D9622C1BEACA0092DBA9 /* ProfileIntent.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ProfileIntent.swift; sourceTree = "<group>"; };
 		0072D9642C1C017F0092DBA9 /* MyProfileInfo.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MyProfileInfo.swift; sourceTree = "<group>"; };
 		0072D9672C1C0B800092DBA9 /* SocialLoginLogo.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SocialLoginLogo.swift; sourceTree = "<group>"; };
+		0072D96B2C1C1CA40092DBA9 /* EditProfileView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = EditProfileView.swift; sourceTree = "<group>"; };
 		008889C32C15C3EB008619A8 /* BitcoinChangeModifier.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BitcoinChangeModifier.swift; sourceTree = "<group>"; };
 		008889C82C160AA9008619A8 /* SplashView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SplashView.swift; sourceTree = "<group>"; };
 		008889CB2C160AE8008619A8 /* LaunchScreenView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LaunchScreenView.swift; sourceTree = "<group>"; };
@@ -261,6 +263,7 @@
 				00BF1E8D2C11873400BCCFC8 /* ProfileView.swift */,
 				0072D9602C1BE8F70092DBA9 /* ProfileState.swift */,
 				0072D9622C1BEACA0092DBA9 /* ProfileIntent.swift */,
+				0072D96B2C1C1CA40092DBA9 /* EditProfileView.swift */,
 			);
 			path = Profile;
 			sourceTree = "<group>";
@@ -705,6 +708,7 @@
 				00ABCAED2C1303C20098CB84 /* ChartView.swift in Sources */,
 				003108B22C1ACEA800082651 /* OnboardingIntent.swift in Sources */,
 				0006CE2C2C0F0A8400BA213A /* CoingeckoManager.swift in Sources */,
+				0072D96C2C1C1CA40092DBA9 /* EditProfileView.swift in Sources */,
 				00BF1E742C1174D600BCCFC8 /* SearchState.swift in Sources */,
 				000FAF1F2C19DDED005DD853 /* Login.swift in Sources */,
 				008889CC2C160AE8008619A8 /* LaunchScreenView.swift in Sources */,
