@@ -9,11 +9,13 @@ import SwiftUI
 
 struct CustomNavigationView<Content: View>: View {
     
-    private let content: Content
     private let title: String
+    private let isProfile: Bool
+    private let content: Content
     
-    init(title: String, @ViewBuilder content: () -> Content) {
+    init(title: String, isProfile: Bool = false, @ViewBuilder content: () -> Content) {
         self.title = title
+        self.isProfile = isProfile
         self.content = content()
     }
     
@@ -23,7 +25,9 @@ struct CustomNavigationView<Content: View>: View {
                 .navigationTitle(title)
                 .listStyle(.plain)
                 .toolbar  {
-                    ProfileImage()
+                    if !isProfile {
+                        ProfileImage()
+                    }
                 }
         }
     }

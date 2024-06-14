@@ -52,6 +52,8 @@
 		006F01252C186C420053E118 /* UserService.swift in Sources */ = {isa = PBXBuildFile; fileRef = 006F01242C186C420053E118 /* UserService.swift */; };
 		006F012A2C186FB20053E118 /* UserManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = 006F01292C186FB20053E118 /* UserManager.swift */; };
 		006F01342C1880D00053E118 /* EmailValidation.swift in Sources */ = {isa = PBXBuildFile; fileRef = 006F01332C1880D00053E118 /* EmailValidation.swift */; };
+		0072D9612C1BE8F70092DBA9 /* ProfileState.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0072D9602C1BE8F70092DBA9 /* ProfileState.swift */; };
+		0072D9632C1BEACA0092DBA9 /* ProfileIntent.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0072D9622C1BEACA0092DBA9 /* ProfileIntent.swift */; };
 		008889C42C15C3EB008619A8 /* BitcoinChangeModifier.swift in Sources */ = {isa = PBXBuildFile; fileRef = 008889C32C15C3EB008619A8 /* BitcoinChangeModifier.swift */; };
 		008889C92C160AA9008619A8 /* SplashView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 008889C82C160AA9008619A8 /* SplashView.swift */; };
 		008889CC2C160AE8008619A8 /* LaunchScreenView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 008889CB2C160AE8008619A8 /* LaunchScreenView.swift */; };
@@ -152,6 +154,8 @@
 		006F01242C186C420053E118 /* UserService.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UserService.swift; sourceTree = "<group>"; };
 		006F01292C186FB20053E118 /* UserManager.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UserManager.swift; sourceTree = "<group>"; };
 		006F01332C1880D00053E118 /* EmailValidation.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = EmailValidation.swift; sourceTree = "<group>"; };
+		0072D9602C1BE8F70092DBA9 /* ProfileState.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ProfileState.swift; sourceTree = "<group>"; };
+		0072D9622C1BEACA0092DBA9 /* ProfileIntent.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ProfileIntent.swift; sourceTree = "<group>"; };
 		008889C32C15C3EB008619A8 /* BitcoinChangeModifier.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BitcoinChangeModifier.swift; sourceTree = "<group>"; };
 		008889C82C160AA9008619A8 /* SplashView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SplashView.swift; sourceTree = "<group>"; };
 		008889CB2C160AE8008619A8 /* LaunchScreenView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LaunchScreenView.swift; sourceTree = "<group>"; };
@@ -251,6 +255,8 @@
 			isa = PBXGroup;
 			children = (
 				00BF1E8D2C11873400BCCFC8 /* ProfileView.swift */,
+				0072D9602C1BE8F70092DBA9 /* ProfileState.swift */,
+				0072D9622C1BEACA0092DBA9 /* ProfileIntent.swift */,
 			);
 			path = Profile;
 			sourceTree = "<group>";
@@ -707,6 +713,7 @@
 				008889CE2C160B61008619A8 /* OnboardingView.swift in Sources */,
 				006F01212C1821250053E118 /* IntentType.swift in Sources */,
 				008889C92C160AA9008619A8 /* SplashView.swift in Sources */,
+				0072D9632C1BEACA0092DBA9 /* ProfileIntent.swift in Sources */,
 				00ABCAE72C12EE4A0098CB84 /* FavoriteStarView.swift in Sources */,
 				000FAF212C19F94A005DD853 /* KeychainManager.swift in Sources */,
 				00ABCAE02C12D4170098CB84 /* TrendingRankingType.swift in Sources */,
@@ -728,6 +735,7 @@
 				00670F292C1496240048ECD9 /* ExchangeState.swift in Sources */,
 				00BF1E812C117FBE00BCCFC8 /* DetailView.swift in Sources */,
 				000FAF1B2C19A63B005DD853 /* Join.swift in Sources */,
+				0072D9612C1BE8F70092DBA9 /* ProfileState.swift in Sources */,
 				008889C42C15C3EB008619A8 /* BitcoinChangeModifier.swift in Sources */,
 				00ABCB062C1339960098CB84 /* FavoriteRepository.swift in Sources */,
 				00670F252C1495D90048ECD9 /* WebSocketManager.swift in Sources */,
