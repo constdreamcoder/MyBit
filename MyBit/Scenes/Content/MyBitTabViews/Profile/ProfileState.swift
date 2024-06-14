@@ -9,5 +9,6 @@ import Foundation
 
 struct ProfileState: StateType {
     var isLoading: Bool = false
+    var myProfile: MyProfileInfo? = nil
     var errorMessage: String? = nil
 }

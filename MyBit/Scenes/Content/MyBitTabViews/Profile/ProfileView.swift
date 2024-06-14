@@ -8,6 +8,9 @@
 import SwiftUI
 
 struct ProfileView: View {
+    
+    @StateObject private var intent = ProfileIntent()
+    
     var body: some View {
         CustomNavigationView(title: "Profile", isProfile: true) {
             VStack {
@@ -16,14 +19,18 @@ struct ProfileView: View {
                 if #available(iOS 16.0, *) {
                     List {
                         Section {
-                            ProfileCell(title: "닉네임", data: "옹골찬 고래밥")
-                            ProfileCell(title: "연락처", data: "010-1234-1234")
+                            NavigationLink(destination: EditProfileView(title: "닉네임")) {
+                                ProfileCell(title: "닉네임", data: intent.state.myProfile?.nickname)
+                            }
+                            NavigationLink(destination: EditProfileView(title: "연락처")) {
+                                ProfileCell(title: "연락처", data: intent.state.myProfile?.phone)
+                            }
                         }
                         
                         Section {
-                            ProfileCell(title: "이메일", data: "sesac@sesac.com")
-                            ProfileCell(title: "연결된 소설 계정", data: "")
-                            ProfileCell(title: "로그아웃", data: "")
+                            ProfileCell(title: "이메일", data: intent.state.myProfile?.email)
+                            ProfileCell(title: "연결된 소설 계정", socialLoginImage: intent.state.myProfile?.provider?.image)
+                            ProfileCell(title: "로그아웃")
                         }
                     }
                     .listStyle(.insetGrouped)
@@ -34,6 +41,9 @@ struct ProfileView: View {
                 }
             }
             .background(.customLightGray)
+        }
+        .onAppear {
+            intent.send(.fetchMyProfile)
         }
     }
 }
@@ -53,7 +63,14 @@ struct ProfilePhotoView: View {
 
 struct ProfileCell: View {
     let title: String
-    let data: String
+    let data: String?
+    let socialLoginImage: String?
+    
+    init(title: String, data: String? = nil, socialLoginImage: String? = nil) {
+        self.title = title
+        self.data = data
+        self.socialLoginImage = socialLoginImage
+    }
     
     var body: some View {
         HStack {
@@ -62,9 +79,18 @@ struct ProfileCell: View {
             
             Spacer()
             
-            Text(data)
-                .foregroundStyle(.customDarkGray)
-                .font(.system(size: 13))
+            if let socialLoginImage = socialLoginImage,
+                !socialLoginImage.isEmpty && (data == nil || data == "") {
+                Image(socialLoginImage)
+                    .resizable()
+                    .aspectRatio(1, contentMode: .fit)
+                    .frame(width: 20)
+            } else {
+                Text(data ?? "")
+                    .foregroundStyle(.customDarkGray)
+                    .font(.system(size: 13))
+            }
+    
         }
         .listRowSeparator(.hidden)
     }

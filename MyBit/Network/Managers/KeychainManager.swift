@@ -14,13 +14,13 @@ struct KeychainStorage {
 
     var wrappedValue: String? {
         get {
-            return KeychainManager.read(key: key.rawValue)
+            return KeychainManager.read(key: key)
         }
         set {
             if let value = newValue {
-                KeychainManager.create(key: key.rawValue, token: value)
+                KeychainManager.create(key: key, token: value)
             } else {
-                KeychainManager.delete(key: key.rawValue)
+                KeychainManager.delete(key: key)
             }
         }
     }
@@ -38,10 +38,10 @@ struct KeychainManager {
     }
     
     // Create
-    static func create(key: String, token: String) {
+    static func create(key: Key, token: String) {
         let query: NSDictionary = [
             kSecClass: kSecClassGenericPassword,
-            kSecAttrAccount: key,
+            kSecAttrAccount: key.rawValue,
             kSecValueData: token.data(using: .utf8, allowLossyConversion: false) as Any // 저장할 Token
         ]
         SecItemDelete(query) // Keychain은 Key값에 중복이 생기면, 저장할 수 없기 때문에 먼저 Delete해줌
@@ -51,10 +51,10 @@ struct KeychainManager {
     }
     
     // Read
-    static func read(key: String) -> String? {
+    static func read(key: Key) -> String? {
         let query: NSDictionary = [
             kSecClass: kSecClassGenericPassword,
-            kSecAttrAccount: key,
+            kSecAttrAccount: key.rawValue,
             kSecReturnData: kCFBooleanTrue as Any, // CFData 타입으로 불러오라는 의미
             kSecMatchLimit: kSecMatchLimitOne // 중복되는 경우, 하나의 값만 불러오라는 의미
         ]
@@ -74,10 +74,10 @@ struct KeychainManager {
     }
     
     // Delete
-    static func delete(key: String) {
+    static func delete(key: Key) {
         let query: NSDictionary = [
             kSecClass as String: kSecClassGenericPassword,
-            kSecAttrAccount as String: key
+            kSecAttrAccount as String: key.rawValue
         ]
         let status = SecItemDelete(query)
         assert(status == noErr, "failed to delete the value, status code = \(status)")

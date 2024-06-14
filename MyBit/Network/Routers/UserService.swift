@@ -14,6 +14,7 @@ enum UserService {
     case login(email: String, password: String)
     case loginWithKakaoTalk(oauthToken: String)
     case loginWithAppleID(idToken: String, nickname: String?)
+    case fetchMyProfile
 }
 
 extension UserService: TargetType {
@@ -31,11 +32,15 @@ extension UserService: TargetType {
             return "/users/login/kakao"
         case .loginWithAppleID:
             return "/users/login/apple"
+        case .fetchMyProfile:
+            return "/users/me"
         }
     }
     
     var method: Moya.Method {
         switch self {
+        case .fetchMyProfile:
+            return .get
         case .validate, .join, .login, .loginWithKakaoTalk, .loginWithAppleID:
             return .post
         }
@@ -58,13 +63,16 @@ extension UserService: TargetType {
         case .loginWithAppleID(let idToken, let nickname):
             let loginWithAppleID = LoginWithAppleID(idToken: idToken, nickname: nickname, deviceToken: APIKeys.sampleDeviceToken)
             return .requestJSONEncodable(loginWithAppleID)
+        case .fetchMyProfile:
+            return .requestPlain
         }
     }
     
     var headers: [String : String]? {
         return [
             "Content-Type": "application/json",
-            "SesacKey": APIKeys.sesacKey
+            "SesacKey": APIKeys.sesacKey,
+            "Authorization": KeychainManager.read(key: .accessToken) ?? ""
         ]
     }
 }
