@@ -10,6 +10,7 @@ import SwiftUI
 struct ProfileView: View {
     
     @StateObject private var intent = ProfileIntent()
+    @State private var selection: String? = nil
     
     var body: some View {
         CustomNavigationView(title: "Profile", isProfile: true) {
@@ -19,10 +20,30 @@ struct ProfileView: View {
                 if #available(iOS 16.0, *) {
                     List {
                         Section {
-                            NavigationLink(destination: EditProfileView(navigationTitle: "닉네임", placeholder: "닉네임을 입력하세요")) {
+                            NavigationLink(
+                                destination: EditProfileView(
+                                    navigationTitle: "닉네임",
+                                    placeholder: "닉네임을 입력하세요", 
+                                    previousInput: intent.state.myProfile?.nickname ?? "",
+                                    inputType: .nickname, 
+                                    selection: $selection
+                                ),
+                                tag: "1",
+                                selection: $selection
+                            ) {
                                 ProfileCell(title: "닉네임", data: intent.state.myProfile?.nickname)
                             }
-                            NavigationLink(destination: EditProfileView(navigationTitle: "연락처", placeholder: "연락처를 입력하세요")) {
+                            NavigationLink(
+                                destination: EditProfileView(
+                                    navigationTitle: "연락처",
+                                    placeholder: "연락처를 입력하세요",
+                                    previousInput: intent.state.myProfile?.phone ?? "",
+                                    inputType: .phone, 
+                                    selection: $selection
+                                ),
+                                tag: "2",
+                                selection: $selection
+                            ) {
                                 ProfileCell(title: "연락처", data: intent.state.myProfile?.phone)
                             }
                         }

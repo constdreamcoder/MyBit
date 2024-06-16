@@ -30,7 +30,7 @@ struct SignUpView: View {
                     showRightButton: true,
                     isRightButtonDisable: !intent.state.emailDoubleCheckButtonValidation,
                     textFieldGetter: { intent.state.emailInputText },
-                    textFieldSetter: { intent.send(.writeEmail(text: $0)) },
+                    textFieldSetter: { intent.send(.write(inputKind: .email(input: $0))) },
                     secureFieldGetter: { "" },
                     secureFieldSetter: { _ in },
                     rightButtonAction: { intent.send(.emailDoubleCheck) }
@@ -41,7 +41,7 @@ struct SignUpView: View {
                     title: "닉네임",
                     placeholder: "닉네임을 입력하세요",
                     textFieldGetter: { intent.state.nicknameInputText },
-                    textFieldSetter: { intent.send(.writeNickname(text: $0)) },
+                    textFieldSetter: { intent.send(.write(inputKind: .nickname(input: $0))) },
                     secureFieldGetter: { "" },
                     secureFieldSetter: { _ in },
                     rightButtonAction: {}
@@ -51,7 +51,7 @@ struct SignUpView: View {
                     title: "연락처",
                     placeholder: "전화번호를 입력하세요",
                     textFieldGetter: { intent.state.phoneNumberInputText },
-                    textFieldSetter: { intent.send(.writePhoneNumber(text: $0)) },
+                    textFieldSetter: { intent.send(.write(inputKind: .phone(input: $0))) },
                     secureFieldGetter: { "" },
                     secureFieldSetter: { _ in },
                     rightButtonAction: {}
@@ -60,7 +60,7 @@ struct SignUpView: View {
                 .onReceive(Just(intent.state.phoneNumberInputText)) { newValue in
                     let filtered = newValue.filter { "0123456789-".contains($0) }
                     if filtered != newValue {
-                        intent.send(.writePhoneNumber(text: filtered))
+                        intent.send(.write(inputKind: .phone(input: filtered)))
                     }
                 }
                 
@@ -71,7 +71,7 @@ struct SignUpView: View {
                     textFieldGetter: { "" },
                     textFieldSetter: { _ in },
                     secureFieldGetter: { intent.state.passwordInputText },
-                    secureFieldSetter: { intent.send(.writePassword(text: $0)) },
+                    secureFieldSetter: { intent.send(.write(inputKind: .password(input: $0))) },
                     rightButtonAction: {}
                 )
                 
@@ -82,7 +82,7 @@ struct SignUpView: View {
                     textFieldGetter: { "" },
                     textFieldSetter: { _ in },
                     secureFieldGetter: { intent.state.passwordConfirmInputText },
-                    secureFieldSetter: { intent.send(.writePasswordConfirm(text: $0)) },
+                    secureFieldSetter: { intent.send(.write(inputKind: .passwordConfirm(input: $0, password: intent.state.passwordInputText))) },
                     rightButtonAction: {}
                 )
                 

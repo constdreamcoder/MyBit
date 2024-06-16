@@ -137,7 +137,30 @@ struct UserManager {
                     case .finished:
                         print("Successfully Fetch My Profile!!")
                     case .failure(let error):
-                        print("Login Error", error)
+                        print("Fetch My Profile Error", error)
+                    }
+                } receiveValue: { response in
+                    do {
+                        let data = try response.filterSuccessfulStatusCodes().data
+                        let result = try JSONDecoder().decode(MyProfileInfo.self, from: data)
+                        promise(.success(result))
+                    } catch {
+                        promise(.failure(.networkError))
+                    }
+                }.store(in: &cancellable)
+        }.eraseToAnyPublisher()
+    }
+    
+    static func editMyProfile(nickname: String? = nil, phone: String? = nil) -> AnyPublisher<MyProfileInfo, NetworkErrors> {
+        return Future<MyProfileInfo, NetworkErrors> { promise in
+            let provider = MoyaProvider<UserService>(plugins: [MoyaLoggingPlugin()])
+            provider.requestPublisher(.editMyProfile(nickname: nickname, phone: phone))
+                .sink { completion in
+                    switch completion {
+                    case .finished:
+                        print("Successfully Edit My Profile!!")
+                    case .failure(let error):
+                        print("Edit My Profile Error", error)
                     }
                 } receiveValue: { response in
                     do {

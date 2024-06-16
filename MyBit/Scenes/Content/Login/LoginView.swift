@@ -27,7 +27,7 @@ struct LoginView: View {
                     title: "이메일",
                     placeholder: "이메일을 입력하세요",
                     textFieldGetter: { intent.state.emailInputText },
-                    textFieldSetter: { intent.send(.writeEmail(text: $0)) },
+                    textFieldSetter: { intent.send(.write(inputKind: .email(input: $0))) },
                     secureFieldGetter: { "" },
                     secureFieldSetter: { _ in },
                     rightButtonAction: {}
@@ -40,7 +40,7 @@ struct LoginView: View {
                     textFieldGetter: { "" },
                     textFieldSetter: { _ in },
                     secureFieldGetter: { intent.state.passwordInputText },
-                    secureFieldSetter: { intent.send(.writePassword(text: $0)) }, 
+                    secureFieldSetter: { intent.send(.write(inputKind: .password(input: $0))) },
                     rightButtonAction: {}
                 )
                 

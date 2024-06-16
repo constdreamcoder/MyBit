@@ -57,6 +57,11 @@
 		0072D9652C1C017F0092DBA9 /* MyProfileInfo.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0072D9642C1C017F0092DBA9 /* MyProfileInfo.swift */; };
 		0072D9682C1C0B800092DBA9 /* SocialLoginLogo.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0072D9672C1C0B800092DBA9 /* SocialLoginLogo.swift */; };
 		0072D96C2C1C1CA40092DBA9 /* EditProfileView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0072D96B2C1C1CA40092DBA9 /* EditProfileView.swift */; };
+		0072D96F2C1C21E40092DBA9 /* EditProfileState.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0072D96E2C1C21E40092DBA9 /* EditProfileState.swift */; };
+		0072D9712C1C21F00092DBA9 /* EditProfileIntent.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0072D9702C1C21F00092DBA9 /* EditProfileIntent.swift */; };
+		0072D9732C1C22F80092DBA9 /* EditMyProfile.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0072D9722C1C22F80092DBA9 /* EditMyProfile.swift */; };
+		0072D97A2C1C2C820092DBA9 /* InputKind.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0072D9792C1C2C820092DBA9 /* InputKind.swift */; };
+		0072D97C2C1C40780092DBA9 /* EditProfileInputType.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0072D97B2C1C40780092DBA9 /* EditProfileInputType.swift */; };
 		008889C42C15C3EB008619A8 /* BitcoinChangeModifier.swift in Sources */ = {isa = PBXBuildFile; fileRef = 008889C32C15C3EB008619A8 /* BitcoinChangeModifier.swift */; };
 		008889C92C160AA9008619A8 /* SplashView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 008889C82C160AA9008619A8 /* SplashView.swift */; };
 		008889CC2C160AE8008619A8 /* LaunchScreenView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 008889CB2C160AE8008619A8 /* LaunchScreenView.swift */; };
@@ -162,6 +167,11 @@
 		0072D9642C1C017F0092DBA9 /* MyProfileInfo.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MyProfileInfo.swift; sourceTree = "<group>"; };
 		0072D9672C1C0B800092DBA9 /* SocialLoginLogo.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SocialLoginLogo.swift; sourceTree = "<group>"; };
 		0072D96B2C1C1CA40092DBA9 /* EditProfileView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = EditProfileView.swift; sourceTree = "<group>"; };
+		0072D96E2C1C21E40092DBA9 /* EditProfileState.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = EditProfileState.swift; sourceTree = "<group>"; };
+		0072D9702C1C21F00092DBA9 /* EditProfileIntent.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = EditProfileIntent.swift; sourceTree = "<group>"; };
+		0072D9722C1C22F80092DBA9 /* EditMyProfile.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = EditMyProfile.swift; sourceTree = "<group>"; };
+		0072D9792C1C2C820092DBA9 /* InputKind.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = InputKind.swift; sourceTree = "<group>"; };
+		0072D97B2C1C40780092DBA9 /* EditProfileInputType.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = EditProfileInputType.swift; sourceTree = "<group>"; };
 		008889C32C15C3EB008619A8 /* BitcoinChangeModifier.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BitcoinChangeModifier.swift; sourceTree = "<group>"; };
 		008889C82C160AA9008619A8 /* SplashView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SplashView.swift; sourceTree = "<group>"; };
 		008889CB2C160AE8008619A8 /* LaunchScreenView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LaunchScreenView.swift; sourceTree = "<group>"; };
@@ -260,10 +270,10 @@
 		0006CE1B2C0EF30D00BA213A /* Profile */ = {
 			isa = PBXGroup;
 			children = (
+				0072D96D2C1C21B90092DBA9 /* EditProfile */,
 				00BF1E8D2C11873400BCCFC8 /* ProfileView.swift */,
 				0072D9602C1BE8F70092DBA9 /* ProfileState.swift */,
 				0072D9622C1BEACA0092DBA9 /* ProfileIntent.swift */,
-				0072D96B2C1C1CA40092DBA9 /* EditProfileView.swift */,
 			);
 			path = Profile;
 			sourceTree = "<group>";
@@ -327,6 +337,7 @@
 		003108B32C1AD0A300082651 /* User */ = {
 			isa = PBXGroup;
 			children = (
+				0072D9722C1C22F80092DBA9 /* EditMyProfile.swift */,
 				006F01332C1880D00053E118 /* EmailValidation.swift */,
 				000FAF1A2C19A63B005DD853 /* Join.swift */,
 				000FAF1E2C19DDED005DD853 /* Login.swift */,
@@ -436,6 +447,26 @@
 			isa = PBXGroup;
 			children = (
 				0072D9672C1C0B800092DBA9 /* SocialLoginLogo.swift */,
+				0072D9792C1C2C820092DBA9 /* InputKind.swift */,
+			);
+			path = Enums;
+			sourceTree = "<group>";
+		};
+		0072D96D2C1C21B90092DBA9 /* EditProfile */ = {
+			isa = PBXGroup;
+			children = (
+				0072D97D2C1C407C0092DBA9 /* Enums */,
+				0072D96B2C1C1CA40092DBA9 /* EditProfileView.swift */,
+				0072D96E2C1C21E40092DBA9 /* EditProfileState.swift */,
+				0072D9702C1C21F00092DBA9 /* EditProfileIntent.swift */,
+			);
+			path = EditProfile;
+			sourceTree = "<group>";
+		};
+		0072D97D2C1C407C0092DBA9 /* Enums */ = {
+			isa = PBXGroup;
+			children = (
+				0072D97B2C1C40780092DBA9 /* EditProfileInputType.swift */,
 			);
 			path = Enums;
 			sourceTree = "<group>";
@@ -728,6 +759,7 @@
 				00670F202C1422480048ECD9 /* FavoriteIntent.swift in Sources */,
 				000FAF172C1951C4005DD853 /* LoggingPlugin.swift in Sources */,
 				00BF1E8C2C11872300BCCFC8 /* FavoriteView.swift in Sources */,
+				0072D96F2C1C21E40092DBA9 /* EditProfileState.swift in Sources */,
 				0006CE302C0F170100BA213A /* TrendingView.swift in Sources */,
 				008889CE2C160B61008619A8 /* OnboardingView.swift in Sources */,
 				006F01212C1821250053E118 /* IntentType.swift in Sources */,
@@ -748,11 +780,14 @@
 				00670F2D2C149C7E0048ECD9 /* CurrentPrice.swift in Sources */,
 				00ABCADC2C12C4820098CB84 /* Array+Ext.swift in Sources */,
 				00670F272C1496150048ECD9 /* Ticker.swift in Sources */,
+				0072D97A2C1C2C820092DBA9 /* InputKind.swift in Sources */,
 				00BF1E852C117FD000BCCFC8 /* DetailIntent.swift in Sources */,
 				000FAF192C1951E5005DD853 /* Data+Ext.swift in Sources */,
 				0006CE2E2C0F13E900BA213A /* NetworkErrors.swift in Sources */,
+				0072D97C2C1C40780092DBA9 /* EditProfileInputType.swift in Sources */,
 				00670F292C1496240048ECD9 /* ExchangeState.swift in Sources */,
 				00BF1E812C117FBE00BCCFC8 /* DetailView.swift in Sources */,
+				0072D9732C1C22F80092DBA9 /* EditMyProfile.swift in Sources */,
 				000FAF1B2C19A63B005DD853 /* Join.swift in Sources */,
 				0072D9612C1BE8F70092DBA9 /* ProfileState.swift in Sources */,
 				008889C42C15C3EB008619A8 /* BitcoinChangeModifier.swift in Sources */,
@@ -762,6 +797,7 @@
 				00D0EAAE2C16EA4100622339 /* SignUpIntent.swift in Sources */,
 				000FAF1D2C19A6EF005DD853 /* UserInfo.swift in Sources */,
 				003108B82C1AF20F00082651 /* LoginWithAppleID.swift in Sources */,
+				0072D9712C1C21F00092DBA9 /* EditProfileIntent.swift in Sources */,
 				00670F332C149EE60048ECD9 /* UpbitManager.swift in Sources */,
 				00ABCAEF2C1334130098CB84 /* String+Ext.swift in Sources */,
 				0006CE2A2C0F08A500BA213A /* Trending.swift in Sources */,

@@ -11,11 +11,7 @@ import Combine
 final class SignUpIntent: IntentType {
     
     enum Action {
-        case writeEmail(text: String)
-        case writeNickname(text: String)
-        case writePhoneNumber(text: String)
-        case writePassword(text: String)
-        case writePasswordConfirm(text: String)
+        case write(inputKind: InputKind)
         case emailDoubleCheck
         case join
     }
@@ -34,16 +30,8 @@ final class SignUpIntent: IntentType {
     
     func send(_ action: Action) {
         switch action {
-        case .writeEmail(let text):
-            writeEmail(text)
-        case .writeNickname(let text):
-            writeNickname(text)
-        case .writePhoneNumber(let text):
-            writePhoneNumber(text)
-        case .writePassword(let text):
-            writePassword(text)
-        case .writePasswordConfirm(let text):
-            writePasswordConfirm(text)
+        case .write(let inputKind):
+            write(inputKind)
         case .emailDoubleCheck:
             inputEmailDoubleCheck.send(())
         case .join:
@@ -93,7 +81,7 @@ extension SignUpIntent {
             email: state.emailInputText,
             password: state.passwordInputText,
             nickname: state.nicknameInputText,
-            phone: isValidPhoneNumber(state.phoneNumberInputText) ? state.phoneNumberInputText : nil
+            phone: InputKind.isValidFormattedPhoneNumber(state.phoneNumberInputText) ? state.phoneNumberInputText : nil
         )
         .sink { [weak self] completion in
             guard let self else { return }
@@ -119,98 +107,55 @@ extension SignUpIntent {
 
 extension SignUpIntent {
     
-    private func writeEmail(_ text: String) {
+    private func write(_ inputKind: InputKind) {
+        switch inputKind {
+        case .email(let input):
+            writeEmail(input, inputKind: inputKind)
+        case .nickname(let input):
+            writeNickname(input, inputKind: inputKind)
+        case .phone(let input):
+            writePhoneNumber(input, inputKind: inputKind)
+        case .password(let input):
+            writePassword(input, inputKind: inputKind)
+        case .passwordConfirm(let input, _):
+            writePasswordConfirm(input, inputKind: inputKind)
+        }
+        
+        isValidSignUp()
+    }
+    
+    private func writeEmail(_ text: String, inputKind: InputKind) {
         print("email:", text)
         state.emailInputText = text
-        state.emailDoubleCheckButtonValidation = isValidEmail(text)
-        isValidSignUp()
+        state.emailDoubleCheckButtonValidation = inputKind.isValid
     }
     
-    private func writeNickname(_ text: String) {
+    private func writeNickname(_ text: String, inputKind: InputKind) {
         print("Nickname:", text)
         state.nicknameInputText = text
-        state.nicknameValidation = isValidNickname(text)
-        isValidSignUp()
+        state.nicknameValidation = inputKind.isValid
     }
     
-    private func writePhoneNumber(_ text: String) {
+    private func writePhoneNumber(_ text: String, inputKind: InputKind) {
         print("PhoneNumber:", text)
         
-        state.phoneNumberInputText = formatPhoneNumber(text)
+        state.phoneNumberInputText = inputKind.formatPhoneNumber
     }
     
-    private func writePassword(_ text: String) {
+    private func writePassword(_ text: String, inputKind: InputKind) {
         print("Password:", text)
         state.passwordInputText = text
-        state.passwordValidation = isValidPassword(text)
-        isValidSignUp()
+        state.passwordValidation = inputKind.isValid
     }
     
-    private func writePasswordConfirm(_ text: String) {
+    private func writePasswordConfirm(_ text: String, inputKind: InputKind) {
         print("PasswordConfirm:", text)
         state.passwordConfirmInputText = text
-        state.passwordConfirmValidation = isValidPasswordConfirm(text)
-        isValidSignUp()
+        state.passwordConfirmValidation = inputKind.isValid
     }
 }
 
 extension SignUpIntent {
-    private func isValidEmail(_ email: String) -> Bool {
-        let emailRegEx = "[A-Z0-9a-z._%+-]+@[A-Za-z0-9.-]+\\.[A-Za-z]{2,64}"
-        let emailPred = NSPredicate(format:"SELF MATCHES %@", emailRegEx)
-        return emailPred.evaluate(with: email)
-    }
-    
-    private func isValidNickname(_ nickname: String) -> Bool {
-        return nickname.count >= 1 && nickname.count <= 30
-    }
-    
-    private func isValidFormattedPhoneNumber(_ phoneNumber: String) -> Bool {
-        let regex = "^01\\d{1}-\\d{3,4}-\\d{4}$"
-        let predicate = NSPredicate(format: "SELF MATCHES %@", regex)
-        return predicate.evaluate(with: phoneNumber)
-    }
-    
-    private func isValidPhoneNumber(_ phoneNumber: String) -> Bool {
-        
-        var phone: String = phoneNumber
-        
-        if isValidFormattedPhoneNumber(phoneNumber) {
-            phone = phoneNumber.replacingOccurrences(of: "-", with: "")
-            
-        }
-        let phoneRegEx = "^01\\d{8,9}$"
-        let phonePred = NSPredicate(format: "SELF MATCHES %@", phoneRegEx)
-        return phonePred.evaluate(with: phone)
-    }
-    
-    private func isValidPassword(_ password: String) -> Bool {
-        // 최소 8자 이상
-        let lengthPredicate = NSPredicate(format: "SELF MATCHES %@", ".{8,}")
-        
-        // 하나 이상의 대문자
-        let uppercasePredicate = NSPredicate(format: "SELF MATCHES %@", ".*[A-Z]+.*")
-        
-        // 하나 이상의 소문자
-        let lowercasePredicate = NSPredicate(format: "SELF MATCHES %@", ".*[a-z]+.*")
-        
-        // 하나 이상의 숫자
-        let numberPredicate = NSPredicate(format: "SELF MATCHES %@", ".*[0-9]+.*")
-        
-        // 하나 이상의 특수 문자
-        let specialCharacterPredicate = NSPredicate(format: "SELF MATCHES %@", ".*[!@#$%^&*(),.?\":{}|<>]+.*")
-        
-        // 모든 조건을 만족하는지 확인
-        return lengthPredicate.evaluate(with: password) &&
-        uppercasePredicate.evaluate(with: password) &&
-        lowercasePredicate.evaluate(with: password) &&
-        numberPredicate.evaluate(with: password) &&
-        specialCharacterPredicate.evaluate(with: password)
-    }
-    
-    private func isValidPasswordConfirm(_ passwordConfirm: String) -> Bool {
-        return !passwordConfirm.isEmpty && !state.passwordInputText.isEmpty && state.passwordInputText == passwordConfirm
-    }
     
     private func isValidSignUp() {
         print("----------------------유효성 검사-------------------------")
@@ -220,7 +165,6 @@ extension SignUpIntent {
         print("passwordValidation", state.passwordValidation)
         print("passwordConfirmValidation", state.passwordConfirmValidation)
         
-        
         state.signUpValidation = state.emailDoubleCheckButtonValidation
         && state.emailValidation
         && state.nicknameValidation
@@ -228,23 +172,5 @@ extension SignUpIntent {
         && state.passwordConfirmValidation
         print("signUpValidation", state.signUpValidation)
         print("----------------------------------------------------------")
-        
-    }
-}
-
-extension SignUpIntent {
-    private func formatPhoneNumber(_ phoneNumber: String) -> String {
-        
-        guard isValidPhoneNumber(phoneNumber) else { return phoneNumber }
-        
-        if phoneNumber.count == 10 {
-            let formattedNumber = phoneNumber.prefix(3) + "-" + phoneNumber.dropFirst(3).prefix(3) + "-" + phoneNumber.suffix(4)
-            return String(formattedNumber)
-        } else if phoneNumber.count == 11 {
-            let formattedNumber = phoneNumber.prefix(3) + "-" + phoneNumber.dropFirst(3).prefix(4) + "-" + phoneNumber.suffix(4)
-            return String(formattedNumber)
-        }
-        
-        return phoneNumber
     }
 }

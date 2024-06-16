@@ -15,6 +15,7 @@ enum UserService {
     case loginWithKakaoTalk(oauthToken: String)
     case loginWithAppleID(idToken: String, nickname: String?)
     case fetchMyProfile
+    case editMyProfile(nickname: String?, phone: String?)
 }
 
 extension UserService: TargetType {
@@ -32,7 +33,7 @@ extension UserService: TargetType {
             return "/users/login/kakao"
         case .loginWithAppleID:
             return "/users/login/apple"
-        case .fetchMyProfile:
+        case .fetchMyProfile, .editMyProfile:
             return "/users/me"
         }
     }
@@ -43,6 +44,8 @@ extension UserService: TargetType {
             return .get
         case .validate, .join, .login, .loginWithKakaoTalk, .loginWithAppleID:
             return .post
+        case .editMyProfile:
+            return .put
         }
     }
     
@@ -65,6 +68,9 @@ extension UserService: TargetType {
             return .requestJSONEncodable(loginWithAppleID)
         case .fetchMyProfile:
             return .requestPlain
+        case .editMyProfile(let nickname, let phone):
+            let editMyProfile = EditMyProfile(nickname: nickname, phone: phone)
+            return .requestJSONEncodable(editMyProfile)
         }
     }
     
