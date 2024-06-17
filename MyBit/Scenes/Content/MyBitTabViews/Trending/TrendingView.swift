@@ -10,7 +10,7 @@ import SwiftUI
 struct TrendingView: View {
     
     @StateObject private var intent = TrendingIntent()
-    @Binding var profileImage: String?
+    @Binding var profileImage: String
     
     var body: some View {
         CustomNavigationView(title: "Crypto Coin", profileImage: $profileImage) {

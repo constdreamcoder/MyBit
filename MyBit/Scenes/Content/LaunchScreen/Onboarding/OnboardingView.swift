@@ -15,7 +15,7 @@ struct OnboardingView: View {
     @StateObject private var intent = OnboardingIntent()
     
     @Binding var isOnBoardingPresented: Bool
-    @Binding var profileImage: String?
+    @Binding var profileImage: String
     
     @State private var isBottomSheetPresented: Bool = false
     @State private var isLoginViewPresented: Bool = false

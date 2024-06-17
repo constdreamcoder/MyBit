@@ -11,10 +11,10 @@ import Combine
 struct ContentView: View {
     
     @AppStorage("isOnBoardingPresented") var isOnBoardingPresented: Bool = true
-    @AppStorage("profileImage") var profileImage: String?
     
-    @KeychainStorage(key: .accessToken) private var accessToken: String?
-    @KeychainStorage(key: .refreshToken) private var refreshToken: String?
+    @KeychainStorage(.profileImage) private var profileImage: String = ""
+    @KeychainStorage(.accessToken) private var accessToken: String = ""
+    @KeychainStorage(.refreshToken) private var refreshToken: String = ""
 
     var body: some View {
         MyBitTabView(profileImage: $profileImage)

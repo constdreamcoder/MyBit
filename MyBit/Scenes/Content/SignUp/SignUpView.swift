@@ -14,7 +14,7 @@ struct SignUpView: View {
     
     @Binding var isPresented: Bool
     @Binding var isOnBoardingPresented: Bool
-    @Binding var profileImage: String?
+    @Binding var profileImage: String
     
     var body: some View {
         ZStack {
@@ -102,7 +102,7 @@ struct SignUpView: View {
         }
         .onReceive(Just(intent.state.userInfo)) { newValue in
             if newValue != nil {
-                profileImage = newValue?.profileImage
+                profileImage = newValue?.profileImage ?? ""
                 isOnBoardingPresented = false
             }
         }

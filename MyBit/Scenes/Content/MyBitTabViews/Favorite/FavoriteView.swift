@@ -10,7 +10,7 @@ import SwiftUI
 struct FavoriteView: View {
     
     @StateObject private var intent = FavoriteIntent()
-    @Binding var profileImage: String?
+    @Binding var profileImage: String
     
     let columns = [
         GridItem(.flexible()), GridItem(.flexible())

@@ -11,7 +11,7 @@ import Kingfisher
 struct SearchView: View {
     
     @StateObject private var intent = SearchIntent()
-    @Binding var profileImage: String?
+    @Binding var profileImage: String
     
     var body: some View {
         CustomNavigationView(title: "Search", profileImage: $profileImage) {

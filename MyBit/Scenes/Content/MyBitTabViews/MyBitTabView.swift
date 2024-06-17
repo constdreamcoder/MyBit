@@ -9,7 +9,7 @@ import SwiftUI
 
 struct MyBitTabView: View {
     
-    @Binding var profileImage: String?
+    @Binding var profileImage: String
     
     var body: some View {
         TabView {

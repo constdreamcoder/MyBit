@@ -13,28 +13,40 @@ import SwiftUI
 struct KeychainStorage: DynamicProperty {
     
     private let key: KeychainManager.Key
+    @State private var data: String
     
-    var wrappedValue: String? {
+    var wrappedValue: String {
         get {
-            return KeychainManager.read(key: key)
+            data
         }
-        set {
-            if let value = newValue {
-                KeychainManager.create(key: key, value: value)
-            } else {
-                KeychainManager.delete(key: key)
-            }
+        nonmutating set {
+            KeychainManager.create(key: key, value: newValue)
+            data = newValue
         }
     }
     
-    init(key: KeychainManager.Key) {
+    var projectedValue: Binding<String> {
+        Binding(get: {
+            wrappedValue
+        }, set: {
+            wrappedValue = $0
+        })
+    }
+    
+    init(wrappedValue: String, _ key: KeychainManager.Key) {
         self.key = key
+        if let data = KeychainManager.read(key: key) {
+            self.data = data
+        } else {
+            self.data = wrappedValue
+        }
     }
 }
 
 struct KeychainManager {
     
     enum Key: String {
+        case profileImage = "profileImage"
         case accessToken = "accessToken"
         case refreshToken = "refreshToken"
     }

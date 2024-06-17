@@ -14,7 +14,7 @@ struct ProfileView: View {
     @StateObject private var intent = ProfileIntent()
     @State private var selection: String? = nil
     @State private var showImagePicker: Bool = false
-    @Binding var profileImage: String?
+    @Binding var profileImage: String
 
     private var configuration : PHPickerConfiguration {
         var config = PHPickerConfiguration(photoLibrary: PHPhotoLibrary.shared())
@@ -88,7 +88,7 @@ struct ProfileView: View {
         }
         .onReceive(Just(intent.state.myProfile)) { newValue in
             if newValue != nil {
-                profileImage = newValue?.profileImage
+                profileImage = newValue?.profileImage ?? ""
             }
         }
         

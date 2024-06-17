@@ -12,12 +12,12 @@ struct CustomNavigationView<Content: View>: View {
     private let title: String
     private let isProfile: Bool
     private let content: Content
-    @Binding var profileImage: String?
+    @Binding var profileImage: String
     
     init(
         title: String,
         isProfile: Bool = false,
-        profileImage: Binding<String?> = .constant(""),
+        profileImage: Binding<String> = .constant(""),
         @ViewBuilder content: () -> Content
     ) {
         self.title = title
@@ -33,8 +33,7 @@ struct CustomNavigationView<Content: View>: View {
                 .listStyle(.plain)
                 .toolbar  {
                     if !isProfile {
-//                        ProfileImage()
-                        ProfileImageView(imageURL: "\(APIKeys.userBaseURL)\(profileImage ?? "")")
+                        ProfileImageView(imageURL: "\(APIKeys.userBaseURL)\(profileImage)")
                             .aspectRatio(1, contentMode: .fit)
                             .frame(width: 36, height: 36)
                             .background(.customWhite)

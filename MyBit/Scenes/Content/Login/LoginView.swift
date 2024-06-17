@@ -14,7 +14,7 @@ struct LoginView: View {
     
     @Binding var isPresented: Bool
     @Binding var isOnBoardingPresented: Bool
-    @Binding var profileImage: String?
+    @Binding var profileImage: String
     
     var body: some View {
         ZStack {
@@ -57,14 +57,13 @@ struct LoginView: View {
                 .bottomButtonShape(intent.state.loginValidation ? .brandPoint : .customGray)
                 .disabled(!intent.state.loginValidation)
             }
-        }
-        .onReceive(Just(intent.state.userInfo)) { newValue in
-            if newValue != nil {
-                profileImage = newValue?.profileImage
-                isOnBoardingPresented = false
+            .onReceive(Just(intent.state.userInfo)) { newValue in
+                if newValue != nil {
+                    profileImage = newValue?.profileImage ?? ""
+                    isOnBoardingPresented = false
+                }
             }
         }
-        
     }
 }
 

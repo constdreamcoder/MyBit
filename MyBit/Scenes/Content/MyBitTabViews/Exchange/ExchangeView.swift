@@ -10,7 +10,7 @@ import SwiftUI
 struct ExchangeView: View {
     
     @StateObject var intent = ExchangeIntent()
-    @Binding var profileImage: String?
+    @Binding var profileImage: String
     
     var body: some View {
         CustomNavigationView(title: "Exchange", profileImage: $profileImage) {

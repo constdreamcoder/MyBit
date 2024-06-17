@@ -15,8 +15,8 @@ final class OnboardingIntent: NSObject, IntentType {
     }
     
     @Published private(set) var state = OnboardingState()
-    @KeychainStorage(key: .accessToken) private var accessToken: String?
-    @KeychainStorage(key: .refreshToken) private var refreshToken: String?
+    @KeychainStorage(.accessToken) private var accessToken: String = ""
+    @KeychainStorage(.refreshToken) private var refreshToken: String = ""
     
     var cancelable = Set<AnyCancellable>()
     
