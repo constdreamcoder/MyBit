@@ -11,9 +11,10 @@ import Kingfisher
 struct SearchView: View {
     
     @StateObject private var intent = SearchIntent()
+    @Binding var profileImage: String?
     
     var body: some View {
-        CustomNavigationView(title: "Search") {
+        CustomNavigationView(title: "Search", profileImage: $profileImage) {
             List(intent.state.searchedCoins, id: \.coin.id) { searchedCoin in
                 NavigationLink(destination: DetailView(id: searchedCoin.coin.id)) {
                     HStack {
@@ -48,7 +49,7 @@ struct SearchView: View {
 }
 
 #Preview {
-    SearchView()
+    SearchView(profileImage: .constant(""))
 }
 
 struct ItemInfoView: View {

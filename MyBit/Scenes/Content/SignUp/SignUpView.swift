@@ -11,8 +11,10 @@ import Combine
 struct SignUpView: View {
     
     @StateObject private var intent = SignUpIntent()
+    
     @Binding var isPresented: Bool
     @Binding var isOnBoardingPresented: Bool
+    @Binding var profileImage: String?
     
     var body: some View {
         ZStack {
@@ -99,11 +101,14 @@ struct SignUpView: View {
             }
         }
         .onReceive(Just(intent.state.userInfo)) { newValue in
-            if newValue != nil { isOnBoardingPresented = false }
+            if newValue != nil {
+                profileImage = newValue?.profileImage
+                isOnBoardingPresented = false
+            }
         }
     }
 }
 
 #Preview {
-    SignUpView(isPresented: .constant(true), isOnBoardingPresented: .constant(true))
+    SignUpView(isPresented: .constant(true), isOnBoardingPresented: .constant(true), profileImage: .constant(""))
 }

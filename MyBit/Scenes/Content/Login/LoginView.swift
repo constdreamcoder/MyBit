@@ -11,8 +11,10 @@ import Combine
 struct LoginView: View {
     
     @StateObject private var intent = LoginIntent()
+    
     @Binding var isPresented: Bool
     @Binding var isOnBoardingPresented: Bool
+    @Binding var profileImage: String?
     
     var body: some View {
         ZStack {
@@ -57,12 +59,15 @@ struct LoginView: View {
             }
         }
         .onReceive(Just(intent.state.userInfo)) { newValue in
-            if newValue != nil { isOnBoardingPresented = false }
+            if newValue != nil {
+                profileImage = newValue?.profileImage
+                isOnBoardingPresented = false
+            }
         }
         
     }
 }
 
 #Preview {
-    LoginView(isPresented: .constant(true), isOnBoardingPresented: .constant(true))
+    LoginView(isPresented: .constant(true), isOnBoardingPresented: .constant(true), profileImage: .constant(""))
 }

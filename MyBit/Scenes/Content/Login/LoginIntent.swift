@@ -16,8 +16,6 @@ final class LoginIntent: IntentType {
     }
     
     @Published private(set) var state = LoginState()
-    @KeychainStorage(key: .accessToken) private var accessToken: String?
-    @KeychainStorage(key: .refreshToken) private var refreshToken: String?
     
     var cancelable = Set<AnyCancellable>()
     
@@ -79,8 +77,9 @@ extension LoginIntent {
             
             print(userInfo)
             
-            accessToken = userInfo.token.accessToken
-            refreshToken = userInfo.token.refreshToken
+            KeychainManager.create(key: .accessToken, value: userInfo.token.accessToken)
+            KeychainManager.create(key: .refreshToken, value: userInfo.token.refreshToken)
+          
             state.userInfo = userInfo
         }
         .store(in: &cancelable)

@@ -16,6 +16,7 @@ enum UserService {
     case loginWithAppleID(idToken: String, nickname: String?)
     case fetchMyProfile
     case editMyProfile(nickname: String?, phone: String?)
+    case uploadProfileImage(imageData: Data)
 }
 
 extension UserService: TargetType {
@@ -35,6 +36,8 @@ extension UserService: TargetType {
             return "/users/login/apple"
         case .fetchMyProfile, .editMyProfile:
             return "/users/me"
+        case .uploadProfileImage:
+            return "/users/me/image"
         }
     }
     
@@ -44,7 +47,7 @@ extension UserService: TargetType {
             return .get
         case .validate, .join, .login, .loginWithKakaoTalk, .loginWithAppleID:
             return .post
-        case .editMyProfile:
+        case .editMyProfile, .uploadProfileImage:
             return .put
         }
     }
@@ -71,14 +74,24 @@ extension UserService: TargetType {
         case .editMyProfile(let nickname, let phone):
             let editMyProfile = EditMyProfile(nickname: nickname, phone: phone)
             return .requestJSONEncodable(editMyProfile)
+        case .uploadProfileImage(let imageData):
+            let forDataList: [MultipartFormData] = [
+                MultipartFormData(
+                    provider: .data(imageData),
+                    name: "image",
+                    fileName: "profileImage\(Int.random(in: 1000...99999))",
+                    mimeType: "image/png"
+                )
+            ]
+            
+            return .uploadMultipart(forDataList)
         }
     }
     
     var headers: [String : String]? {
         return [
-            "Content-Type": "application/json",
-            "SesacKey": APIKeys.sesacKey,
-            "Authorization": KeychainManager.read(key: .accessToken) ?? ""
+            Headers.sesacKey.rawValue: APIKeys.sesacKey,
+            Headers.authorization.rawValue: KeychainManager.read(key: .accessToken) ?? ""
         ]
     }
 }

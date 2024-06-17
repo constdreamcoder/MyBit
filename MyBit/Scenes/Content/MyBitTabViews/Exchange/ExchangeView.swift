@@ -10,9 +10,10 @@ import SwiftUI
 struct ExchangeView: View {
     
     @StateObject var intent = ExchangeIntent()
+    @Binding var profileImage: String?
     
     var body: some View {
-        CustomNavigationView(title: "Exchange") {
+        CustomNavigationView(title: "Exchange", profileImage: $profileImage) {
             VStack {
                 BitcoinFieldView()
                 
@@ -32,7 +33,7 @@ struct ExchangeView: View {
 }
 
 #Preview {
-    ExchangeView()
+    ExchangeView(profileImage: .constant(""))
 }
 
 struct BitcoinFieldView: View {
@@ -118,6 +119,6 @@ struct BitcoinInfoStackView: View {
 }
 
 #Preview {
-    ExchangeView()
+    ExchangeView(profileImage: .constant(""))
 }
 

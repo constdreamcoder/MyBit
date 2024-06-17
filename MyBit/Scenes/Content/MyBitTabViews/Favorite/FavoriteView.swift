@@ -10,13 +10,14 @@ import SwiftUI
 struct FavoriteView: View {
     
     @StateObject private var intent = FavoriteIntent()
+    @Binding var profileImage: String?
     
     let columns = [
         GridItem(.flexible()), GridItem(.flexible())
     ]
     
     var body: some View {
-        CustomNavigationView(title: "Favorite Coin") {
+        CustomNavigationView(title: "Favorite Coin", profileImage: $profileImage) {
             // TODO: - showsIndicators iOS 16 대응
             ScrollView(showsIndicators: false) {
                 LazyVGrid(columns: columns, spacing: 20) {
@@ -40,5 +41,5 @@ struct FavoriteView: View {
 }
 
 #Preview {
-    FavoriteView()
+    FavoriteView(profileImage: .constant(""))
 }

@@ -173,4 +173,27 @@ struct UserManager {
                 }.store(in: &cancellable)
         }.eraseToAnyPublisher()
     }
+    
+    static func uploadProfile(imageData: Data) -> AnyPublisher<MyProfileInfo, NetworkErrors> {
+        return Future<MyProfileInfo, NetworkErrors> { promise in
+            let provider = MoyaProvider<UserService>(plugins: [MoyaLoggingPlugin()])
+            provider.requestPublisher(.uploadProfileImage(imageData: imageData))
+                .sink { completion in
+                    switch completion {
+                    case .finished:
+                        print("Successfully Edit My Profile!!")
+                    case .failure(let error):
+                        print("Edit My Profile Error", error)
+                    }
+                } receiveValue: { response in
+                    do {
+                        let data = try response.filterSuccessfulStatusCodes().data
+                        let result = try JSONDecoder().decode(MyProfileInfo.self, from: data)
+                        promise(.success(result))
+                    } catch {
+                        promise(.failure(.networkError))
+                    }
+                }.store(in: &cancellable)
+        }.eraseToAnyPublisher()
+    }
 }

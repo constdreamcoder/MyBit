@@ -11,6 +11,7 @@ import Combine
 final class ProfileIntent: IntentType {
     enum Action {
         case fetchMyProfile
+        case uploadData(imageData: Data)
     }
     
     @Published private(set) var state = ProfileState()
@@ -21,6 +22,8 @@ final class ProfileIntent: IntentType {
         switch action {
         case .fetchMyProfile:
             fetchMyProfile()
+        case .uploadData(let imageData):
+            uploadData(imageData)
         }
     }
 }
@@ -39,6 +42,25 @@ extension ProfileIntent {
             } receiveValue: { [weak self] myProfileInfo in
                 guard let self else { return }
 
+                state.myProfile = myProfileInfo
+            }
+            .store(in: &cancelable)
+    }
+    
+    private func uploadData(_ imageData: Data) {
+        UserManager.uploadProfile(imageData: imageData)
+            .sink { [weak self] completion in
+                guard let self else { return }
+                
+                if case .failure(let error) = completion {
+                    print("errors", error)
+                    state.errorMessage = "Failed to fetch data: \(error.localizedDescription)"
+                }
+                state.isLoading = false
+            } receiveValue: { [weak self] myProfileInfo in
+                guard let self else { return }
+                
+                print("myProfileInfo", myProfileInfo)
                 state.myProfile = myProfileInfo
             }
             .store(in: &cancelable)

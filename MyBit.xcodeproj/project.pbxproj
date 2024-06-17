@@ -79,6 +79,11 @@
 		00ABCB002C1339270098CB84 /* RepositoryType.swift in Sources */ = {isa = PBXBuildFile; fileRef = 00ABCAFF2C1339270098CB84 /* RepositoryType.swift */; };
 		00ABCB062C1339960098CB84 /* FavoriteRepository.swift in Sources */ = {isa = PBXBuildFile; fileRef = 00ABCB052C1339960098CB84 /* FavoriteRepository.swift */; };
 		00ABCB092C1339C20098CB84 /* Favorite.swift in Sources */ = {isa = PBXBuildFile; fileRef = 00ABCB082C1339C20098CB84 /* Favorite.swift */; };
+		00BCD6912C1EB6D500A2931A /* PhotoPicker.swift in Sources */ = {isa = PBXBuildFile; fileRef = 00BCD6902C1EB6D500A2931A /* PhotoPicker.swift */; };
+		00BCD6942C1EC43400A2931A /* ProfilePhotoView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 00BCD6932C1EC43400A2931A /* ProfilePhotoView.swift */; };
+		00BCD69C2C1EE08000A2931A /* Kingisher+Ext.swift in Sources */ = {isa = PBXBuildFile; fileRef = 00BCD69B2C1EE08000A2931A /* Kingisher+Ext.swift */; };
+		00BCD69E2C1EE0B700A2931A /* ProfileImageView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 00BCD69D2C1EE0B700A2931A /* ProfileImageView.swift */; };
+		00BCD6A02C1EFCAC00A2931A /* Headers.swift in Sources */ = {isa = PBXBuildFile; fileRef = 00BCD69F2C1EFCAC00A2931A /* Headers.swift */; };
 		00BF1E702C11742000BCCFC8 /* Search.swift in Sources */ = {isa = PBXBuildFile; fileRef = 00BF1E6F2C11742000BCCFC8 /* Search.swift */; };
 		00BF1E722C1174CF00BCCFC8 /* SearchView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 00BF1E712C1174CF00BCCFC8 /* SearchView.swift */; };
 		00BF1E742C1174D600BCCFC8 /* SearchState.swift in Sources */ = {isa = PBXBuildFile; fileRef = 00BF1E732C1174D600BCCFC8 /* SearchState.swift */; };
@@ -186,6 +191,11 @@
 		00ABCAFF2C1339270098CB84 /* RepositoryType.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RepositoryType.swift; sourceTree = "<group>"; };
 		00ABCB052C1339960098CB84 /* FavoriteRepository.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FavoriteRepository.swift; sourceTree = "<group>"; };
 		00ABCB082C1339C20098CB84 /* Favorite.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Favorite.swift; sourceTree = "<group>"; };
+		00BCD6902C1EB6D500A2931A /* PhotoPicker.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PhotoPicker.swift; sourceTree = "<group>"; };
+		00BCD6932C1EC43400A2931A /* ProfilePhotoView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ProfilePhotoView.swift; sourceTree = "<group>"; };
+		00BCD69B2C1EE08000A2931A /* Kingisher+Ext.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "Kingisher+Ext.swift"; sourceTree = "<group>"; };
+		00BCD69D2C1EE0B700A2931A /* ProfileImageView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ProfileImageView.swift; sourceTree = "<group>"; };
+		00BCD69F2C1EFCAC00A2931A /* Headers.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Headers.swift; sourceTree = "<group>"; };
 		00BF1E6F2C11742000BCCFC8 /* Search.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Search.swift; sourceTree = "<group>"; };
 		00BF1E712C1174CF00BCCFC8 /* SearchView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SearchView.swift; sourceTree = "<group>"; };
 		00BF1E732C1174D600BCCFC8 /* SearchState.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SearchState.swift; sourceTree = "<group>"; };
@@ -270,8 +280,10 @@
 		0006CE1B2C0EF30D00BA213A /* Profile */ = {
 			isa = PBXGroup;
 			children = (
+				00BCD6922C1EC42900A2931A /* ProfilePhoto */,
 				0072D96D2C1C21B90092DBA9 /* EditProfile */,
 				00BF1E8D2C11873400BCCFC8 /* ProfileView.swift */,
+				00BCD6932C1EC43400A2931A /* ProfilePhotoView.swift */,
 				0072D9602C1BE8F70092DBA9 /* ProfileState.swift */,
 				0072D9622C1BEACA0092DBA9 /* ProfileIntent.swift */,
 			);
@@ -282,6 +294,7 @@
 			isa = PBXGroup;
 			children = (
 				000FAF162C1951C4005DD853 /* LoggingPlugin.swift */,
+				00BCD69F2C1EFCAC00A2931A /* Headers.swift */,
 				00ABCB072C1339B30098CB84 /* RepositoryModels */,
 				00ABCB042C1339820098CB84 /* Repositories */,
 				00ABCB032C1339790098CB84 /* Routers */,
@@ -499,6 +512,7 @@
 				00ABCAE22C12DABD0098CB84 /* Double+Ext.swift */,
 				00ABCAEE2C1334130098CB84 /* String+Ext.swift */,
 				000FAF182C1951E5005DD853 /* Data+Ext.swift */,
+				00BCD69B2C1EE08000A2931A /* Kingisher+Ext.swift */,
 			);
 			path = Extensions;
 			sourceTree = "<group>";
@@ -514,7 +528,8 @@
 		00ABCAEB2C13039E0098CB84 /* UIKitComponents */ = {
 			isa = PBXGroup;
 			children = (
-				00ABCAEC2C1303C20098CB84 /* ChartView.swift */,
+				00BCD68F2C1EB6B700A2931A /* ViewControllers */,
+				00BCD68E2C1EB6AC00A2931A /* Views */,
 			);
 			path = UIKitComponents;
 			sourceTree = "<group>";
@@ -563,6 +578,30 @@
 				00ABCB082C1339C20098CB84 /* Favorite.swift */,
 			);
 			path = RepositoryModels;
+			sourceTree = "<group>";
+		};
+		00BCD68E2C1EB6AC00A2931A /* Views */ = {
+			isa = PBXGroup;
+			children = (
+				00ABCAEC2C1303C20098CB84 /* ChartView.swift */,
+				00BCD69D2C1EE0B700A2931A /* ProfileImageView.swift */,
+			);
+			path = Views;
+			sourceTree = "<group>";
+		};
+		00BCD68F2C1EB6B700A2931A /* ViewControllers */ = {
+			isa = PBXGroup;
+			children = (
+				00BCD6902C1EB6D500A2931A /* PhotoPicker.swift */,
+			);
+			path = ViewControllers;
+			sourceTree = "<group>";
+		};
+		00BCD6922C1EC42900A2931A /* ProfilePhoto */ = {
+			isa = PBXGroup;
+			children = (
+			);
+			path = ProfilePhoto;
 			sourceTree = "<group>";
 		};
 		00BF1E7F2C117FA800BCCFC8 /* Detail */ = {
@@ -737,6 +776,7 @@
 				00670F2B2C14962D0048ECD9 /* ExchangeIntent.swift in Sources */,
 				0072D9682C1C0B800092DBA9 /* SocialLoginLogo.swift in Sources */,
 				00ABCAED2C1303C20098CB84 /* ChartView.swift in Sources */,
+				00BCD6942C1EC43400A2931A /* ProfilePhotoView.swift in Sources */,
 				003108B22C1ACEA800082651 /* OnboardingIntent.swift in Sources */,
 				0006CE2C2C0F0A8400BA213A /* CoingeckoManager.swift in Sources */,
 				0072D96C2C1C1CA40092DBA9 /* EditProfileView.swift in Sources */,
@@ -771,6 +811,7 @@
 				00D0EAA52C16CF4A00622339 /* CustomButton.swift in Sources */,
 				00D0EAAC2C16EA3900622339 /* SignUpState.swift in Sources */,
 				00D0EAB22C17064F00622339 /* InputView.swift in Sources */,
+				00BCD69E2C1EE0B700A2931A /* ProfileImageView.swift in Sources */,
 				006F01132C17E8870053E118 /* NavigationBarForCreatingNewFeature.swift in Sources */,
 				00ABCADE2C12D1340098CB84 /* ItemEssentialElements.swift in Sources */,
 				003108B52C1AD0AE00082651 /* LoginWithKakaTalk.swift in Sources */,
@@ -785,6 +826,7 @@
 				000FAF192C1951E5005DD853 /* Data+Ext.swift in Sources */,
 				0006CE2E2C0F13E900BA213A /* NetworkErrors.swift in Sources */,
 				0072D97C2C1C40780092DBA9 /* EditProfileInputType.swift in Sources */,
+				00BCD69C2C1EE08000A2931A /* Kingisher+Ext.swift in Sources */,
 				00670F292C1496240048ECD9 /* ExchangeState.swift in Sources */,
 				00BF1E812C117FBE00BCCFC8 /* DetailView.swift in Sources */,
 				0072D9732C1C22F80092DBA9 /* EditMyProfile.swift in Sources */,
@@ -796,6 +838,7 @@
 				00670F252C1495D90048ECD9 /* WebSocketManager.swift in Sources */,
 				00D0EAAE2C16EA4100622339 /* SignUpIntent.swift in Sources */,
 				000FAF1D2C19A6EF005DD853 /* UserInfo.swift in Sources */,
+				00BCD6A02C1EFCAC00A2931A /* Headers.swift in Sources */,
 				003108B82C1AF20F00082651 /* LoginWithAppleID.swift in Sources */,
 				0072D9712C1C21F00092DBA9 /* EditProfileIntent.swift in Sources */,
 				00670F332C149EE60048ECD9 /* UpbitManager.swift in Sources */,
@@ -813,6 +856,7 @@
 				0006CE272C0F068100BA213A /* APIKeys.swift in Sources */,
 				0037D87B2C0EF11A00C24E7B /* MyBitApp.swift in Sources */,
 				00175FAB2C11EC4D00D77BB6 /* CustomNavigationView.swift in Sources */,
+				00BCD6912C1EB6D500A2931A /* PhotoPicker.swift in Sources */,
 				006F011B2C17EBAA0053E118 /* LoginIntent.swift in Sources */,
 				00BF1E8E2C11873400BCCFC8 /* ProfileView.swift in Sources */,
 				00BF1E722C1174CF00BCCFC8 /* SearchView.swift in Sources */,

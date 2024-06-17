@@ -7,24 +7,26 @@
 
 import Foundation
 import Security
+import SwiftUI
 
 @propertyWrapper
-struct KeychainStorage {
+struct KeychainStorage: DynamicProperty {
+    
     private let key: KeychainManager.Key
-
+    
     var wrappedValue: String? {
         get {
             return KeychainManager.read(key: key)
         }
         set {
             if let value = newValue {
-                KeychainManager.create(key: key, token: value)
+                KeychainManager.create(key: key, value: value)
             } else {
                 KeychainManager.delete(key: key)
             }
         }
     }
-
+    
     init(key: KeychainManager.Key) {
         self.key = key
     }
@@ -38,11 +40,11 @@ struct KeychainManager {
     }
     
     // Create
-    static func create(key: Key, token: String) {
+    static func create(key: Key, value: String) {
         let query: NSDictionary = [
             kSecClass: kSecClassGenericPassword,
             kSecAttrAccount: key.rawValue,
-            kSecValueData: token.data(using: .utf8, allowLossyConversion: false) as Any // 저장할 Token
+            kSecValueData: value.data(using: .utf8, allowLossyConversion: false) as Any // 저장할 value
         ]
         SecItemDelete(query) // Keychain은 Key값에 중복이 생기면, 저장할 수 없기 때문에 먼저 Delete해줌
         

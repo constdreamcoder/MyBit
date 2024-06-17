@@ -8,7 +8,6 @@
 import DGCharts
 import SwiftUI
 
-
 struct ChartView: UIViewRepresentable {
     
     let entries: [ChartDataEntry]

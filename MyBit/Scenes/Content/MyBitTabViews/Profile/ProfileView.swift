@@ -6,16 +6,31 @@
 //
 
 import SwiftUI
+import PhotosUI
+import Combine
 
 struct ProfileView: View {
     
     @StateObject private var intent = ProfileIntent()
     @State private var selection: String? = nil
+    @State private var showImagePicker: Bool = false
+    @Binding var profileImage: String?
+
+    private var configuration : PHPickerConfiguration {
+        var config = PHPickerConfiguration(photoLibrary: PHPhotoLibrary.shared())
+        config.filter = .images
+        config.selectionLimit = 1
+        config.preferredAssetRepresentationMode = .current
+        return config
+    }
     
     var body: some View {
         CustomNavigationView(title: "Profile", isProfile: true) {
             VStack {
-                ProfilePhotoView()
+                ProfilePhotoView(
+                    showImagePicker: $showImagePicker,
+                    imageURL: intent.state.myProfile?.profileImage ?? ""
+                )
                 
                 if #available(iOS 16.0, *) {
                     List {
@@ -62,8 +77,18 @@ struct ProfileView: View {
                 }
             }
             .background(.customLightGray)
+            .sheet(isPresented: $showImagePicker, content: {
+                PhotoPicker(configuration: configuration, isPresented: $showImagePicker) { selectedImages in
+                    intent.send(.uploadData(imageData: selectedImages))
+                }
+            })
             .onAppear {
                 intent.send(.fetchMyProfile)
+            }
+        }
+        .onReceive(Just(intent.state.myProfile)) { newValue in
+            if newValue != nil {
+                profileImage = newValue?.profileImage
             }
         }
         
@@ -71,16 +96,7 @@ struct ProfileView: View {
 }
 
 #Preview {
-    ProfileView()
-}
-
-struct ProfilePhotoView: View {
-    var body: some View {
-        Image(systemName: "person.crop.circle")
-            .resizable()
-            .aspectRatio(1, contentMode: .fit)
-            .frame(width: 70)
-    }
+    ProfileView(profileImage: .constant(""))
 }
 
 struct ProfileCell: View {

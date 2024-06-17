@@ -8,25 +8,28 @@
 import SwiftUI
 
 struct MyBitTabView: View {
+    
+    @Binding var profileImage: String?
+    
     var body: some View {
         TabView {
-            TrendingView()
+            TrendingView(profileImage: $profileImage)
                 .tabItem {
                     Label("", systemImage: "chart.line.uptrend.xyaxis")
                 }
-            SearchView()
+            SearchView(profileImage: $profileImage)
                 .tabItem {
                     Label("", systemImage: "magnifyingglass")
                 }
-            ExchangeView()
+            ExchangeView(profileImage: $profileImage)
                 .tabItem {
                     Label("", systemImage: "doc.plaintext")
                 }
-            FavoriteView()
+            FavoriteView(profileImage: $profileImage)
                 .tabItem {
                     Label("", systemImage: "bag")
                 }
-            ProfileView()
+            ProfileView(profileImage: $profileImage)
                 .tabItem {
                     Label("", systemImage: "person")
                 }
@@ -36,5 +39,5 @@ struct MyBitTabView: View {
 }
 
 #Preview {
-    MyBitTabView()
+    MyBitTabView(profileImage: .constant(""))
 }

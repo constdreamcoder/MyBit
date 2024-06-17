@@ -17,8 +17,6 @@ final class SignUpIntent: IntentType {
     }
     
     @Published private(set) var state = SignUpState()
-    @KeychainStorage(key: .accessToken) private var accessToken: String?
-    @KeychainStorage(key: .refreshToken) private var refreshToken: String?
     
     private var inputEmailDoubleCheck = PassthroughSubject<Void, Never>()
     
@@ -95,8 +93,9 @@ extension SignUpIntent {
             guard let self else { return }
             
             print(userInfo)
-            accessToken = userInfo.token.accessToken
-            refreshToken = userInfo.token.refreshToken
+            
+            KeychainManager.create(key: .accessToken, value: userInfo.token.accessToken)
+            KeychainManager.create(key: .refreshToken, value: userInfo.token.refreshToken)
             
             state.userInfo = userInfo
         }

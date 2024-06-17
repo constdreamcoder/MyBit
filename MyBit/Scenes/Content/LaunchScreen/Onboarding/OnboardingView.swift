@@ -15,6 +15,8 @@ struct OnboardingView: View {
     @StateObject private var intent = OnboardingIntent()
     
     @Binding var isOnBoardingPresented: Bool
+    @Binding var profileImage: String?
+    
     @State private var isBottomSheetPresented: Bool = false
     @State private var isLoginViewPresented: Bool = false
     @State private var isSignUpViewPresented: Bool = false
@@ -101,13 +103,15 @@ struct OnboardingView: View {
         .sheet(isPresented: $isLoginViewPresented) {
             LoginView(
                 isPresented: $isLoginViewPresented,
-                isOnBoardingPresented: $isOnBoardingPresented
+                isOnBoardingPresented: $isOnBoardingPresented,
+                profileImage: $profileImage
             )
         }
         .sheet(isPresented: $isSignUpViewPresented) {
             SignUpView(
                 isPresented: $isSignUpViewPresented,
-                isOnBoardingPresented: $isOnBoardingPresented
+                isOnBoardingPresented: $isOnBoardingPresented,
+                profileImage: $profileImage
             )
         }
         .onReceive(Just(intent.state.userInfo)) { newValue in
@@ -148,5 +152,5 @@ extension OnboardingView {
 
 
 #Preview {
-    OnboardingView(isOnBoardingPresented: .constant(true))
+    OnboardingView(isOnBoardingPresented: .constant(true), profileImage: .constant(""))
 }

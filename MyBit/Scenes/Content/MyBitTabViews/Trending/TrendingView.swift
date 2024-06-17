@@ -10,9 +10,10 @@ import SwiftUI
 struct TrendingView: View {
     
     @StateObject private var intent = TrendingIntent()
+    @Binding var profileImage: String?
     
     var body: some View {
-        CustomNavigationView(title: "Crypto Coin") {
+        CustomNavigationView(title: "Crypto Coin", profileImage: $profileImage) {
             List {
                 if intent.state.coinMarkets.count >= 2 {
                     Section {
@@ -92,7 +93,7 @@ struct TrendingView: View {
 }
 
 #Preview {
-    TrendingView()
+    TrendingView(profileImage: .constant(""))
 }
 
 struct MyFavoriteCell: View {
