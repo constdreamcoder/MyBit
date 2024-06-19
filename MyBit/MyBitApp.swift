@@ -12,6 +12,8 @@ import KakaoSDKAuth
 @main
 struct MyBitApp: App {
     
+    @StateObject private var appIntent = AppIntent()
+    
     init() {
         KakaoSDK.initSDK(appKey: APIKeys.kakaoNativeAppKey)
     }
@@ -21,9 +23,13 @@ struct MyBitApp: App {
             LaunchScreenView()
                 .onOpenURL(perform: { url in
                     if (AuthApi.isKakaoTalkLoginUrl(url)) {
-                        AuthController.handleOpenUrl(url: url)
+                        let _ = AuthController.handleOpenUrl(url: url)
                     }
                 })
+                .onAppear {
+                    appIntent.send(.isLogin)
+                }
+                .environmentObject(appIntent)
         }
     }
 }

@@ -45,7 +45,7 @@ struct KeychainStorage: DynamicProperty {
 
 struct KeychainManager {
     
-    enum Key: String {
+    enum Key: String, CaseIterable {
         case profileImage = "profileImage"
         case accessToken = "accessToken"
         case refreshToken = "refreshToken"
@@ -95,5 +95,9 @@ struct KeychainManager {
         ]
         let status = SecItemDelete(query)
         assert(status == noErr, "failed to delete the value, status code = \(status)")
+    }
+    
+    static func deleteAll() {
+        Key.allCases.forEach { delete(key: $0) }
     }
 }

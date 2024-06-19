@@ -8,7 +8,15 @@
 import Foundation
 import Moya
 
-final class MoyaLoggingPlugin: PluginType {
+final class LoggerPlugin: PluginType {
+        
+    func prepare(_ request: URLRequest, target: TargetType) -> URLRequest {
+        var request = request
+        request.setValue(KeychainManager.read(key: .accessToken), forHTTPHeaderField: Headers.authorization.rawValue)
+        request.setValue(KeychainManager.read(key: .refreshToken), forHTTPHeaderField: Headers.refreshToken.rawValue)
+        return request
+    }
+    
     // Request를 보낼 때 호출
     func willSend(_ request: RequestType, target: TargetType) {
         guard let httpRequest = request.request else {

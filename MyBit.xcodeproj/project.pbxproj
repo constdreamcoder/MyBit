@@ -66,6 +66,11 @@
 		008889C92C160AA9008619A8 /* SplashView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 008889C82C160AA9008619A8 /* SplashView.swift */; };
 		008889CC2C160AE8008619A8 /* LaunchScreenView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 008889CB2C160AE8008619A8 /* LaunchScreenView.swift */; };
 		008889CE2C160B61008619A8 /* OnboardingView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 008889CD2C160B61008619A8 /* OnboardingView.swift */; };
+		00A6C2E52C214697009D5E90 /* ErrorCode.swift in Sources */ = {isa = PBXBuildFile; fileRef = 00A6C2E42C214697009D5E90 /* ErrorCode.swift */; };
+		00A6C2E72C214B19009D5E90 /* RefreshedToken.swift in Sources */ = {isa = PBXBuildFile; fileRef = 00A6C2E62C214B19009D5E90 /* RefreshedToken.swift */; };
+		00A6C2EA2C216015009D5E90 /* AppIntent.swift in Sources */ = {isa = PBXBuildFile; fileRef = 00A6C2E92C216015009D5E90 /* AppIntent.swift */; };
+		00A6C2EC2C216073009D5E90 /* AppState.swift in Sources */ = {isa = PBXBuildFile; fileRef = 00A6C2EB2C216073009D5E90 /* AppState.swift */; };
+		00A6C2F02C21626A009D5E90 /* NSNotificationName+Ext.swift in Sources */ = {isa = PBXBuildFile; fileRef = 00A6C2EF2C21626A009D5E90 /* NSNotificationName+Ext.swift */; };
 		00ABCADC2C12C4820098CB84 /* Array+Ext.swift in Sources */ = {isa = PBXBuildFile; fileRef = 00ABCADB2C12C4820098CB84 /* Array+Ext.swift */; };
 		00ABCADE2C12D1340098CB84 /* ItemEssentialElements.swift in Sources */ = {isa = PBXBuildFile; fileRef = 00ABCADD2C12D1340098CB84 /* ItemEssentialElements.swift */; };
 		00ABCAE02C12D4170098CB84 /* TrendingRankingType.swift in Sources */ = {isa = PBXBuildFile; fileRef = 00ABCADF2C12D4170098CB84 /* TrendingRankingType.swift */; };
@@ -181,6 +186,11 @@
 		008889C82C160AA9008619A8 /* SplashView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SplashView.swift; sourceTree = "<group>"; };
 		008889CB2C160AE8008619A8 /* LaunchScreenView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LaunchScreenView.swift; sourceTree = "<group>"; };
 		008889CD2C160B61008619A8 /* OnboardingView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = OnboardingView.swift; sourceTree = "<group>"; };
+		00A6C2E42C214697009D5E90 /* ErrorCode.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ErrorCode.swift; sourceTree = "<group>"; };
+		00A6C2E62C214B19009D5E90 /* RefreshedToken.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RefreshedToken.swift; sourceTree = "<group>"; };
+		00A6C2E92C216015009D5E90 /* AppIntent.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppIntent.swift; sourceTree = "<group>"; };
+		00A6C2EB2C216073009D5E90 /* AppState.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppState.swift; sourceTree = "<group>"; };
+		00A6C2EF2C21626A009D5E90 /* NSNotificationName+Ext.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "NSNotificationName+Ext.swift"; sourceTree = "<group>"; };
 		00ABCADB2C12C4820098CB84 /* Array+Ext.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "Array+Ext.swift"; sourceTree = "<group>"; };
 		00ABCADD2C12D1340098CB84 /* ItemEssentialElements.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ItemEssentialElements.swift; sourceTree = "<group>"; };
 		00ABCADF2C12D4170098CB84 /* TrendingRankingType.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TrendingRankingType.swift; sourceTree = "<group>"; };
@@ -242,6 +252,8 @@
 			isa = PBXGroup;
 			children = (
 				00D0EA9A2C16AC6500622339 /* Content */,
+				00A6C2E92C216015009D5E90 /* AppIntent.swift */,
+				00A6C2EB2C216073009D5E90 /* AppState.swift */,
 			);
 			path = Scenes;
 			sourceTree = "<group>";
@@ -309,6 +321,7 @@
 		0006CE282C0F088C00BA213A /* ResponseModels */ = {
 			isa = PBXGroup;
 			children = (
+				00A6C2E42C214697009D5E90 /* ErrorCode.swift */,
 				006F01262C186F110053E118 /* User */,
 				00670F2E2C149C850048ECD9 /* Coingecko */,
 				00670F2F2C149C8C0048ECD9 /* Upbit */,
@@ -444,6 +457,7 @@
 			children = (
 				000FAF1C2C19A6EF005DD853 /* UserInfo.swift */,
 				0072D9642C1C017F0092DBA9 /* MyProfileInfo.swift */,
+				00A6C2E62C214B19009D5E90 /* RefreshedToken.swift */,
 			);
 			path = User;
 			sourceTree = "<group>";
@@ -505,6 +519,14 @@
 			path = LaunchScreen;
 			sourceTree = "<group>";
 		};
+		00A6C2E82C215ED2009D5E90 /* ContentView */ = {
+			isa = PBXGroup;
+			children = (
+				00D0EA9B2C16AC7200622339 /* ContentView.swift */,
+			);
+			path = ContentView;
+			sourceTree = "<group>";
+		};
 		00ABCADA2C12C4710098CB84 /* Extensions */ = {
 			isa = PBXGroup;
 			children = (
@@ -513,6 +535,7 @@
 				00ABCAEE2C1334130098CB84 /* String+Ext.swift */,
 				000FAF182C1951E5005DD853 /* Data+Ext.swift */,
 				00BCD69B2C1EE08000A2931A /* Kingisher+Ext.swift */,
+				00A6C2EF2C21626A009D5E90 /* NSNotificationName+Ext.swift */,
 			);
 			path = Extensions;
 			sourceTree = "<group>";
@@ -655,7 +678,7 @@
 		00D0EA9A2C16AC6500622339 /* Content */ = {
 			isa = PBXGroup;
 			children = (
-				00D0EA9B2C16AC7200622339 /* ContentView.swift */,
+				00A6C2E82C215ED2009D5E90 /* ContentView */,
 				008889CA2C160AD3008619A8 /* LaunchScreen */,
 				00BF1E8A2C1185F600BCCFC8 /* MyBitTabViews */,
 				00D0EAA82C16DB3300622339 /* SignUp */,
@@ -790,8 +813,10 @@
 				00670F232C1488A00048ECD9 /* ExchangeView.swift in Sources */,
 				00BF1E892C1185CB00BCCFC8 /* MyBitTabView.swift in Sources */,
 				00BF1E7C2C1176BF00BCCFC8 /* StateType.swift in Sources */,
+				00A6C2EC2C216073009D5E90 /* AppState.swift in Sources */,
 				00BF1E7E2C117E0200BCCFC8 /* Market.swift in Sources */,
 				00D0EAA72C16D41F00622339 /* BottomButtonModifier.swift in Sources */,
+				00A6C2E52C214697009D5E90 /* ErrorCode.swift in Sources */,
 				00670F352C14A0EE0048ECD9 /* MarketCode.swift in Sources */,
 				00D0EAB02C16FAA700622339 /* BottomViewGrabber.swift in Sources */,
 				006F01162C17E9300053E118 /* LoginView.swift in Sources */,
@@ -825,6 +850,7 @@
 				00BF1E852C117FD000BCCFC8 /* DetailIntent.swift in Sources */,
 				000FAF192C1951E5005DD853 /* Data+Ext.swift in Sources */,
 				0006CE2E2C0F13E900BA213A /* NetworkErrors.swift in Sources */,
+				00A6C2EA2C216015009D5E90 /* AppIntent.swift in Sources */,
 				0072D97C2C1C40780092DBA9 /* EditProfileInputType.swift in Sources */,
 				00BCD69C2C1EE08000A2931A /* Kingisher+Ext.swift in Sources */,
 				00670F292C1496240048ECD9 /* ExchangeState.swift in Sources */,
@@ -836,6 +862,7 @@
 				00ABCB062C1339960098CB84 /* FavoriteRepository.swift in Sources */,
 				0072D9652C1C017F0092DBA9 /* MyProfileInfo.swift in Sources */,
 				00670F252C1495D90048ECD9 /* WebSocketManager.swift in Sources */,
+				00A6C2E72C214B19009D5E90 /* RefreshedToken.swift in Sources */,
 				00D0EAAE2C16EA4100622339 /* SignUpIntent.swift in Sources */,
 				000FAF1D2C19A6EF005DD853 /* UserInfo.swift in Sources */,
 				00BCD6A02C1EFCAC00A2931A /* Headers.swift in Sources */,
@@ -857,6 +884,7 @@
 				0037D87B2C0EF11A00C24E7B /* MyBitApp.swift in Sources */,
 				00175FAB2C11EC4D00D77BB6 /* CustomNavigationView.swift in Sources */,
 				00BCD6912C1EB6D500A2931A /* PhotoPicker.swift in Sources */,
+				00A6C2F02C21626A009D5E90 /* NSNotificationName+Ext.swift in Sources */,
 				006F011B2C17EBAA0053E118 /* LoginIntent.swift in Sources */,
 				00BF1E8E2C11873400BCCFC8 /* ProfileView.swift in Sources */,
 				00BF1E722C1174CF00BCCFC8 /* SearchView.swift in Sources */,

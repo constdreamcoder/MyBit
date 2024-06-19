@@ -94,7 +94,6 @@ extension SignUpIntent {
             
             print(userInfo)
             
-//            KeychainManager.create(key: .profileImage, value: userInfo.profileImage ?? "")
             KeychainManager.create(key: .accessToken, value: userInfo.token.accessToken)
             KeychainManager.create(key: .refreshToken, value: userInfo.token.refreshToken)
             

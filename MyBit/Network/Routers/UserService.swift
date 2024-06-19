@@ -17,6 +17,7 @@ enum UserService {
     case fetchMyProfile
     case editMyProfile(nickname: String?, phone: String?)
     case uploadProfileImage(imageData: Data)
+    case refreshToken
 }
 
 extension UserService: TargetType {
@@ -38,12 +39,14 @@ extension UserService: TargetType {
             return "/users/me"
         case .uploadProfileImage:
             return "/users/me/image"
+        case .refreshToken:
+            return "/auth/refresh"
         }
     }
     
     var method: Moya.Method {
         switch self {
-        case .fetchMyProfile:
+        case .fetchMyProfile, .refreshToken:
             return .get
         case .validate, .join, .login, .loginWithKakaoTalk, .loginWithAppleID:
             return .post
@@ -69,8 +72,6 @@ extension UserService: TargetType {
         case .loginWithAppleID(let idToken, let nickname):
             let loginWithAppleID = LoginWithAppleID(idToken: idToken, nickname: nickname, deviceToken: APIKeys.sampleDeviceToken)
             return .requestJSONEncodable(loginWithAppleID)
-        case .fetchMyProfile:
-            return .requestPlain
         case .editMyProfile(let nickname, let phone):
             let editMyProfile = EditMyProfile(nickname: nickname, phone: phone)
             return .requestJSONEncodable(editMyProfile)
@@ -85,14 +86,17 @@ extension UserService: TargetType {
             ]
             
             return .uploadMultipart(forDataList)
+        case .fetchMyProfile, .refreshToken:
+            return .requestPlain
         }
     }
     
     var headers: [String : String]? {
-        return [
-            Headers.sesacKey.rawValue: APIKeys.sesacKey,
-            Headers.authorization.rawValue: KeychainManager.read(key: .accessToken) ?? ""
-        ]
+        return [Headers.sesacKey.rawValue: APIKeys.sesacKey]
     }
+    
+    var validationType: ValidationType {
+        return .successCodes
+    }    
 }
 

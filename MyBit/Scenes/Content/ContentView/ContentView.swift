@@ -10,8 +10,10 @@ import Combine
 
 struct ContentView: View {
     
-    @AppStorage("isOnBoardingPresented") var isOnBoardingPresented: Bool = true
+    @EnvironmentObject var appIntent: AppIntent
     
+    @AppStorage("isOnBoardingPresented") var isOnBoardingPresented: Bool = true
+  
     @KeychainStorage(.profileImage) private var profileImage: String = ""
     @KeychainStorage(.accessToken) private var accessToken: String = ""
     @KeychainStorage(.refreshToken) private var refreshToken: String = ""
@@ -25,7 +27,12 @@ struct ContentView: View {
                 print("처음 profileImage", profileImage)
                 print("accessToken", accessToken)
                 print("refreshToken", refreshToken)
+                
+//                KeychainManager.deleteAll()
             }
+            .onReceive(Just(appIntent.state.isLogin), perform: { isLogin in
+                isOnBoardingPresented = !isLogin
+            })
     }
 }
 

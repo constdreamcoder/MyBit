@@ -22,8 +22,8 @@ extension KingfisherWrapper where Base: UIImageView {
             requestBody.setValue(APIKeys.sesacKey, forHTTPHeaderField: Headers.sesacKey.rawValue)
             return requestBody
         }
-        
-        let newOptions: KingfisherOptionsInfo = options ?? [] + [.requestModifier(imageDownloadRequest), .cacheMemoryOnly]
+                        
+        let newOptions: KingfisherOptionsInfo = options ?? [] + [.requestModifier(imageDownloadRequest), .cacheMemoryOnly, .forceRefresh]
         
         self.setImage(
             with: resource,
