@@ -112,6 +112,7 @@
 		00D0EAAE2C16EA4100622339 /* SignUpIntent.swift in Sources */ = {isa = PBXBuildFile; fileRef = 00D0EAAD2C16EA4100622339 /* SignUpIntent.swift */; };
 		00D0EAB02C16FAA700622339 /* BottomViewGrabber.swift in Sources */ = {isa = PBXBuildFile; fileRef = 00D0EAAF2C16FAA700622339 /* BottomViewGrabber.swift */; };
 		00D0EAB22C17064F00622339 /* InputView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 00D0EAB12C17064F00622339 /* InputView.swift */; };
+		00FCDB0A2C22EC0700F9A453 /* TokenRefresher.swift in Sources */ = {isa = PBXBuildFile; fileRef = 00FCDB092C22EC0700F9A453 /* TokenRefresher.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXCopyFilesBuildPhase section */
@@ -229,6 +230,7 @@
 		00D0EAAD2C16EA4100622339 /* SignUpIntent.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SignUpIntent.swift; sourceTree = "<group>"; };
 		00D0EAAF2C16FAA700622339 /* BottomViewGrabber.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BottomViewGrabber.swift; sourceTree = "<group>"; };
 		00D0EAB12C17064F00622339 /* InputView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = InputView.swift; sourceTree = "<group>"; };
+		00FCDB092C22EC0700F9A453 /* TokenRefresher.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TokenRefresher.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -314,6 +316,7 @@
 				00ABCB022C13396C0098CB84 /* Errors */,
 				000FAF112C1930AC005DD853 /* RequestModels */,
 				0006CE282C0F088C00BA213A /* ResponseModels */,
+				00FCDB092C22EC0700F9A453 /* TokenRefresher.swift */,
 			);
 			path = Network;
 			sourceTree = "<group>";
@@ -823,6 +826,7 @@
 				006F01192C17E9410053E118 /* LoginState.swift in Sources */,
 				00670F202C1422480048ECD9 /* FavoriteIntent.swift in Sources */,
 				000FAF172C1951C4005DD853 /* LoggingPlugin.swift in Sources */,
+				00FCDB0A2C22EC0700F9A453 /* TokenRefresher.swift in Sources */,
 				00BF1E8C2C11872300BCCFC8 /* FavoriteView.swift in Sources */,
 				0072D96F2C1C21E40092DBA9 /* EditProfileState.swift in Sources */,
 				0006CE302C0F170100BA213A /* TrendingView.swift in Sources */,
