@@ -9,5 +9,4 @@ import Foundation
 
 extension NSNotification.Name {
     static let GoBackToOnboardingView = Notification.Name("GoBackToOnboardingView")
-    static let SendErrorCode = Notification.Name("SendErrorCode")
 }

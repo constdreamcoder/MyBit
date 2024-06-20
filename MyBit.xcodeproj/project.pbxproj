@@ -307,6 +307,7 @@
 		0006CE232C0F053B00BA213A /* Network */ = {
 			isa = PBXGroup;
 			children = (
+				00FCDB092C22EC0700F9A453 /* TokenRefresher.swift */,
 				000FAF162C1951C4005DD853 /* LoggingPlugin.swift */,
 				00BCD69F2C1EFCAC00A2931A /* Headers.swift */,
 				00ABCB072C1339B30098CB84 /* RepositoryModels */,
@@ -316,7 +317,6 @@
 				00ABCB022C13396C0098CB84 /* Errors */,
 				000FAF112C1930AC005DD853 /* RequestModels */,
 				0006CE282C0F088C00BA213A /* ResponseModels */,
-				00FCDB092C22EC0700F9A453 /* TokenRefresher.swift */,
 			);
 			path = Network;
 			sourceTree = "<group>";

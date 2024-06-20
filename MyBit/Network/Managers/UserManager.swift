@@ -130,7 +130,8 @@ struct UserManager {
     
     static func fetchMyProfile() -> AnyPublisher<MyProfileInfo, NetworkErrors> {
         return Future<MyProfileInfo, NetworkErrors> { promise in
-            let provider = MoyaProvider<UserService>(plugins: [LoggerPlugin()])
+            let session = Session(interceptor: TokenRefresher())
+            let provider = MoyaProvider<UserService>(session: session, plugins: [LoggerPlugin()])
             provider.requestPublisher(.fetchMyProfile)
                 .sink { completion in
                     switch completion {
@@ -153,7 +154,8 @@ struct UserManager {
     
     static func editMyProfile(nickname: String? = nil, phone: String? = nil) -> AnyPublisher<MyProfileInfo, NetworkErrors> {
         return Future<MyProfileInfo, NetworkErrors> { promise in
-            let provider = MoyaProvider<UserService>(plugins: [LoggerPlugin()])
+            let session = Session(interceptor: TokenRefresher())
+            let provider = MoyaProvider<UserService>(session: session, plugins: [LoggerPlugin()])
             provider.requestPublisher(.editMyProfile(nickname: nickname, phone: phone))
                 .sink { completion in
                     switch completion {
@@ -176,7 +178,8 @@ struct UserManager {
     
     static func uploadProfile(imageData: Data) -> AnyPublisher<MyProfileInfo, NetworkErrors> {
         return Future<MyProfileInfo, NetworkErrors> { promise in
-            let provider = MoyaProvider<UserService>(plugins: [LoggerPlugin()])
+            let session = Session(interceptor: TokenRefresher())
+            let provider = MoyaProvider<UserService>(session: session, plugins: [LoggerPlugin()])
             provider.requestPublisher(.uploadProfileImage(imageData: imageData))
                 .sink { completion in
                     switch completion {
@@ -207,6 +210,7 @@ struct UserManager {
                         print("Successfully Refresh Token!!")
                     case .failure(let error):
                         print("Refresh Token Error", error)
+                        promise(.failure(.networkError))
                     }
                 } receiveValue: { response in
                     do {

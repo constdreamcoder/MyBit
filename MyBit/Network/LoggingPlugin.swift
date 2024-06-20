@@ -9,11 +9,13 @@ import Foundation
 import Moya
 
 final class LoggerPlugin: PluginType {
-        
-    func prepare(_ request: URLRequest, target: TargetType) -> URLRequest {
+    
+    func prepare(_ request: URLRequest, target: any TargetType) -> URLRequest {
         var request = request
-        request.setValue(KeychainManager.read(key: .accessToken), forHTTPHeaderField: Headers.authorization.rawValue)
-        request.setValue(KeychainManager.read(key: .refreshToken), forHTTPHeaderField: Headers.refreshToken.rawValue)
+        let accessToken = KeychainManager.read(key: .accessToken)
+        let refreshToken = KeychainManager.read(key: .refreshToken)
+        request.setValue(accessToken, forHTTPHeaderField: Headers.authorization.rawValue)
+        request.setValue(refreshToken, forHTTPHeaderField: Headers.refreshToken.rawValue)
         return request
     }
     
@@ -65,6 +67,19 @@ final class LoggerPlugin: PluginType {
         }
         log.append("------------------- END HTTP (\(response.data.count)-byte body) -------------------")
         print(log)
+        
+        if isFromError {
+            do {
+                let errorCode = try JSONDecoder().decode(ErrorCode.self, from: response.data)
+                if errorCode.errorCode == "E06" {
+                    print("Refresh Token is Expired.")
+                    KeychainManager.deleteAll()
+                    NotificationCenter.default.post(name: .GoBackToOnboardingView, object: nil, userInfo: ["goBackToOnboardingViewTrigger": true])
+                }
+            } catch {
+                print("Decoding Error", error)
+            }
+        }
     }
     
     func onFail(_ error: MoyaError, target: TargetType) {

@@ -7,14 +7,15 @@
 
 import Foundation
 import Alamofire
+import Combine
 
 final class TokenRefresher: RequestInterceptor {
+    
+    private var cancelable = Set<AnyCancellable>()
+
         
     func adapt(_ urlRequest: URLRequest, for session: Session, completion: @escaping (Result<URLRequest, Error>) -> Void) {
-        var urlRequest = urlRequest
-        let token = KeychainManager.read(key: .refreshToken)
-        urlRequest.setValue(token, forHTTPHeaderField: Headers.refreshToken.rawValue)
-        
+      
         completion(.success(urlRequest))
     }
     
@@ -26,8 +27,39 @@ final class TokenRefresher: RequestInterceptor {
             return
         }
                 
-        // 여기에서 오류 코드에 따른 토큰 갱신을 위한 분기처리를 구현할 예정입니다!
-        
+        guard let request = request.request else {
+            completion(.doNotRetryWithError(error))
+            return
+        }
+    
+        AF.request(request)
+            .validate(statusCode: (400...500))
+            .responseDecodable(of: ErrorCode.self) { [weak self] response in
+                guard let self else { return }
+
+                switch response.result {
+                case .success(let errorCode):
+                    print("error code", errorCode.errorCode)
+                    if errorCode.errorCode == "E05" {
+                        UserManager.refreshToken()
+                            .sink { complete in
+                                if case .failure(let error) = complete {
+                                    print("Fail to Refresh Token", error)
+                                    completion(.doNotRetryWithError(error))
+                                }
+                            } receiveValue: { refreshedToken in
+                                print("success")
+                                KeychainManager.create(key: .accessToken, value: refreshedToken.accessToken)
+                                completion(.retry)
+                            }
+                            .store(in: &cancelable)
+                    
+                    }
+                case .failure(let failure):
+                    print("Network Connection Failure", failure)
+                }
+            }
+            
     }
 }
 

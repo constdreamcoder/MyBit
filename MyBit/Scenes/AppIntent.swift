@@ -17,6 +17,14 @@ final class AppIntent: IntentType {
     
     var cancelable = Set<AnyCancellable>()
     
+    init() {
+        NotificationCenter.default.addObserver(self, selector: #selector(goBackToOnboardingView), name: .GoBackToOnboardingView, object: nil)
+    }
+    
+    deinit {
+        NotificationCenter.default.removeObserver(self, name: .GoBackToOnboardingView, object: nil)
+    }
+    
     func send(_ action: Action) {
         switch action {
         case .isLogin:
@@ -27,30 +35,20 @@ final class AppIntent: IntentType {
 
 extension AppIntent {
     private func checkLogin() {
-        
         if KeychainManager.read(key: .accessToken) != nil {
             // 로그인
-            UserManager.refreshToken()
-                .sink { [weak self] completion in
-                    guard let
-                            self else { return }
-                    
-                    if case .failure(let error) = completion {
-                        print("errors", error)
-                        state.errorMessage = "Failed to fetch data: \(error.localizedDescription)"
-                    }
-                    state.isLoading = false
-                } receiveValue: { [weak self] refreshedToken in
-                    guard let self else { return }
-                    
-
-                    KeychainManager.create(key: .accessToken, value: refreshedToken.accessToken)
-                    
-                    state.isLogin = true
-                }
-                .store(in: &cancelable)
+            state.isLogin = true
         } else {
             // 로그 아웃
+            state.isLogin = false
+        }
+    }
+}
+
+private extension AppIntent {
+    @objc func goBackToOnboardingView(notification: Notification) {
+        if let userInfo = notification.userInfo,
+           let goBackToOnboardingViewTrigger = userInfo["goBackToOnboardingViewTrigger"] as? Bool {
             state.isLogin = false
         }
     }

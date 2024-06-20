@@ -27,8 +27,6 @@ struct ContentView: View {
                 print("처음 profileImage", profileImage)
                 print("accessToken", accessToken)
                 print("refreshToken", refreshToken)
-                
-//                KeychainManager.deleteAll()
             }
             .onReceive(Just(appIntent.state.isLogin), perform: { isLogin in
                 isOnBoardingPresented = !isLogin
