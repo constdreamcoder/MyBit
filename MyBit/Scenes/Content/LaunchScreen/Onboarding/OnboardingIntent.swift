@@ -97,11 +97,6 @@ extension OnboardingIntent: ASAuthorizationControllerDelegate {
                 let identityTokenString = String(data: identityToken, encoding: .utf8)
             else { return }
             
-            print("useridentifier: \(userIdentifier)")
-            print("fullName:", fullName)
-            print("email: ", email)
-            print("identityToken: \(identityTokenString)")
-            
             var fullname: String? = nil
             if let familyName = fullName?.familyName, let givenName = fullName?.givenName {
                 fullname = familyName + givenName

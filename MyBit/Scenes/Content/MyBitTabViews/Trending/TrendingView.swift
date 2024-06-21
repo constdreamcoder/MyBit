@@ -21,7 +21,7 @@ struct TrendingView: View {
                             HStack(spacing: 16) {
                                 ForEach(intent.state.coinMarkets, id: \.id) { coinMarket in
                                     NavigationLink(destination: DetailView(id: coinMarket.id)) {
-                                        MyFavoriteCell(market: coinMarket, bottomStackAlignment: .leading)
+                                        MyFavoriteCell(market: coinMarket)
                                             .frame(width: 200, height: 130, alignment: .leading)
                                             .padding()
                                             .background(.customLightGray)
@@ -99,15 +99,58 @@ struct TrendingView: View {
 struct MyFavoriteCell: View {
     
     let market: Market
-    let bottomStackAlignment: HorizontalAlignment
+    let isFavoriteView: Bool
+    
+    init(market: Market, isFavoriteView: Bool = false) {
+        self.market = market
+        self.isFavoriteView = isFavoriteView
+    }
     
     var body: some View {
-        VStack(alignment: .leading) {            
+        VStack(alignment: .leading) {
+            
             ItemInfoView(item: market)
             
             Spacer()
             
-            VStack(alignment: bottomStackAlignment, spacing: 4) {
+            if isFavoriteView {
+                FavoriteViewCellBottom(market: market)
+            } else {
+                TrendingFavoriteCellBottom(market: market)
+            }
+        }
+    }
+}
+
+struct TrendingFavoriteCellBottom: View {
+    
+    let market: Market
+
+    var body: some View {
+        VStack(alignment: .leading, spacing: 4) {
+            Text("₩\(market.current_price, specifier: "%.0f")")
+                .font(.system(size: 20))
+                .bold()
+                .foregroundStyle(.customBlack)
+                .lineLimit(1)
+            Text("\(market.price_change_percentage_24h, specifier: "%.2f")%")
+                .font(.system(size: 18))
+                .fontWeight(.semibold)
+                .foregroundStyle(market.price_change_percentage_24h > 0 ? .customRed : .customBlue)
+                .lineLimit(1)
+        }
+    }
+}
+
+struct FavoriteViewCellBottom: View {
+    
+    let market: Market
+    
+    var body: some View {
+        HStack {
+            Spacer()
+            
+            VStack(alignment: .trailing, spacing: 4) {
                 Text("₩\(market.current_price, specifier: "%.0f")")
                     .font(.system(size: 20))
                     .bold()
@@ -118,7 +161,6 @@ struct MyFavoriteCell: View {
                     .fontWeight(.semibold)
                     .foregroundStyle(market.price_change_percentage_24h > 0 ? .customRed : .customBlue)
                     .lineLimit(1)
-                    .padding(8)
                     .background(market.price_change_percentage_24h > 0 ? .customLightRed : .customSkyBlue)
                     .clipShape(RoundedRectangle(cornerRadius: 4))
             }

@@ -13,7 +13,7 @@ struct FavoriteView: View {
     @Binding var profileImage: String
     
     let columns = [
-        GridItem(.flexible()), GridItem(.flexible())
+        GridItem(.flexible(), spacing: 20), GridItem(.flexible(), spacing: 20)
     ]
     
     var body: some View {
@@ -23,7 +23,8 @@ struct FavoriteView: View {
                 LazyVGrid(columns: columns, spacing: 20) {
                     ForEach(intent.state.coinMarkets, id: \.id) { coinMarket in
                         NavigationLink(destination: DetailView(id: coinMarket.id)) {
-                            MyFavoriteCell(market: coinMarket, bottomStackAlignment: .trailing)
+                            MyFavoriteCell(market: coinMarket, isFavoriteView: true)
+                                .frame(maxWidth: .infinity, maxHeight: .infinity)
                                 .padding()
                                 .background(.customWhite)
                                 .clipShape(RoundedRectangle(cornerRadius: 16))
