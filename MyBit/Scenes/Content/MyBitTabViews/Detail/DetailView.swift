@@ -91,7 +91,7 @@ struct DetailTopView: View {
                     
                     HStack {
                         Text("\(topViewDatas != nil ? topViewDatas?.priceChangePercentage24h ?? 0: 0, specifier: "%.2f")%")
-                            .foregroundStyle(.customRed)
+                            .foregroundStyle(topViewDatas?.priceChangePercentage24h ?? 0 >= 0 ? .customRed : .customBlue)
                             .font(.system(size: 24))
                         Text("Today")
                             .foregroundStyle(.customGray)

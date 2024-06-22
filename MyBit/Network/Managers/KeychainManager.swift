@@ -58,6 +58,7 @@ struct KeychainManager {
             kSecAttrAccount: key.rawValue,
             kSecValueData: value.data(using: .utf8, allowLossyConversion: false) as Any // 저장할 value
         ]
+        
         SecItemDelete(query) // Keychain은 Key값에 중복이 생기면, 저장할 수 없기 때문에 먼저 Delete해줌
         
         let status = SecItemAdd(query, nil)
@@ -93,6 +94,7 @@ struct KeychainManager {
             kSecClass as String: kSecClassGenericPassword,
             kSecAttrAccount as String: key.rawValue
         ]
+        
         let status = SecItemDelete(query)
         assert(status == noErr, "failed to delete the value, status code = \(status)")
     }
