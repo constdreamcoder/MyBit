@@ -53,14 +53,13 @@ struct BottomSheetView<Content>: View where Content: View {
             .gesture(
                 DragGesture()
                     .updating($translation) { value, state, _ in
-                        if 0 <= value.translation.height {
-                            let translation = min(self.height, max(-self.height, value.translation.height))
-                            state = translation
+                        if value.translation.height >= 0 {
+                            state = value.translation.height
                         }
                     }
                     .onEnded({ value in
                         if value.translation.height >= height / 3 {
-                            self.isPresented = false
+                            isPresented = false
                         }
                     })
             )
