@@ -253,7 +253,8 @@
 		0006CE172C0EF2E200BA213A /* Scenes */ = {
 			isa = PBXGroup;
 			children = (
-				00D0EA9A2C16AC6500622339 /* Content */,
+				00A6C2E82C215ED2009D5E90 /* Content */,
+				008889CA2C160AD3008619A8 /* LaunchScreen */,
 				00A6C2E92C216015009D5E90 /* AppIntent.swift */,
 				00A6C2EB2C216073009D5E90 /* AppState.swift */,
 			);
@@ -359,6 +360,9 @@
 				008889CD2C160B61008619A8 /* OnboardingView.swift */,
 				003108AE2C1ACE9800082651 /* OnboardingState.swift */,
 				003108B12C1ACEA800082651 /* OnboardingIntent.swift */,
+				00D0EA9D2C16B23A00622339 /* BottomSheet */,
+				006F01142C17E9210053E118 /* Login */,
+				00D0EAA82C16DB3300622339 /* SignUp */,
 			);
 			path = Onboarding;
 			sourceTree = "<group>";
@@ -413,6 +417,23 @@
 				0037D8812C0EF11B00C24E7B /* Preview Assets.xcassets */,
 			);
 			path = "Preview Content";
+			sourceTree = "<group>";
+		};
+		0053BBA52C2855C7000B67E7 /* Splash */ = {
+			isa = PBXGroup;
+			children = (
+				008889C82C160AA9008619A8 /* SplashView.swift */,
+				0053BBA62C285648000B67E7 /* SubViews */,
+			);
+			path = Splash;
+			sourceTree = "<group>";
+		};
+		0053BBA62C285648000B67E7 /* SubViews */ = {
+			isa = PBXGroup;
+			children = (
+				00D0EA982C16A52E00622339 /* SplashTopView.swift */,
+			);
+			path = SubViews;
 			sourceTree = "<group>";
 		};
 		00670F212C1488650048ECD9 /* Exchange */ = {
@@ -515,19 +536,19 @@
 			isa = PBXGroup;
 			children = (
 				008889CB2C160AE8008619A8 /* LaunchScreenView.swift */,
-				008889C82C160AA9008619A8 /* SplashView.swift */,
-				003108AD2C1ACE8200082651 /* Onboarding */,
-				00D0EA982C16A52E00622339 /* SplashTopView.swift */,
+				0053BBA52C2855C7000B67E7 /* Splash */,
 			);
 			path = LaunchScreen;
 			sourceTree = "<group>";
 		};
-		00A6C2E82C215ED2009D5E90 /* ContentView */ = {
+		00A6C2E82C215ED2009D5E90 /* Content */ = {
 			isa = PBXGroup;
 			children = (
 				00D0EA9B2C16AC7200622339 /* ContentView.swift */,
+				003108AD2C1ACE8200082651 /* Onboarding */,
+				00BF1E8A2C1185F600BCCFC8 /* MyBitTabViews */,
 			);
-			path = ContentView;
+			path = Content;
 			sourceTree = "<group>";
 		};
 		00ABCADA2C12C4710098CB84 /* Extensions */ = {
@@ -676,19 +697,6 @@
 				00BF1E7F2C117FA800BCCFC8 /* Detail */,
 			);
 			path = MyBitTabViews;
-			sourceTree = "<group>";
-		};
-		00D0EA9A2C16AC6500622339 /* Content */ = {
-			isa = PBXGroup;
-			children = (
-				00A6C2E82C215ED2009D5E90 /* ContentView */,
-				008889CA2C160AD3008619A8 /* LaunchScreen */,
-				00BF1E8A2C1185F600BCCFC8 /* MyBitTabViews */,
-				00D0EAA82C16DB3300622339 /* SignUp */,
-				006F01142C17E9210053E118 /* Login */,
-				00D0EA9D2C16B23A00622339 /* BottomSheet */,
-			);
-			path = Content;
 			sourceTree = "<group>";
 		};
 		00D0EA9D2C16B23A00622339 /* BottomSheet */ = {

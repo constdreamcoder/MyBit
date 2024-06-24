@@ -66,7 +66,12 @@ struct ProfileView: View {
                         Section {
                             ProfileCell(title: "이메일", data: intent.state.myProfile?.email)
                             ProfileCell(title: "연결된 소설 계정", socialLoginImage: intent.state.myProfile?.provider?.image)
-                            ProfileCell(title: "로그아웃")
+                            Button(action: {
+                                print("호잇")
+                            }, label: {
+                                ProfileCell(title: "로그아웃")
+                                    .foregroundStyle(.customRed)
+                            })
                         }
                     }
                     .listStyle(.insetGrouped)
