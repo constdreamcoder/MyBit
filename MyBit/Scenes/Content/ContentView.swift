@@ -20,6 +20,18 @@ struct ContentView: View {
 
     var body: some View {
         MyBitTabView(profileImage: $profileImage)
+            .overlay {
+                if appIntent.state.showLogutAlert {
+                    LogoutAlertView(
+                        cancelAction: {
+                            appIntent.send(.dismissLogoutAlert)
+                        },
+                        logoutAction: {
+                            appIntent.send(.logout)
+                        }
+                    )
+                }
+            }
             .fullScreenCover(isPresented: $isOnBoardingPresented) {
                 OnboardingView(isOnBoardingPresented: $isOnBoardingPresented, profileImage: $profileImage)
             }

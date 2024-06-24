@@ -18,6 +18,7 @@ enum UserService {
     case editMyProfile(nickname: String?, phone: String?)
     case uploadProfileImage(imageData: Data)
     case refreshToken
+    case logout
 }
 
 extension UserService: TargetType {
@@ -41,12 +42,14 @@ extension UserService: TargetType {
             return "/users/me/image"
         case .refreshToken:
             return "/auth/refresh"
+        case .logout:
+            return "/users/logout"
         }
     }
     
     var method: Moya.Method {
         switch self {
-        case .fetchMyProfile, .refreshToken:
+        case .fetchMyProfile, .refreshToken, .logout:
             return .get
         case .validate, .join, .login, .loginWithKakaoTalk, .loginWithAppleID:
             return .post
@@ -86,7 +89,7 @@ extension UserService: TargetType {
             ]
             
             return .uploadMultipart(forDataList)
-        case .fetchMyProfile, .refreshToken:
+        case .fetchMyProfile, .refreshToken, .logout:
             return .requestPlain
         }
     }

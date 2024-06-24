@@ -223,4 +223,29 @@ struct UserManager {
                 }.store(in: &cancelable)
         }.eraseToAnyPublisher()
     }
+    
+    static func logout() -> AnyPublisher<Bool, NetworkErrors> {
+        return Future<Bool, NetworkErrors> { promise in
+            let session = Session(interceptor: TokenRefresher())
+            let provider = MoyaProvider<UserService>(session: session, plugins: [LoggerPlugin()])
+            provider.requestPublisher(.logout)
+                .sink { completion in
+                    switch completion {
+                    case .finished:
+                        print("Successfully Logged out!!")
+                    case .failure(let error):
+                        print("Log-out Error", error)
+                    }
+                } receiveValue: { response in
+                    do {
+                        let data = try response.filterSuccessfulStatusCodes()
+                        if data.statusCode == 200 {
+                            promise(.success(true))
+                        }
+                    } catch {
+                        promise(.failure(.networkError))
+                    }
+                }.store(in: &cancelable)
+        }.eraseToAnyPublisher()
+    }
 }

@@ -84,6 +84,7 @@
 		00ABCB002C1339270098CB84 /* RepositoryType.swift in Sources */ = {isa = PBXBuildFile; fileRef = 00ABCAFF2C1339270098CB84 /* RepositoryType.swift */; };
 		00ABCB062C1339960098CB84 /* FavoriteRepository.swift in Sources */ = {isa = PBXBuildFile; fileRef = 00ABCB052C1339960098CB84 /* FavoriteRepository.swift */; };
 		00ABCB092C1339C20098CB84 /* Favorite.swift in Sources */ = {isa = PBXBuildFile; fileRef = 00ABCB082C1339C20098CB84 /* Favorite.swift */; };
+		00ABEF832C2939BD0050DC27 /* LogoutAlertView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 00ABEF822C2939BD0050DC27 /* LogoutAlertView.swift */; };
 		00BCD6912C1EB6D500A2931A /* PhotoPicker.swift in Sources */ = {isa = PBXBuildFile; fileRef = 00BCD6902C1EB6D500A2931A /* PhotoPicker.swift */; };
 		00BCD6942C1EC43400A2931A /* ProfilePhotoView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 00BCD6932C1EC43400A2931A /* ProfilePhotoView.swift */; };
 		00BCD69C2C1EE08000A2931A /* Kingisher+Ext.swift in Sources */ = {isa = PBXBuildFile; fileRef = 00BCD69B2C1EE08000A2931A /* Kingisher+Ext.swift */; };
@@ -202,6 +203,7 @@
 		00ABCAFF2C1339270098CB84 /* RepositoryType.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RepositoryType.swift; sourceTree = "<group>"; };
 		00ABCB052C1339960098CB84 /* FavoriteRepository.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FavoriteRepository.swift; sourceTree = "<group>"; };
 		00ABCB082C1339C20098CB84 /* Favorite.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Favorite.swift; sourceTree = "<group>"; };
+		00ABEF822C2939BD0050DC27 /* LogoutAlertView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LogoutAlertView.swift; sourceTree = "<group>"; };
 		00BCD6902C1EB6D500A2931A /* PhotoPicker.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PhotoPicker.swift; sourceTree = "<group>"; };
 		00BCD6932C1EC43400A2931A /* ProfilePhotoView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ProfilePhotoView.swift; sourceTree = "<group>"; };
 		00BCD69B2C1EE08000A2931A /* Kingisher+Ext.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "Kingisher+Ext.swift"; sourceTree = "<group>"; };
@@ -350,6 +352,7 @@
 				00D0EAAF2C16FAA700622339 /* BottomViewGrabber.swift */,
 				00D0EAB12C17064F00622339 /* InputView.swift */,
 				006F01122C17E8870053E118 /* NavigationBarForCreatingNewFeature.swift */,
+				00ABEF822C2939BD0050DC27 /* LogoutAlertView.swift */,
 			);
 			path = CustomViews;
 			sourceTree = "<group>";
@@ -826,6 +829,7 @@
 				00BF1E7C2C1176BF00BCCFC8 /* StateType.swift in Sources */,
 				00A6C2EC2C216073009D5E90 /* AppState.swift in Sources */,
 				00BF1E7E2C117E0200BCCFC8 /* Market.swift in Sources */,
+				00ABEF832C2939BD0050DC27 /* LogoutAlertView.swift in Sources */,
 				00D0EAA72C16D41F00622339 /* BottomButtonModifier.swift in Sources */,
 				00A6C2E52C214697009D5E90 /* ErrorCode.swift in Sources */,
 				00670F352C14A0EE0048ECD9 /* MarketCode.swift in Sources */,

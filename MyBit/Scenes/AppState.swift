@@ -10,5 +10,6 @@ import Foundation
 struct AppState: StateType {
     var isLoading: Bool = false
     var isLogin: Bool = false
+    var showLogutAlert: Bool = false
     var errorMessage: String? = nil
 }
