@@ -8,11 +8,13 @@
 import SwiftUI
 import KakaoSDKCommon
 import KakaoSDKAuth
+import Combine
 
 @main
 struct MyBitApp: App {
     
     @StateObject private var appIntent = AppIntent()
+    @StateObject private var network = Network()
     
     init() {
         KakaoSDK.initSDK(appKey: APIKeys.kakaoNativeAppKey)
@@ -20,16 +22,32 @@ struct MyBitApp: App {
     
     var body: some Scene {
         WindowGroup {
-            LaunchScreenView()
-                .onOpenURL(perform: { url in
-                    if (AuthApi.isKakaoTalkLoginUrl(url)) {
-                        let _ = AuthController.handleOpenUrl(url: url)
-                    }
-                })
-                .onAppear {
-                    appIntent.send(.isLogin)
+            VStack {
+                if network.isConnected {
+                    LaunchScreenView()
+                        .onOpenURL(perform: { url in
+                            if (AuthApi.isKakaoTalkLoginUrl(url)) {
+                                let _ = AuthController.handleOpenUrl(url: url)
+                            }
+                        })
+                        .onAppear {
+                            appIntent.send(.isLogin)
+                        }
+                        .environmentObject(appIntent)
+                } else {
+                    NetworkMonitorView(isConnected: network.isConnected)
                 }
-                .environmentObject(appIntent)
+            }
+            .onAppear {
+                // 뷰가 나타날 때 network 체크
+                network.checkConnection()
+            }
+            .onReceive(Just(network.isConnected)) {
+                //TODO: onChange를 통하여 toast message를 띄울 수 도 있음
+                if !$0 {
+                    //TODO: Toast 팝업 - 네트워크 연결에 실패했습니다.
+                }
+            }
         }
     }
 }

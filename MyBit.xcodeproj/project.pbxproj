@@ -24,6 +24,8 @@
 		000FAF212C19F94A005DD853 /* KeychainManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = 000FAF202C19F94A005DD853 /* KeychainManager.swift */; };
 		00175FA82C11E6B200D77BB6 /* Kingfisher in Frameworks */ = {isa = PBXBuildFile; productRef = 00175FA72C11E6B200D77BB6 /* Kingfisher */; };
 		00175FAB2C11EC4D00D77BB6 /* CustomNavigationView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 00175FAA2C11EC4D00D77BB6 /* CustomNavigationView.swift */; };
+		0027570B2C2AB1E2006DE2B7 /* NetworkMonitor.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0027570A2C2AB1E2006DE2B7 /* NetworkMonitor.swift */; };
+		002757102C2AB8B4006DE2B7 /* NetworkMonitorView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0027570F2C2AB8B4006DE2B7 /* NetworkMonitorView.swift */; };
 		003108AA2C1AC3E200082651 /* KakaoSDKAuth in Frameworks */ = {isa = PBXBuildFile; productRef = 003108A92C1AC3E200082651 /* KakaoSDKAuth */; };
 		003108AC2C1AC3E200082651 /* KakaoSDKUser in Frameworks */ = {isa = PBXBuildFile; productRef = 003108AB2C1AC3E200082651 /* KakaoSDKUser */; };
 		003108AF2C1ACE9800082651 /* OnboardingState.swift in Sources */ = {isa = PBXBuildFile; fileRef = 003108AE2C1ACE9800082651 /* OnboardingState.swift */; };
@@ -146,6 +148,8 @@
 		000FAF1E2C19DDED005DD853 /* Login.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Login.swift; sourceTree = "<group>"; };
 		000FAF202C19F94A005DD853 /* KeychainManager.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = KeychainManager.swift; sourceTree = "<group>"; };
 		00175FAA2C11EC4D00D77BB6 /* CustomNavigationView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CustomNavigationView.swift; sourceTree = "<group>"; };
+		0027570A2C2AB1E2006DE2B7 /* NetworkMonitor.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NetworkMonitor.swift; sourceTree = "<group>"; };
+		0027570F2C2AB8B4006DE2B7 /* NetworkMonitorView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NetworkMonitorView.swift; sourceTree = "<group>"; };
 		003108AE2C1ACE9800082651 /* OnboardingState.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = OnboardingState.swift; sourceTree = "<group>"; };
 		003108B12C1ACEA800082651 /* OnboardingIntent.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = OnboardingIntent.swift; sourceTree = "<group>"; };
 		003108B42C1AD0AE00082651 /* LoginWithKakaTalk.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LoginWithKakaTalk.swift; sourceTree = "<group>"; };
@@ -255,6 +259,7 @@
 		0006CE172C0EF2E200BA213A /* Scenes */ = {
 			isa = PBXGroup;
 			children = (
+				0027570C2C2AB2D0006DE2B7 /* NetworkMonitor */,
 				00A6C2E82C215ED2009D5E90 /* Content */,
 				008889CA2C160AD3008619A8 /* LaunchScreen */,
 				00A6C2E92C216015009D5E90 /* AppIntent.swift */,
@@ -355,6 +360,15 @@
 				00ABEF822C2939BD0050DC27 /* LogoutAlertView.swift */,
 			);
 			path = CustomViews;
+			sourceTree = "<group>";
+		};
+		0027570C2C2AB2D0006DE2B7 /* NetworkMonitor */ = {
+			isa = PBXGroup;
+			children = (
+				0027570A2C2AB1E2006DE2B7 /* NetworkMonitor.swift */,
+				0027570F2C2AB8B4006DE2B7 /* NetworkMonitorView.swift */,
+			);
+			path = NetworkMonitor;
 			sourceTree = "<group>";
 		};
 		003108AD2C1ACE8200082651 /* Onboarding */ = {
@@ -810,6 +824,7 @@
 				00ABCB002C1339270098CB84 /* RepositoryType.swift in Sources */,
 				0006CE322C0F17BA00BA213A /* TrendingState.swift in Sources */,
 				006F012A2C186FB20053E118 /* UserManager.swift in Sources */,
+				002757102C2AB8B4006DE2B7 /* NetworkMonitorView.swift in Sources */,
 				00670F2B2C14962D0048ECD9 /* ExchangeIntent.swift in Sources */,
 				0072D9682C1C0B800092DBA9 /* SocialLoginLogo.swift in Sources */,
 				00ABCAED2C1303C20098CB84 /* ChartView.swift in Sources */,
@@ -894,6 +909,7 @@
 				003108AF2C1ACE9800082651 /* OnboardingState.swift in Sources */,
 				00BF1E762C1174DE00BCCFC8 /* SearchIntent.swift in Sources */,
 				00BF1E702C11742000BCCFC8 /* Search.swift in Sources */,
+				0027570B2C2AB1E2006DE2B7 /* NetworkMonitor.swift in Sources */,
 				00BF1E832C117FC900BCCFC8 /* DetailState.swift in Sources */,
 				00D0EAAA2C16DB7B00622339 /* SignUpView.swift in Sources */,
 				0006CE272C0F068100BA213A /* APIKeys.swift in Sources */,
