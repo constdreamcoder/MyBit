@@ -1,7 +1,7 @@
 # MyBit - 실시간 코인 시세 조회 앱
 
 <p>
-    <img src="https://github.com/constdreamcoder/Recap2/assets/95998675/3a13500e-bd38-4cdb-b6ed-9a386fa26d42" width="100%"/>
+    <img src="https://github.com/constdreamcoder/Beer/assets/95998675/56def750-b62c-4173-9a6c-e89d355e45c7" width="100%"/>
 </p>
 
 <br/>
