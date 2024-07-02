@@ -243,6 +243,8 @@ extension WebSocketManager {
 
 ### 4. 네트워크 연결 단절 대응
 
+[👉 SwiftUI에서 네트워크 단절 대응 블로그 링크](https://picelworld.tistory.com/79)
+
 <details>
 <summary><b>코드</b></summary>
 <div markdown="1">
@@ -286,26 +288,69 @@ final class Network: ObservableObject {
 
 <br/>
 
-[👉 SwiftUI에서 네트워크 단절 대응 블로그 링크](https://picelworld.tistory.com/79)
-
 <img src="https://github.com/constdreamcoder/MediaProject/assets/95998675/3c10d3e3-76a6-43ee-90aa-b8c02ba615a6" align="center" width="200">
 
 <br/>
 
 ## 🔥 트러블 슈팅
 
-### 1. 네트워크 오류 코드에 따른 JWT 갱신
+### 1. 오류 코드 네트워크 응답 Body 수신에 따른 JWT 갱신
 
 문제상황
 
+- 오류 코드가 Status Code가 아닌 네트워크 응답 Body에 수신되어 RequestInterceptor 프르토콜에서 JWT 갱신을 위한 오류 코드 구분이 어려움
+
+    <img src="https://github.com/constdreamcoder/TodoList/assets/95998675/6a0af3fc-70cb-4770-a781-1380cfe99135">
+
+<br/>
+
 문제 원인 파악
 
+- RequestInterceptor 프로토콜에서 네트워크 응답에 접근하려면 request 파라미터를 사용해야 하는데, request의 response 타입이 HTTPURLResponse이기 때문에, RequestInterceptor 프로토콜 메서드로는 네트워크 응답 Body에 직접 불가
+
+<br/>
+
 해결방법
+
+- RequestInterceptor 프로토콜의 request 파라미터를 통해 다시 네트워크 요청을 보내어 오류 코드에 접근
+
+    <img src="https://github.com/constdreamcoder/TodoList/assets/95998675/888582cf-6359-40e1-9d9c-bafdcf0b6617">
+
+<br/>
 
 ### 2. Chart 버전 대응
 
 문제상황
 
+- 프로젝트 타겟 최소 버전이 iOS15로 설정되어 iOS16부터 사용 가능한 SwiftUI의 Charts 프레임워크를 사용 불가
+
+<br/>
+
 문제 원인 파악
 
+- 타겟 최소 버전이 iOS15에 맞는 라이브러리 필요
+
+<br/>
+
 해결방법
+
+- UIKit 기반 DGCharts 라이브러리 도입 및 UIViewRepresentable을 사용하여 ChartView 구현
+
+  ```swift
+  import DGCharts
+  import SwiftUI
+
+  struct ChartView: UIViewRepresentable {
+
+      let entries: [ChartDataEntry]
+
+      func makeUIView(context: Context) -> LineChartView {
+          // ChartView 정의
+      }
+
+      func updateUIView(_ uiView: LineChartView, context: Context) {
+          // ChartView 업데이트
+      }
+  }
+
+  ```
