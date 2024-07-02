@@ -318,7 +318,7 @@ final class Network: ObservableObject {
 
 <br/>
 
-### 2. Chart 버전 대응
+### 2. SwiftUI 버전 대응 - Chart
 
 문제상황
 
