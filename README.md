@@ -306,7 +306,7 @@ final class Network: ObservableObject {
 
 문제 원인 파악
 
-- RequestInterceptor 프로토콜에서 네트워크 응답에 접근하는 request 파라미터의 response 타입이 HTTPURLResponse이기 때문에, RequestInterceptor 프로토콜 메서드로는 네트워크 응답 Body에 직접 불가
+- RequestInterceptor 프로토콜에서 네트워크 응답에 접근하는 request 파라미터의 response 타입이 HTTPURLResponse이기 때문에, RequestInterceptor 프로토콜 메서드로 내에서 네트워크 응답 Body에 직접 접근 불가
 
 <br/>
 
