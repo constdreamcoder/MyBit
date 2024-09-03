@@ -7,6 +7,7 @@
 
 import SwiftUI
 import Combine
+import Kingfisher
 
 struct LoginView: View {
     
@@ -24,7 +25,7 @@ struct LoginView: View {
             
             VStack(spacing: 24) {
                 NavigationBarForCreatingNewFeature(title: "로그인", isPresented: $isPresented)
-                
+                                
                 InputView(
                     title: "이메일",
                     placeholder: "이메일을 입력하세요",

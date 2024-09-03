@@ -26,11 +26,12 @@ struct DetailView: View {
         VStack {
             DetailTopView(topViewDatas: intent.state.topViewDatas)
             
-            LazyVGrid(columns: columns, spacing: 20) {
+            LazyVGrid(columns: columns, alignment: .leading, spacing: 20) {
                 ForEach(intent.state.middleViewData, id: \.title) { item in
                     DetailMiddleElementView(detailMiddleItem: item)
                 }
             }
+            .padding(.horizontal)
             
             ChartView(entries: intent.state.chartDataEntries)
             

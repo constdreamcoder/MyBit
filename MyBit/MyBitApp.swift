@@ -42,12 +42,6 @@ struct MyBitApp: App {
                 // 뷰가 나타날 때 network 체크
                 network.checkConnection()
             }
-            .onReceive(Just(network.isConnected)) {
-                //TODO: onChange를 통하여 toast message를 띄울 수 도 있음
-                if !$0 {
-                    //TODO: Toast 팝업 - 네트워크 연결에 실패했습니다.
-                }
-            }
         }
     }
 }

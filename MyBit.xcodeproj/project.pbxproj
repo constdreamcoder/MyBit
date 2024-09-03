@@ -35,6 +35,10 @@
 		0037D87B2C0EF11A00C24E7B /* MyBitApp.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0037D87A2C0EF11A00C24E7B /* MyBitApp.swift */; };
 		0037D87F2C0EF11B00C24E7B /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 0037D87E2C0EF11B00C24E7B /* Assets.xcassets */; };
 		0037D8822C0EF11B00C24E7B /* Preview Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 0037D8812C0EF11B00C24E7B /* Preview Assets.xcassets */; };
+		003AF3F92C481F8B00083E87 /* TestView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 003AF3F82C481F8B00083E87 /* TestView.swift */; };
+		003AF3FB2C481F9600083E87 /* RemoteImage.swift in Sources */ = {isa = PBXBuildFile; fileRef = 003AF3FA2C481F9600083E87 /* RemoteImage.swift */; };
+		003AF3FD2C481FA200083E87 /* RemoteImageViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 003AF3FC2C481FA200083E87 /* RemoteImageViewModel.swift */; };
+		003AF3FF2C481FB200083E87 /* URLImageCache.swift in Sources */ = {isa = PBXBuildFile; fileRef = 003AF3FE2C481FB200083E87 /* URLImageCache.swift */; };
 		00670F1E2C14223E0048ECD9 /* FavoriteState.swift in Sources */ = {isa = PBXBuildFile; fileRef = 00670F1D2C14223E0048ECD9 /* FavoriteState.swift */; };
 		00670F202C1422480048ECD9 /* FavoriteIntent.swift in Sources */ = {isa = PBXBuildFile; fileRef = 00670F1F2C1422480048ECD9 /* FavoriteIntent.swift */; };
 		00670F232C1488A00048ECD9 /* ExchangeView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 00670F222C1488A00048ECD9 /* ExchangeView.swift */; };
@@ -141,6 +145,7 @@
 		0006CE2F2C0F170100BA213A /* TrendingView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TrendingView.swift; sourceTree = "<group>"; };
 		0006CE312C0F17BA00BA213A /* TrendingState.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TrendingState.swift; sourceTree = "<group>"; };
 		0006CE332C0F19FE00BA213A /* TrendingIntent.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TrendingIntent.swift; sourceTree = "<group>"; };
+		000CDD702C48AC5A001F6085 /* MyPlayground.playground */ = {isa = PBXFileReference; lastKnownFileType = file.playground; path = MyPlayground.playground; sourceTree = "<group>"; xcLanguageSpecificationIdentifier = xcode.lang.swift; };
 		000FAF162C1951C4005DD853 /* LoggingPlugin.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LoggingPlugin.swift; sourceTree = "<group>"; };
 		000FAF182C1951E5005DD853 /* Data+Ext.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "Data+Ext.swift"; sourceTree = "<group>"; };
 		000FAF1A2C19A63B005DD853 /* Join.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Join.swift; sourceTree = "<group>"; };
@@ -159,6 +164,10 @@
 		0037D87A2C0EF11A00C24E7B /* MyBitApp.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MyBitApp.swift; sourceTree = "<group>"; };
 		0037D87E2C0EF11B00C24E7B /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
 		0037D8812C0EF11B00C24E7B /* Preview Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = "Preview Assets.xcassets"; sourceTree = "<group>"; };
+		003AF3F82C481F8B00083E87 /* TestView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TestView.swift; sourceTree = "<group>"; };
+		003AF3FA2C481F9600083E87 /* RemoteImage.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RemoteImage.swift; sourceTree = "<group>"; };
+		003AF3FC2C481FA200083E87 /* RemoteImageViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RemoteImageViewModel.swift; sourceTree = "<group>"; };
+		003AF3FE2C481FB200083E87 /* URLImageCache.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = URLImageCache.swift; sourceTree = "<group>"; };
 		00670F1D2C14223E0048ECD9 /* FavoriteState.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FavoriteState.swift; sourceTree = "<group>"; };
 		00670F1F2C1422480048ECD9 /* FavoriteIntent.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FavoriteIntent.swift; sourceTree = "<group>"; };
 		00670F222C1488A00048ECD9 /* ExchangeView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ExchangeView.swift; sourceTree = "<group>"; };
@@ -416,6 +425,7 @@
 		0037D8792C0EF11A00C24E7B /* MyBit */ = {
 			isa = PBXGroup;
 			children = (
+				003AF3F72C481F7C00083E87 /* TestView */,
 				003108B62C1AE08400082651 /* MyBit.entitlements */,
 				00BF1E862C11844000BCCFC8 /* Helpers */,
 				0006CE232C0F053B00BA213A /* Network */,
@@ -424,6 +434,7 @@
 				0037D87E2C0EF11B00C24E7B /* Assets.xcassets */,
 				0037D8802C0EF11B00C24E7B /* Preview Content */,
 				0006CE262C0F068100BA213A /* APIKeys.swift */,
+				000CDD702C48AC5A001F6085 /* MyPlayground.playground */,
 			);
 			path = MyBit;
 			sourceTree = "<group>";
@@ -434,6 +445,17 @@
 				0037D8812C0EF11B00C24E7B /* Preview Assets.xcassets */,
 			);
 			path = "Preview Content";
+			sourceTree = "<group>";
+		};
+		003AF3F72C481F7C00083E87 /* TestView */ = {
+			isa = PBXGroup;
+			children = (
+				003AF3F82C481F8B00083E87 /* TestView.swift */,
+				003AF3FA2C481F9600083E87 /* RemoteImage.swift */,
+				003AF3FC2C481FA200083E87 /* RemoteImageViewModel.swift */,
+				003AF3FE2C481FB200083E87 /* URLImageCache.swift */,
+			);
+			path = TestView;
 			sourceTree = "<group>";
 		};
 		0053BBA52C2855C7000B67E7 /* Splash */ = {
@@ -851,6 +873,7 @@
 				00D0EAB02C16FAA700622339 /* BottomViewGrabber.swift in Sources */,
 				006F01162C17E9300053E118 /* LoginView.swift in Sources */,
 				006F01192C17E9410053E118 /* LoginState.swift in Sources */,
+				003AF3FD2C481FA200083E87 /* RemoteImageViewModel.swift in Sources */,
 				00670F202C1422480048ECD9 /* FavoriteIntent.swift in Sources */,
 				000FAF172C1951C4005DD853 /* LoggingPlugin.swift in Sources */,
 				00FCDB0A2C22EC0700F9A453 /* TokenRefresher.swift in Sources */,
@@ -875,6 +898,7 @@
 				00D0EA992C16A52E00622339 /* SplashTopView.swift in Sources */,
 				00D0EA9F2C16B27D00622339 /* BottomSheetView.swift in Sources */,
 				00670F2D2C149C7E0048ECD9 /* CurrentPrice.swift in Sources */,
+				003AF3F92C481F8B00083E87 /* TestView.swift in Sources */,
 				00ABCADC2C12C4820098CB84 /* Array+Ext.swift in Sources */,
 				00670F272C1496150048ECD9 /* Ticker.swift in Sources */,
 				0072D97A2C1C2C820092DBA9 /* InputKind.swift in Sources */,
@@ -888,6 +912,7 @@
 				00BF1E812C117FBE00BCCFC8 /* DetailView.swift in Sources */,
 				0072D9732C1C22F80092DBA9 /* EditMyProfile.swift in Sources */,
 				000FAF1B2C19A63B005DD853 /* Join.swift in Sources */,
+				003AF3FB2C481F9600083E87 /* RemoteImage.swift in Sources */,
 				0072D9612C1BE8F70092DBA9 /* ProfileState.swift in Sources */,
 				008889C42C15C3EB008619A8 /* BitcoinChangeModifier.swift in Sources */,
 				00ABCB062C1339960098CB84 /* FavoriteRepository.swift in Sources */,
@@ -897,6 +922,7 @@
 				00D0EAAE2C16EA4100622339 /* SignUpIntent.swift in Sources */,
 				000FAF1D2C19A6EF005DD853 /* UserInfo.swift in Sources */,
 				00BCD6A02C1EFCAC00A2931A /* Headers.swift in Sources */,
+				003AF3FF2C481FB200083E87 /* URLImageCache.swift in Sources */,
 				003108B82C1AF20F00082651 /* LoginWithAppleID.swift in Sources */,
 				0072D9712C1C21F00092DBA9 /* EditProfileIntent.swift in Sources */,
 				00670F332C149EE60048ECD9 /* UpbitManager.swift in Sources */,
@@ -1064,6 +1090,7 @@
 				INFOPLIST_KEY_UILaunchScreen_Generation = YES;
 				INFOPLIST_KEY_UISupportedInterfaceOrientations = UIInterfaceOrientationPortrait;
 				INFOPLIST_KEY_UISupportedInterfaceOrientations_iPad = "UIInterfaceOrientationLandscapeLeft UIInterfaceOrientationLandscapeRight UIInterfaceOrientationPortrait UIInterfaceOrientationPortraitUpsideDown";
+				INFOPLIST_KEY_UIUserInterfaceStyle = Light;
 				IPHONEOS_DEPLOYMENT_TARGET = 15.0;
 				LD_RUNPATH_SEARCH_PATHS = (
 					"$(inherited)",
@@ -1101,6 +1128,7 @@
 				INFOPLIST_KEY_UILaunchScreen_Generation = YES;
 				INFOPLIST_KEY_UISupportedInterfaceOrientations = UIInterfaceOrientationPortrait;
 				INFOPLIST_KEY_UISupportedInterfaceOrientations_iPad = "UIInterfaceOrientationLandscapeLeft UIInterfaceOrientationLandscapeRight UIInterfaceOrientationPortrait UIInterfaceOrientationPortraitUpsideDown";
+				INFOPLIST_KEY_UIUserInterfaceStyle = Light;
 				IPHONEOS_DEPLOYMENT_TARGET = 15.0;
 				LD_RUNPATH_SEARCH_PATHS = (
 					"$(inherited)",
