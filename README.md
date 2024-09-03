@@ -45,7 +45,7 @@
 - **PluginType** 프로토콜 준수하는 **Plugin** 구성으로 네트워크 Logging 구현
 - **Interceptor**를 활용한 토큰 갱신 로직 구성
 - **WebSocket**을 활용한 실시간 소켓 통신 로직 구축
-- **Realm**의 *Repository** 패턴 구성으로 데이터 접근 로직 추상화
+- **Realm**의 **Repository** 패턴 구성으로 데이터 접근 로직 추상화
 - **Custom Property Wrapper**를 활용한 **Keychain** 관리 로직 추상화
 - **Kingfisher**에서 토큰을 활용한 외부 이미지 다운로드 로직 모듈화
 - **DGCharts** 라이브러리를 활용한 차트 구현으로 iOS15 버전 대응
