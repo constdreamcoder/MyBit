@@ -31,6 +31,18 @@
 
 <br/>
 
+## 📷 스크린샷
+
+|코인 랭킹 화면|코인 검색 화면|코인 상세정보 화면|실시간 코인 시세 화면|
+|:---:|:---:|:---:|:---:|
+|<img src="https://github.com/user-attachments/assets/ec1ab945-6c59-4c9e-a210-a699740d0aff" width="200" height="390"/>|<img src="https://github.com/user-attachments/assets/40d7e43d-572c-4fb2-9610-4e4f9402f53d" width="200" height="390"/>|<img src="https://github.com/user-attachments/assets/f4aa610e-131f-4355-9a0e-bfe247d59ad0" width="200" height="390"/>|<img src="https://github.com/user-attachments/assets/8b056843-990d-4bbf-b512-cbf8596bdf71" width="200" height="390"/>|
+
+|즐겨찾기 화면|프로필 화면|진입 화면|로그인 화면|
+|:---:|:---:|:---:|:---:|
+|<img src="https://github.com/user-attachments/assets/f5130dc3-4e19-4c86-bcb2-53249a471ff8" width="200" height="390"/>|<img src="https://github.com/user-attachments/assets/f70301c4-d1b7-4f82-8c6a-7632e208fb18" width="200" height="390"/>|<img src="https://github.com/user-attachments/assets/4fd38ae4-c4a3-42c4-8f03-5772cbf4e2ec" width="200" height="390"/>|<img src="https://github.com/user-attachments/assets/ed453b44-c408-44fd-bfc7-3b5fcea11176" width="200" height="390"/>|
+
+<br/>
+
 ## 🛠 기술 소개
 
 - MVI
@@ -368,3 +380,4 @@ final class Network: ObservableObject {
   }
 
   ```
+
